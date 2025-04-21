@@ -1,0 +1,29 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.nu</groupId>
+  <artifactId>sgm</artifactId>
+  <version>0.1</version>
+
+  <properties>
+    <maven.compiler.source>24</maven.compiler.source>
+    <maven.compiler.target>24</maven.compiler.target>
+  </properties>
+
+  <build>
+    <plugins>
+      <!-- Plugin to run the main class -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <mainClass>edu.nu.sgm.Main</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <!-- No dependencies by default -->
+  </dependencies>
+</project>
