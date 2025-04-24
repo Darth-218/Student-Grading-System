@@ -32,7 +32,7 @@ classDiagram
         -int credit_hours
         -int total_students
         +setId(String id) bool
-        +getId() int
+        +getId() String
         +setName(String name) bool
         +getName() String
         +setInstructor(String instructor) bool
@@ -103,28 +103,15 @@ classDiagram
 
 ## Classes
 
-- Student
-- Student service
-- Student view controller
+- Student, Student service, Student view controller
 
-- Course
-- Course service
-- Course view controller
+- Course, Course service, Course view controller
 
-- Grade item
-- Grade Item service
-- Grade item view controller
+- Grade item, Grade Item service, Grade item view controller
 
-- Enrollment
-- Enrollment service
-- Database Manager
+- Enrollment, Enrollment service, Database Manager
 
-controllers + views
-student
-course
-grade item
-database + enrollment
-
+---
 
 ### Student
 
@@ -143,6 +130,8 @@ database + enrollment
     * Calculate GPA
     * Generate report card
 
+---
+
 ### Course
 
 - Attributes:
@@ -159,6 +148,8 @@ database + enrollment
 - Methods:
     * Display details
     * Calculate total grade
+
+---
 
 ### Grade Item
 
@@ -177,6 +168,8 @@ database + enrollment
     * Percentage
     * Contribution to total
 
+---
+
 ### Database Manager
 
 - Methods:
@@ -184,6 +177,8 @@ database + enrollment
     * Create data
     * Update data
     * Delete data
+
+---
 
 # Project Code Standards
 
@@ -210,6 +205,39 @@ Each class should have a header that contains:
 1. Indentation size: 2 space.
 2. Braces: Open brace on the same line as the control statement.
 
-## Code documentation
+## Documentation
 
+### Class Documentation
 
+```java
+/**
+ * @brief Represents <object>
+ * @details Stores ...
+ *          Links ...
+ */
+public class Class {
+    // ...
+}
+```
+
+### Method Documentation
+
+```java
+/**
+ * @brief Adds two numbers.
+ * @param a The first number.
+ * @param b The second number.
+ * @return The sum of the two numbers.
+ * @throws IllegalArgumentException If one of the numbers is negative.
+ */
+public int addTwoNumbers {
+    // ...
+}
+```
+
+### Field (Variable) Documentation
+
+```java
+private int integer; ///< A random integer.
+private String test; ///< A test string.
+```
