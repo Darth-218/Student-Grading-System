@@ -6,13 +6,13 @@
 classDiagram
     class Student {
         -int id
-        -String name
+        -String first_name
+        -String last_name
         -String email
-        +setId(int id) bool
         +getId() int
         +setName(String name) bool
         +getName() String
-        +setEmail(String email) bool
+        +generateEmail() String
         +getEmail() String
     }
 
@@ -26,13 +26,14 @@ classDiagram
     }
 
     class Course {
-        -String id
-        -String name
+        -int id
+        -String course_code
+        -String title
         -String instructor
         -int credit_hours
         -int total_students
-        +setId(String id) bool
-        +getId() String
+        +setCourseCode(String id) bool
+        +getCourseCode() String
         +setName(String name) bool
         +getName() String
         +setInstructor(String instructor) bool
@@ -52,9 +53,10 @@ classDiagram
     }
 
     class GradeItem {
-        -String name
+        -String title
         -String category
         -double score
+        -double max_score
         -String feedback
         +setName(String name) bool
         +getName() String
