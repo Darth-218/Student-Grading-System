@@ -84,7 +84,7 @@ classDiagram
     }
 
     class EnrollmentService {
-        +enrollCourse(Student student, Course course) bool
+        +enrollStudent(Student student, Course course) bool
         +dropCourse(Student student, Course course) bool
         +generateReportCard(Student student) String
     }
@@ -230,7 +230,7 @@ public class Class {
  * @return The sum of the two numbers.
  * @throws IllegalArgumentException If one of the numbers is negative.
  */
-public int addTwoNumbers {
+public int addTwoNumbers(int a, int b) {
     // ...
 }
 ```
