@@ -2,11 +2,16 @@ public class Student {
     private String name;
     private double id;
     private String enrolled_courses;
+    private String email;
+
+
     
-    Student(String name, double id, String enrolled_courses){
+    Student(String name, double id, String enrolled_courses,private String email;
+    ){
         this.name=name;
         this.id=id;
         this.enrolled_courses=enrolled_courses;
+        this.email=email;
     }
 
     public void setname(String name) {
@@ -18,6 +23,9 @@ public class Student {
      public void setenrolled_courses(String enrolled_courses) {
         this.enrolled_courses=enrolled_courses;
      }
+     public void setemail(String email) {
+        this.email=email;
+     }
      
      public String getname() {
         return name;
@@ -27,6 +35,9 @@ public class Student {
      }
      public String getenrolled_courses() {
         return enrolled_courses;
+     }
+     public String getemail() {
+        return email;
      }
 
 }
