@@ -6,8 +6,7 @@ public class Student {
 
 
     
-    Student(String name, double id, String enrolled_courses,private String email;
-    ){
+    Student(String name, double id, String enrolled_courses,String email){
         this.name=name;
         this.id=id;
         this.enrolled_courses=enrolled_courses;
