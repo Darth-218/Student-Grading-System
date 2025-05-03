@@ -10,7 +10,10 @@ public class Course {
   private String id;
   ///< The unique identifier for the course.
 
-  private String name;
+  private String course_code;
+  ///< The name of the course.
+
+  private String title;
   ///< The name of the course.
 
   private String instructor;
@@ -19,7 +22,8 @@ public class Course {
   private int credit_hours;
   ///< The number of credit hours assigned to the course.
 
-  private int total_students; ///< The total number of students enrolled in the course.
+  private int
+      total_students; ///< The total number of students enrolled in the course.
 
   /**
    * @brief Constructs a Course object with the specified details.
@@ -29,9 +33,10 @@ public class Course {
    * @param credit_hours The number of credit hours assigned to the course.
    */
 
-  public Course(String id, String name, String instructor, int credit_hours) {
+  public Course(String id, String course_code, String title, String instructor,
+                int credit_hours) {
     this.id = id;
-    this.name = name;
+    this.title = title;
     this.instructor = instructor;
     this.credit_hours = credit_hours;
     this.total_students = 0;
@@ -40,7 +45,8 @@ public class Course {
   /**
    * @brief Sets the unique identifier for the course.
    * @param id The unique identifier for the course.
-   * @return {@code true} if the ID was successfully set, {@code false} otherwise.
+   * @return {@code true} if the ID was successfully set, {@code false}
+   *         otherwise.
    */
   public boolean setId(String id) {
     if (id == null || id.isEmpty()) {
@@ -54,9 +60,7 @@ public class Course {
    * @brief Retrieves the unique identifier for the course.
    * @return The unique identifier for the course.
    */
-  public String getId() {
-    return id;
-  }
+  public String getId() { return id; }
 
   /**
    * @brief Sets the name of the course.
@@ -64,11 +68,11 @@ public class Course {
    * @return {@code true} if the name was successfully set, {@code false}
    *         otherwise.
    */
-  public boolean setName(String name) {
-    if (name == null || name.isEmpty()) {
+  public boolean setTitle(String title) {
+    if (title == null || title.isEmpty()) {
       return false;
     }
-    this.name = name;
+    this.title = title;
     return true;
   }
 
@@ -76,9 +80,7 @@ public class Course {
    * @brief Retrieves the name of the course.
    * @return The name of the course.
    */
-  public String getName() {
-    return name;
-  }
+  public String getTitle() { return title; }
 
   /**
    * @brief Sets the name of the instructor teaching the course.
@@ -98,14 +100,13 @@ public class Course {
    * @brief Retrieves the name of the instructor teaching the course.
    * @return The name of the instructor.
    */
-  public String getInstructor() {
-    return instructor;
-  }
+  public String getInstructor() { return instructor; }
 
   /**
    * @brief Sets the number of credit hours assigned to the course.
    * @param credit_hours The number of credit hours.
-   * @return {@code true} if the credit hours were successfully set, {@code false}
+   * @return {@code true} if the credit hours were successfully set, {@code
+   *     false}
    *         otherwise.
    */
   public boolean setCreditHours(int credit_hours) {
@@ -120,15 +121,11 @@ public class Course {
    * @brief Retrieves the number of credit hours assigned to the course.
    * @return The number of credit hours.
    */
-  public int getCreditHours() {
-    return credit_hours;
-  }
+  public int getCreditHours() { return credit_hours; }
 
   /**
    * @brief Retrieves the total number of students enrolled in the course.
    * @return The total number of students enrolled in the course.
    */
-  public int getTotalStudents() {
-    return total_students;
-  }
+  public int getTotalStudents() { return total_students; }
 }
