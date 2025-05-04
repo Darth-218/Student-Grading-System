@@ -7,7 +7,7 @@ package edu.nu.sgm.models;
  */
 public class Course {
 
-  private String id;
+  private int id;
   ///< The unique identifier for the course.
 
   private String course_code;
@@ -22,7 +22,8 @@ public class Course {
   private int credit_hours;
   ///< The number of credit hours assigned to the course.
 
-  private int total_students; ///< The total number of students enrolled in the course.
+  private int
+      total_students; ///< The total number of students enrolled in the course.
 
   /**
    * @brief Constructs a Course object with the specified details.
@@ -32,8 +33,8 @@ public class Course {
    * @param credit_hours The number of credit hours assigned to the course.
    */
 
-  public Course(String id, String course_code, String title, String instructor,
-      int credit_hours) {
+  public Course(int id, String course_code, String title, String instructor,
+                int credit_hours) {
     this.id = id;
     this.title = title;
     this.instructor = instructor;
@@ -59,31 +60,13 @@ public class Course {
    * @brief Retrieves the code of the course.
    * @return The code of the course.
    */
-  public String getCourseCode() {
-    return course_code;
-  }
-
-  /**
-   * @brief Sets the unique identifier for the course.
-   * @param id The unique identifier for the course.
-   * @return {@code true} if the ID was successfully set, {@code false}
-   *         otherwise.
-   */
-  public boolean setId(String id) {
-    if (id == null || id.isEmpty()) {
-      return false;
-    }
-    this.id = id;
-    return true;
-  }
+  public String getCourseCode() { return course_code; }
 
   /**
    * @brief Retrieves the unique identifier for the course.
    * @return The unique identifier for the course.
    */
-  public String getId() {
-    return id;
-  }
+  public int getId() { return id; }
 
   /**
    * @brief Sets the name of the course.
@@ -103,9 +86,7 @@ public class Course {
    * @brief Retrieves the name of the course.
    * @return The name of the course.
    */
-  public String getTitle() {
-    return title;
-  }
+  public String getTitle() { return title; }
 
   /**
    * @brief Sets the name of the instructor teaching the course.
@@ -125,9 +106,7 @@ public class Course {
    * @brief Retrieves the name of the instructor teaching the course.
    * @return The name of the instructor.
    */
-  public String getInstructor() {
-    return instructor;
-  }
+  public String getInstructor() { return instructor; }
 
   /**
    * @brief Sets the number of credit hours assigned to the course.
@@ -148,15 +127,11 @@ public class Course {
    * @brief Retrieves the number of credit hours assigned to the course.
    * @return The number of credit hours.
    */
-  public int getCreditHours() {
-    return credit_hours;
-  }
+  public int getCreditHours() { return credit_hours; }
 
   /**
    * @brief Retrieves the total number of students enrolled in the course.
    * @return The total number of students enrolled in the course.
    */
-  public int getTotalStudents() {
-    return total_students;
-  }
+  public int getTotalStudents() { return total_students; }
 }
