@@ -3,22 +3,19 @@ package edu.nu.sgm.models;
 public class Enrollment {
   private int id;
   ///< Enrollment ID.
-  private boolean status;
-  ///< Enrollment status (course progress).
-  private Student student;
+  private int student_id;
   ///< The student enrolled.
-  private Course course; ///< The course enrolled in.
+  private int course_id; ///< The course enrolled in.
 
   /**
    * @brief The enrollment object constructor.
-   * @param student The student to enroll.
-   * @param course  The course to enroll in.
-   * @param status  The course status (i.e. in progress, done).
+   * @param student_id The student to enroll.
+   * @param course_id  The course to enroll in.
    */
-  public Enrollment(Student student, Course course, boolean status) {
-    this.student = student;
-    this.course = course;
-    this.status = status;
+  public Enrollment(int id, int student_id, int course_id) {
+    this.id = id;
+    this.student_id = student_id;
+    this.course_id = course_id;
   }
 
   /**
@@ -28,20 +25,20 @@ public class Enrollment {
   public int getId() { return this.id; }
 
   /**
-   * @brief Enrollment status getter.
-   * @return Course status.
-   */
-  public boolean getStatus() { return this.status; }
-
-  /**
    * @brief Enrollment student getter.
    * @return Student enrolled.
    */
-  public Student getStudent() { return this.student; }
+  public int getStudent() { return this.student_id; }
 
   /**
    * @brief Enrollment course getter.
    * @return Course enrolled in.
    */
-  public Course getCourse() { return this.Course; }
+  public int getCourse() { return this.course_id; }
+
+  /**
+   * @brief Enrollment ID setter.
+   * @param Enrollment ID.
+   */
+  public void setID(int id) { this.id = id; }
 }
