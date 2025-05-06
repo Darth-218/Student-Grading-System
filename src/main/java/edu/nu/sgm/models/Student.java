@@ -1,33 +1,51 @@
 package edu.nu.sgm.models;
 
 public class Student {
-  private String name;
-  private double id;
-  private String enrolled_courses;
-  private String email;
+    private int id;
+    private String name;
+    private String last_name;
+    private String email;
 
-  Student(String name, double id, String enrolled_courses, String email) {
-    this.name = name;
+  Student(int id, String name, String last_name, String email) {
     this.id = id;
-    this.enrolled_courses = enrolled_courses;
-    this.email = email;
+    this.name = name;
+    this.last_name = last_name;
+    this.email = generateStudentEmail();
   }
 
-  public void setname(String name) { this.name = name; }
-
-  public void setid(double id) { this.id = id; }
-
-  public void setenrolled_courses(String enrolled_courses) {
-    this.enrolled_courses = enrolled_courses;
+  public int getId() {
+    return id;
+  }
+  
+  public void setId(int id) {
+    this.id=id;
+  }
+  
+  public String getName() {
+    return name;
+  }
+  
+  public void setName(String name) {
+    this.name = name;
+  }
+  
+  
+  public String getLastName() {
+    return last_name;
+  }
+  
+  public void setLastName(String last_name) {
+    this.last_name = last_name;
+  }
+  
+  public String getEmail() {
+    return email;
   }
 
-  public void setemail(String email) { this.email = email; }
-
-  public String getname() { return name; }
-
-  public double getid() { return id; }
-
-  public String getenrolled_courses() { return enrolled_courses; }
-
-  public String getemail() { return email; }
+  public String generateStudentEmail() {
+      String firstName = name.split(" ")[0].toLowerCase();
+      String lastName = last_name.toLowerCase().replaceAll("[^a-z]", "");
+      int studentId = (int)id;
+      return String.format("%s.%s%d@nu.edu.eg",firstName, lastName, studentId);
+  }
 }
