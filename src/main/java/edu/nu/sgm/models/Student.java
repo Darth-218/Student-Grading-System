@@ -21,7 +21,7 @@ public class Student {
     this.id=id;
   }
   
-  public String getName() {
+  public String getFirstName() {
     return name;
   }
   
