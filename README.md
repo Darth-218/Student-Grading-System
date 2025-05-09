@@ -10,10 +10,14 @@ classDiagram
         -String last_name
         -String email
         +getId() int
-        +setName(String name) bool
-        +getName() String
+        +setId() void
+        +getFirstName() String
+        +setFirstName(String name) bool
+        +getLastName() String
+        +setLastName(String name) bool
         +generateEmail() String
         +getEmail() String
+        +setEmail() void
     }
 
     class StudentService {
@@ -23,6 +27,8 @@ classDiagram
         +getTotalCourses(Student student) int
         +displayDetails(Student student) String
         +calculateGPA(Student student) double
+        +importStudents(File csv) boolean
+        +exportStudents() boolean
     }
 
     class Course {
@@ -32,57 +38,67 @@ classDiagram
         -String instructor
         -int credit_hours
         -int total_students
-        +setCourseCode(String id) bool
+        +getId() int
+        +setId() void
         +getCourseCode() String
-        +setName(String name) bool
-        +getName() String
-        +setInstructor(String instructor) bool
+        +setCourseCode(String id) bool
+        +getTitle() String
+        +setTitle(String name) bool
         +getInstructor() String
-        +setCreditHours(int hours) bool
+        +setInstructor(String instructor) void
         +getCreditHours() int
+        +setCreditHours(int credit_hours) void
     }
 
     class CourseService {
         +addCourse(Course course) bool
         +removeCourse(Course course) bool
-        +updateTotalStudents(int count) bool
-        +getStudents() List~Student~
-        +getTotalStudents() int
+        +getStudents(Course course) List~Student~
+        +getTotalStudents(Course course) int
         +displayDetails() String
         +calculateTotalGrade(Student student) double
+        +importCourses(File file) boolean
+        +exportCourses() boolean
     }
 
     class GradeItem {
+        -int id
         -String title
         -String category
         -double score
         -double max_score
+        -double weight
         -String feedback
-        +setName(String name) bool
-        +getName() String
-        +setCategory(String category) bool
+        +getTitle() String
+        +setTitle(String title) void
         +getCategory() String
-        +setScore(double score, double max_score) bool
+        +setCategory(String category) void
+        +getWeight() double
+        +setWeight() void
         +getScore() double
-        +setFeedback(String feedback) bool
+        +getMaxScore() double
+        +setScore(double score, double max_score) void
         +getFeedback() String
+        +setFeedback(String feedback) void
     }
 
     class GradeItemService {
-        +addGradeItem(GradeItem item) bool
-        +calculateWeight() double
-        +calculatePercentage() double
+        +addGradeItem(GradeItem grade) bool
+        +calculateWeight(GradeItem grade) double
+        +calculatePercentage(GradeItem grade) double
         +contributionToTotal() double
+        +importGrades(File file) boolean
+        +exportGrades() boolean
     }
 
     class Enrollment {
         -int id
-        -Student student
-        -Course course
-        -bool status
+        -int student_id
+        -int course_id
         +getId() int
-        +getStudent() Student
-        +getcourse() Course
+        +setId() int
+        +getStudent() int
+        +getcourse() int
     }
 
     class EnrollmentService {
@@ -96,89 +112,197 @@ classDiagram
 
 ## Project Sequence Diagram
 
-## Views
+### Adding a Student
 
-- Landing page
-- Students view
-- Courses view
-- Grades view
+```mermaid
+sequenceDiagram
+    actor User
+    participant StudentsView
+    participant Controller
+    participant Service
+    participant DatabaseManager
+    participant Database
 
-## Classes
+    User->>StudentsView: User adds a student
+    StudentsView->>Controller: newStudent(Student)
+    Controller->>Service: addStudent(Student)
+    Service->>DatabaseManager: createStudent(Student)
+    DatabaseManager->>Database: Executes query 
+    Database->>Database Manger: Success
+    Database Manager->>Service: Add the student to ObservableList<Student>
+    Service->>Controller: Returns ObservableList<Student>
+    Controller->>StudentsView: Sets ObservableList<Student>
+    StudentsView->>StudentsView: Refresh UI
+    Studentview-->>User: Show students
+```
 
-- Student, Student service, Student view controller
+### Viewing a Student's Courses
 
-- Course, Course service, Course view controller
+```mermaid
+sequenceDiagram
+    actor User
+    participant StudentsView
+    participant Controller
+    participant Service
+    participant DatabaseManager
+    participant Database
 
-- Grade item, Grade Item service, Grade item view controller
+    User->>StudentsView: User Selects a student
+    StudentsView->>Controller: viewCourses(Student)
+    Controller->>Service: getCourses(Student)
+    Service->>DatabaseManager: fetchCourse(Student)
+    DatabaseManager->>Database: Executes query 
+    Database->>Database Manger: Returns courses ResultSet
+    Database Manager->>Service: Returns List<Course>
+    Service->>Controller: Returns ObservableList<Course>
+    Controller->>StudentsView: Sets ObservableList<Course>
+    StudentsView->>StudentsView: Refresh UI
+    Studentview-->>User: Show courses
+```
 
-- Enrollment, Enrollment service, Database Manager
+### Removing a Student
 
----
+```mermaid
+sequenceDiagram
+    actor User
+    participant StudentsView
+    participant Controller
+    participant Service
+    participant DatabaseManager
+    participant Database
 
-### Student
+    User->>StudentsView: User Selects a student and clicks "delete"
+    StudentsView->>Controller: deleteStudent(Student)
+    Controller->>Service: removeStudent(Student)
+    Service->>DatabaseManager: deleteStudent(Student)
+    DatabaseManager->>Database: Executes query 
+    Database->>DatabaseManger: Success
+    DatabaseManager->>Service: Remove the student from the ObservableList<Student>
+    Service->>Controller: Sets ObservableList<Student>
+    Controller->>StudentsView: Refresh UI
+    StudentsView-->>User: Show students
+```
 
-- Attributes:
-    * ID
-    * Name
-    * Email
-    * Courses
-- Methods:
-    * Getters and setters
+### Adding a Course
 
-### Student Service
+```mermaid
+sequenceDiagram
+    actor User
+    participant CoursesView
+    participant Controller
+    participant Service
+    participant DatabaseManager
+    participant Database
 
-- Methods:
-    * Display details
-    * Calculate GPA
-    * Generate report card
+    User->>CoursesView: User adds a course
+    CoursesView->>Controller: newCourse(Course)
+    Controller->>Service: addCourse(Course)
+    Service->>DatabaseManager: createCourse(Course)
+    DatabaseManager->>Database: Executes query 
+    Database->>Database Manger: Success
+    Database Manager->>Service: Add the course to ObservableList<Course>
+    Service->>Controller: Returns ObservableList<Course>
+    Controller->>CoursesView: Sets ObservableList<Course>
+    CoursesView->>CoursesView: Refresh UI
+    Courseview-->>User: Show courses
+```
 
----
+### Viewing a Course's Students
 
-### Course
+```mermaid
+sequenceDiagram
+    actor User
+    participant CourseView
+    participant Controller
+    participant Service
+    participant DatabaseManager
+    participant Database
 
-- Attributes:
-    * ID
-    * Name
-    * Instructor
-    * Credit hours
-    * Number of students
-- Methods:
-    * Getters and setters
+    User->>CourseView: User selects a course
+    CourseView->>Controller: viewStudents(Course)
+    Controller->>Service: getStudents(Course)
+    Service->>DatabaseManager: fetchStudents(Course)
+    DatabaseManager->>Database: Executes query 
+    Database->>Database Manger: Success
+    Database Manager->>Service: Add students to ObservableList<Student>
+    Service->>Controller: Returns ObservableList<Student>
+    Controller->>CourseView: Sets ObservableList<Student>
+    CourseView->>CourseView: Refresh UI
+    Courseview-->>User: Show students
+```
 
-### Course Service
+### Removing a Course
 
-- Methods:
-    * Display details
-    * Calculate total grade
+```mermaid
+sequenceDiagram
+    actor User
+    participant CoursesView
+    participant Controller
+    participant Service
+    participant DatabaseManager
+    participant Database
 
----
+    User->>CoursesView: User Selects a course and clicks "delete"
+    CoursesView->>Controller: deleteCourse(Course)
+    Controller->>Service: removeCourse(Course)
+    Service->>DatabaseManager: deleteCourse(Course)
+    DatabaseManager->>Database: Executes query 
+    Database->>DatabaseManger: Success
+    DatabaseManager->>Service: Remove the course from the ObservableList<Course>
+    Service->>Controller: Sets ObservableList<Course>
+    Controller->>CoursesView: Refresh UI
+    CoursesView-->>User: Show courses
+```
 
-### Grade Item
+### Adding a Student to a Course
 
-- Attributes:
-    * Name
-    * Category
-    * Grade
-    * Feedback
-- Methods:
-    * Getters and setters
+```mermaid
+sequenceDiagram
+    actor User
+    participant CoursesView
+    participant Controller
+    participant EnrollmentService
+    participant DatabaseManager
+    participant Database
 
-### Grade Item Service
+    User->>CoursesView: User Selects a course and clicks "add student"
+    CoursesView->>Controller: addEnrollment(Student, Course)
+    Controller->>EnrollmentService: enrollStudent(Enrollment)
+    EnrollmentService->>DatabaseManager: createEnrollment(Enrollment)
+    DatabaseManager->>Database: Executes query 
+    Database->>DatabaseManger: Success
+    DatabaseManager->>EnrollmentService: Add the student to the ObservableList<Student>
+    EnrollmentService->>Controller: Sets ObservableList<Student>
+    Controller->>CoursesView: Refresh UI
+    CoursesView-->>User: Show students
+```
 
-- Methods:
-    * Weight
-    * Percentage
-    * Contribution to total
+### Adding a Course to a Student
 
----
+```mermaid
+sequenceDiagram
+    actor User
+    participant Studentsview
+    participant Controller
+    participant EnrollmentService
+    participant DatabaseManager
+    participant Database
 
-### Database Manager
+    User->>StudentsView: User Selects a students and clicks "add course"
+    StudentsView->>Controller: addEnrollment(Student, Course)
+    Controller->>EnrollmentService: enrollStudent(Enrollment)
+    EnrollmentService->>DatabaseManager: createEnrollment(Enrollment)
+    DatabaseManager->>Database: Executes query 
+    Database->>DatabaseManger: Success
+    DatabaseManager->>EnrollmentService: Add the course to the ObservableList<Course>
+    EnrollmentService->>Controller: Sets ObservableList<Course>
+    Controller->>CoursesView: Refresh UI
+    StudentsView-->>User: Show courses
+```
 
-- Methods:
-    * Fetch data
-    * Create data
-    * Update data
-    * Delete data
+### Viewing a Student's Grades
+### Adding a Grade
+### Removing a Grade
 
 ---
 
