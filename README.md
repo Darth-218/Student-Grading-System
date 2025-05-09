@@ -21,6 +21,7 @@ classDiagram
     }
 
     class StudentService {
+        -Databasemanager db
         +addStudent(Student student) bool
         +removeStudent(Student student) bool
         +getCourses(Student student) List~Course~
@@ -48,9 +49,12 @@ classDiagram
         +setInstructor(String instructor) void
         +getCreditHours() int
         +setCreditHours(int credit_hours) void
+        +getTotalStudents() int
+        +setTotalStudents() void
     }
 
     class CourseService {
+        -Databasemanager db
         +addCourse(Course course) bool
         +removeCourse(Course course) bool
         +getStudents(Course course) List~Student~
@@ -83,6 +87,7 @@ classDiagram
     }
 
     class GradeItemService {
+        -Databasemanager db
         +addGradeItem(GradeItem grade) bool
         +calculateWeight(GradeItem grade) double
         +calculatePercentage(GradeItem grade) double
@@ -102,6 +107,7 @@ classDiagram
     }
 
     class EnrollmentService {
+        -Databasemanager db
         +enrollStudent(Student student, Course course) bool
         +dropCourse(Student student, Course course) bool
         +generateReportCard(Student student) String
