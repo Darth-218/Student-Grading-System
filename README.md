@@ -117,23 +117,18 @@ classDiagram
 ```mermaid
 sequenceDiagram
     actor User
-    participant StudentsView
-    participant Controller
-    participant Service
-    participant DatabaseManager
-    participant Database
 
     User->>StudentsView: User adds a student
     StudentsView->>Controller: newStudent(Student)
     Controller->>Service: addStudent(Student)
     Service->>DatabaseManager: createStudent(Student)
     DatabaseManager->>Database: Executes query 
-    Database->>Database Manger: Success
-    Database Manager->>Service: Add the student to ObservableList<Student>
+    Database->>DatabaseManager: Success
+    DatabaseManager->>Service: Add the student to ObservableList<Student>
     Service->>Controller: Returns ObservableList<Student>
     Controller->>StudentsView: Sets ObservableList<Student>
     StudentsView->>StudentsView: Refresh UI
-    Studentview-->>User: Show students
+    StudentsView-->>User: Show students
 ```
 
 ### Viewing a Student's Courses
@@ -141,23 +136,18 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     actor User
-    participant StudentsView
-    participant Controller
-    participant Service
-    participant DatabaseManager
-    participant Database
 
     User->>StudentsView: User Selects a student
     StudentsView->>Controller: viewCourses(Student)
     Controller->>Service: getCourses(Student)
     Service->>DatabaseManager: fetchCourse(Student)
     DatabaseManager->>Database: Executes query 
-    Database->>Database Manger: Returns courses ResultSet
-    Database Manager->>Service: Returns List<Course>
+    Database->>DatabaseManager: Returns courses ResultSet
+    DatabaseManager->>Service: Returns List<Course>
     Service->>Controller: Returns ObservableList<Course>
     Controller->>StudentsView: Sets ObservableList<Course>
     StudentsView->>StudentsView: Refresh UI
-    Studentview-->>User: Show courses
+    StudentsView-->>User: Show courses
 ```
 
 ### Removing a Student
@@ -165,18 +155,13 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     actor User
-    participant StudentsView
-    participant Controller
-    participant Service
-    participant DatabaseManager
-    participant Database
 
     User->>StudentsView: User Selects a student and clicks "delete"
     StudentsView->>Controller: deleteStudent(Student)
     Controller->>Service: removeStudent(Student)
     Service->>DatabaseManager: deleteStudent(Student)
     DatabaseManager->>Database: Executes query 
-    Database->>DatabaseManger: Success
+    Database->>DatabaseManager: Success
     DatabaseManager->>Service: Remove the student from the ObservableList<Student>
     Service->>Controller: Sets ObservableList<Student>
     Controller->>StudentsView: Refresh UI
@@ -188,23 +173,18 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     actor User
-    participant CoursesView
-    participant Controller
-    participant Service
-    participant DatabaseManager
-    participant Database
 
     User->>CoursesView: User adds a course
     CoursesView->>Controller: newCourse(Course)
     Controller->>Service: addCourse(Course)
     Service->>DatabaseManager: createCourse(Course)
     DatabaseManager->>Database: Executes query 
-    Database->>Database Manger: Success
-    Database Manager->>Service: Add the course to ObservableList<Course>
+    Database->>DatabaseManager: Success
+    DatabaseManager->>Service: Add the course to ObservableList<Course>
     Service->>Controller: Returns ObservableList<Course>
     Controller->>CoursesView: Sets ObservableList<Course>
     CoursesView->>CoursesView: Refresh UI
-    Courseview-->>User: Show courses
+    CoursesView-->>User: Show courses
 ```
 
 ### Viewing a Course's Students
@@ -212,23 +192,18 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     actor User
-    participant CourseView
-    participant Controller
-    participant Service
-    participant DatabaseManager
-    participant Database
 
-    User->>CourseView: User selects a course
-    CourseView->>Controller: viewStudents(Course)
+    User->>CoursesView: User selects a course
+    CoursesView->>Controller: viewStudents(Course)
     Controller->>Service: getStudents(Course)
     Service->>DatabaseManager: fetchStudents(Course)
     DatabaseManager->>Database: Executes query 
-    Database->>Database Manger: Success
-    Database Manager->>Service: Add students to ObservableList<Student>
+    Database->>DatabaseManager: Returns students ResultSet
+    DatabaseManager->>Service: Add students to ObservableList<Student>
     Service->>Controller: Returns ObservableList<Student>
-    Controller->>CourseView: Sets ObservableList<Student>
-    CourseView->>CourseView: Refresh UI
-    Courseview-->>User: Show students
+    Controller->>CoursesView: Sets ObservableList<Student>
+    CoursesView->>CoursesView: Refresh UI
+    CoursesView-->>User: Show students
 ```
 
 ### Removing a Course
@@ -236,18 +211,13 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     actor User
-    participant CoursesView
-    participant Controller
-    participant Service
-    participant DatabaseManager
-    participant Database
 
     User->>CoursesView: User Selects a course and clicks "delete"
     CoursesView->>Controller: deleteCourse(Course)
     Controller->>Service: removeCourse(Course)
     Service->>DatabaseManager: deleteCourse(Course)
     DatabaseManager->>Database: Executes query 
-    Database->>DatabaseManger: Success
+    Database->>DatabaseManager: Success
     DatabaseManager->>Service: Remove the course from the ObservableList<Course>
     Service->>Controller: Sets ObservableList<Course>
     Controller->>CoursesView: Refresh UI
@@ -259,18 +229,13 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     actor User
-    participant CoursesView
-    participant Controller
-    participant EnrollmentService
-    participant DatabaseManager
-    participant Database
 
-    User->>CoursesView: User Selects a course and clicks "add student"
+    User->>CoursesView: User selects a course and clicks "add student"
     CoursesView->>Controller: addEnrollment(Student, Course)
     Controller->>EnrollmentService: enrollStudent(Enrollment)
     EnrollmentService->>DatabaseManager: createEnrollment(Enrollment)
     DatabaseManager->>Database: Executes query 
-    Database->>DatabaseManger: Success
+    Database->>DatabaseManager: Success
     DatabaseManager->>EnrollmentService: Add the student to the ObservableList<Student>
     EnrollmentService->>Controller: Sets ObservableList<Student>
     Controller->>CoursesView: Refresh UI
@@ -282,25 +247,37 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     actor User
-    participant Studentsview
-    participant Controller
-    participant EnrollmentService
-    participant DatabaseManager
-    participant Database
 
     User->>StudentsView: User Selects a students and clicks "add course"
     StudentsView->>Controller: addEnrollment(Student, Course)
     Controller->>EnrollmentService: enrollStudent(Enrollment)
     EnrollmentService->>DatabaseManager: createEnrollment(Enrollment)
     DatabaseManager->>Database: Executes query 
-    Database->>DatabaseManger: Success
+    Database->>DatabaseManager: Success
     DatabaseManager->>EnrollmentService: Add the course to the ObservableList<Course>
     EnrollmentService->>Controller: Sets ObservableList<Course>
-    Controller->>CoursesView: Refresh UI
+    Controller->>StudentsView: Refresh UI
     StudentsView-->>User: Show courses
 ```
 
 ### Viewing a Student's Grades
+
+```mermaid
+sequenceDiagram
+    actor User
+
+    User->>StudentsView: User Selects a students and then a course
+    StudentsView->>Controller: showGrades(Student, Course)
+    Controller->>EnrollmentService: getGrades(Enrollment)
+    EnrollmentService->>DatabaseManager: fetchGrades(Enrollment)
+    DatabaseManager->>Database: Executes query
+    Database->>DatabaseManager: Return grade ResultSet
+    DatabaseManager->>EnrollmentService: Return ObservableList<GradeItem>
+    EnrollmentService->>Controller: Sets ObservableList<GradeItem>
+    Controller->>StudentsView: Switch to GradeItemView
+    StudentsView-->>User: Show grades
+```
+
 ### Adding a Grade
 ### Removing a Grade
 
