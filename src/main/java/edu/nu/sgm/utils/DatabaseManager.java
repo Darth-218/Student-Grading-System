@@ -18,7 +18,8 @@ public class DatabaseManager {
   }
 
   private PreparedStatement parameterizedStatement(PreparedStatement statement,
-                                                   Object[] parameters) {
+                                                   Object[] parameters)
+      throws SQLException {
     for (int i = 1; i <= parameters.length; i++) {
       statement.setObject(i, parameters[i]);
     }
@@ -26,7 +27,7 @@ public class DatabaseManager {
   }
 
   private <T> List<T> executeReturn(String query, ResultSetMapper<T> mapper)
-      throws Exception {
+      throws SQLException {
     List<T> output = new ArrayList<>();
     try (Connection connection = DriverManager.getConnection(DB_URL);
          ResultSet results = connection.createStatement().executeQuery(query)) {
@@ -34,7 +35,7 @@ public class DatabaseManager {
         output.add(mapper.map(results));
       }
     } catch (SQLException e) {
-      throw new Exception();
+      throw new SQLException();
     }
     return output;
   }
@@ -70,13 +71,13 @@ public class DatabaseManager {
          PreparedStatement statement = parameterizedStatement(
              connection.prepareStatement(query), parameters)) {
       if (statement.executeUpdate() == 0)
-        throw new Exception("No rows updated");
+        throw new SQLException("No rows updated");
       ResultSet generated_keys = statement.getGeneratedKeys();
       return generated_keys.getInt(1);
     }
   }
 
-  public boolean createCourse(Course course) {
+  public boolean createCourse(Course course) throws SQLException {
     String query = "INSERT INTO courses (course_code, title, credit_hours, "
                    + "instructor, total_students) "
                    + "VALUES (?, ?, ?, ?, ?)";
@@ -85,34 +86,70 @@ public class DatabaseManager {
                       course.getCreditHours(), course.getInstructor(),
                       course.getTotalStudents());
     course.setId(course_id);
+    return true;
   }
 
-  public boolean createStudent(Student student) {
+  public boolean createStudent(Student student) throws SQLException {
     String query =
         "INSERT INTO students (first_name, last_name, email) VALUES (?, ?, ?)";
     int student_id = executeInsert(query, student.getFirstName(),
                                    student.getLastName(), student.getEmail());
     student.setId(student_id);
+    return true;
   }
 
-  public boolean createEnrollment(Enrollment enrollment) {
+  public boolean createEnrollment(Enrollment enrollment) throws SQLException {
     String query = "INSERT INTO enrollments (student_id, course_id, "
                    + "semester) VALUES (?, ?, ?)";
     int enrollment_id =
         executeInsert(query, enrollment.getStudent(), enrollment.getCourse());
     enrollment.setID(enrollment_id);
+    return true;
   }
 
-  public boolean createGrade(Enrollment enrollment, GradeItem grade) {
+  public boolean createGrade(Enrollment enrollment, GradeItem grade)
+      throws SQLException {
     String query = "INSERT INTO grade_items (enrollment_id, title, category, "
                    + "score, max_score, feedback) VALUES (?, ?, ?, ?, ?, ?)";
     int grade_id = executeInsert(query, enrollment.getId(), grade.getTitle(),
                                  grade.getCategory(), grade.getScore(),
                                  grade.getMaxScore(), grade.getFeedback());
     grade.setId(grade_id);
+    return true;
   }
 
-  public List<Course> fetchCourses() {
+  public List<Course> fetchCourses(Student student) throws SQLException {
+    String enrollment_query = "SELECT * FROM enrollment WHERE student_id = ?";
+    List<Integer> course_ids =
+        executeReturn(enrollment_query,
+                      results -> results.getInt("course_id"), student.getId());
+    String query = "SELECT * FROM courses WHERE id = ?";
+    return executeReturn(query,
+                         results
+                         -> new Course(results.getInt("id"),
+                                       results.getString("coures_code"),
+                                       results.getString("title"),
+                                       results.getString("instructor"),
+                                       results.getInt("credit_hours")),
+                         course_ids);
+  }
+
+  public List<Student> fetchStudents(Course course) throws SQLException {
+    String enrollment_query = "SELECT * FROM enrollment WHERE course_id = ?";
+    List<Integer> student_ids =
+        executeReturn(enrollment_query,
+                      results -> results.getInt("student_id"), course.getId());
+    String query = "SELECT * FROM students WHERE id = ?";
+    return executeReturn(query,
+                         results
+                         -> new Student(results.getInt("id"),
+                                        results.getString("first_name"),
+                                        results.getString("last_name"),
+                                        results.getString("email")),
+                         student_ids);
+  }
+
+  public List<Course> fetchCourses() throws SQLException {
     String query = "SELECT * FROM courses";
     return executeReturn(query,
                          results
@@ -123,7 +160,7 @@ public class DatabaseManager {
                                        results.getInt("credit_hours")));
   }
 
-  public List<Student> fetchStudents() {
+  public List<Student> fetchStudents() throws SQLException {
     String query = "SELECT * FROM students";
     return executeReturn(query,
                          results
@@ -133,12 +170,14 @@ public class DatabaseManager {
                                         results.getString("email")));
   }
 
-  public List<GradeItem> fetchGrades(Enrollment enrollment) {
+  public List<GradeItem> fetchGrades(Enrollment enrollment)
+      throws SQLException {
     String query = "SELECT * FROM grade_items WHERE enrollment_id = ?";
     return executeReturn(query, results -> new GradeItem(), enrollment.getId());
   }
 
-  public List<Enrollment> fetchEnrollment(Student student, Course course) {
+  public List<Enrollment> fetchEnrollment(Student student, Course course)
+      throws SQLException {
     String query =
         "SELECT * FROM enrollments WHERE student_id = ? AND course_id = ?";
     return executeReturn(query,
@@ -149,7 +188,7 @@ public class DatabaseManager {
                          student.getId(), course.getId());
   }
 
-  public int updateCourse(Course course) {
+  public int updateCourse(Course course) throws SQLException {
     String query =
         "UPDATE courses SET course_code = ?, title = ?, instructor = ?, "
         + "credit_hours = ?, total_students = ? WHERE id = ?";
@@ -158,14 +197,14 @@ public class DatabaseManager {
                          course.getTotalStudents(), course.getId());
   }
 
-  public int updateStudent(Student student) {
+  public int updateStudent(Student student) throws SQLException {
     String query = "UPDATE students SET first_name = ?, last_name = ?, email "
                    + "= ? WHERE id = ?";
     return executeUpdate(query, student.getFirstName(), student.getLastName(),
                          student.getEmail(), student.getId());
   }
 
-  public int updateGrades(GradeItem grade) {
+  public int updateGrades(GradeItem grade) throws SQLException {
     String query = "UPDATE grade_items SET title = ?, category = ?, score = ?, "
                    + "max_score = ?, feedback = ? WHERE id = ?";
     return executeUpdate(query, grade.getTitle(), grade.getCategory(),
@@ -173,22 +212,22 @@ public class DatabaseManager {
                          grade.getFeedback(), grade.getId());
   }
 
-  public int deleteCourse(Course course) {
+  public int deleteCourse(Course course) throws SQLException {
     String query = "DELETE FROM courses WHERE id = ?";
     return executeUpdate(query, course.getId());
   }
 
-  public int deleteStudent(Student student) {
+  public int deleteStudent(Student student) throws SQLException {
     String query = "DELETE FROM students WHERE id = ?";
     return executeUpdate(query, student.getId());
   }
 
-  public int deleteGrade(GradeItem grade) {
+  public int deleteGrade(GradeItem grade) throws SQLException {
     String query = "DELETE FROM grade_items WHERE id = ?";
     return executeUpdate(query, grade.getId());
   }
 
-  public int deleteEnrollment(Enrollment enrollment) {
+  public int deleteEnrollment(Enrollment enrollment) throws SQLException {
     String query = "DELETE FROM enrollments WHERE id = ?";
     return executeUpdate(query, enrollment.getId());
   }
