@@ -110,6 +110,7 @@ classDiagram
         -Databasemanager db
         +enrollStudent(Student student, Course course) bool
         +dropCourse(Student student, Course course) bool
+        +getGrades(Student student, Course course) List~GradeItem~
         +generateReportCard(Student student) String
     }
 ```
