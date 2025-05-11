@@ -125,7 +125,7 @@ public class CourseService {
             System.err.println("Course does not exist.");
             return null;
         }
-        return String.format("%d\n%s\n%s\n%s\n%d",
+        return String.format("%d, %s, %s, %s, %d",
                 course.getId(), course.getCourseCode(), course.getTitle(), course.getInstructor(),
                 course.getCreditHours());
     }
