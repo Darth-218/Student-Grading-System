@@ -13,6 +13,8 @@ import java.util.List;
 public class DatabaseManager {
   private static final String DB_URL = "jdbc:h2:mem";
 
+  ///< Link to the database
+
   private interface ResultSetMapper<T> {
     T map(ResultSet results) throws SQLException;
   }
@@ -20,6 +22,12 @@ public class DatabaseManager {
   private PreparedStatement parameterizedStatement(PreparedStatement statement,
                                                    Object[] parameters)
       throws SQLException {
+    /**
+     * @brief A method to "bind" parameters to an SQL statement
+     * @param statement  The statement to execute
+     * @param parameters The extra parameters bind to the statement
+     * @return A parameterized statement
+     */
     for (int i = 1; i <= parameters.length; i++) {
       statement.setObject(i, parameters[i]);
     }
@@ -28,21 +36,33 @@ public class DatabaseManager {
 
   private <T> List<T> executeReturn(String query, ResultSetMapper<T> mapper)
       throws SQLException {
-    List<T> output = new ArrayList<>();
+    /**
+     * @brief A method that executes statements and returns a list of T
+     * @param query  The statement to execute
+     * @param mapper The T constructor
+     * @return A list of T objects
+     */
+    List<T> output = new ArrayList<>(); ///< The output list
     try (Connection connection = DriverManager.getConnection(DB_URL);
          ResultSet results = connection.createStatement().executeQuery(query)) {
       while (results.next()) {
         output.add(mapper.map(results));
       }
-    } catch (SQLException e) {
-      throw new SQLException();
     }
     return output;
   }
 
   private <T> List<T> executeReturn(String query, ResultSetMapper<T> mapper,
                                     Object... parameters) throws SQLException {
-    List<T> output = new ArrayList<>();
+    /**
+     * @brief A method that executes parameterized statements and
+     *        returns a list of T
+     * @param query      The statement to execute
+     * @param mapper     The T constructor
+     * @param parameters The statement parameters
+     * @return A list of T objects
+     */
+    List<T> output = new ArrayList<>(); ///< The output list
     try (Connection connection = DriverManager.getConnection(DB_URL);
          ResultSet results =
              parameterizedStatement(connection.prepareStatement(
@@ -58,6 +78,12 @@ public class DatabaseManager {
 
   private int executeUpdate(String query, Object... parameters)
       throws SQLException {
+    /**
+     * @brief A method that updates database entries
+     * @param query      The statement to execute
+     * @param parameters The statement parameters
+     * @return The number of updated rows
+     */
     try (Connection connection = DriverManager.getConnection(DB_URL);
          PreparedStatement statement = parameterizedStatement(
              connection.prepareStatement(query), parameters)) {
@@ -67,6 +93,12 @@ public class DatabaseManager {
 
   private int executeInsert(String query, Object... parameters)
       throws SQLException {
+    /**
+     * @brief A method that creates database entries
+     * @param query      The statement to execute
+     * @param parameters The statement parameters
+     * @return The generated ID of the inserted entry
+     */
     try (Connection connection = DriverManager.getConnection(DB_URL);
          PreparedStatement statement = parameterizedStatement(
              connection.prepareStatement(query), parameters)) {
@@ -78,6 +110,11 @@ public class DatabaseManager {
   }
 
   public boolean createCourse(Course course) throws SQLException {
+    /**
+     * @brief A method that inserts a course object into the database
+     * @param student The course to add
+     * @return True when the course is added successfully
+     */
     String query = "INSERT INTO courses (course_code, title, credit_hours, "
                    + "instructor, total_students) "
                    + "VALUES (?, ?, ?, ?, ?)";
@@ -90,6 +127,11 @@ public class DatabaseManager {
   }
 
   public boolean createStudent(Student student) throws SQLException {
+    /**
+     * @brief A method that inserts a Student object into the database
+     * @param student The student to add
+     * @return True when the student is added successfully
+     */
     String query =
         "INSERT INTO students (first_name, last_name, email) VALUES (?, ?, ?)";
     int student_id = executeInsert(query, student.getFirstName(),
@@ -99,6 +141,11 @@ public class DatabaseManager {
   }
 
   public boolean createEnrollment(Enrollment enrollment) throws SQLException {
+    /**
+     * @brief A method that inserts an Enrollment object into the database
+     * @param enrollment The enrollment to add
+     * @return True when the enrollment is added successfully
+     */
     String query = "INSERT INTO enrollments (student_id, course_id, "
                    + "semester) VALUES (?, ?, ?)";
     int enrollment_id =
@@ -109,6 +156,12 @@ public class DatabaseManager {
 
   public boolean createGrade(Enrollment enrollment, GradeItem grade)
       throws SQLException {
+    /**
+     * @brief A method that inserts a GradeItem object into the database
+     * @param enrollment The course/student pair
+     * @param grade      The grade to add
+     * @return True when the grade is added successfully
+     */
     String query = "INSERT INTO grade_items (enrollment_id, title, category, "
                    + "score, max_score, feedback) VALUES (?, ?, ?, ?, ?, ?)";
     int grade_id = executeInsert(query, enrollment.getId(), grade.getTitle(),
@@ -119,6 +172,11 @@ public class DatabaseManager {
   }
 
   public List<Course> fetchCourses(Student student) throws SQLException {
+    /**
+     * @brief A method that gets the courses a student is enrolled in
+     * @param student The target student
+     * @return The list of courses the target student is enrolled in
+     */
     String enrollment_query = "SELECT * FROM enrollment WHERE student_id = ?";
     List<Integer> course_ids =
         executeReturn(enrollment_query,
@@ -135,6 +193,11 @@ public class DatabaseManager {
   }
 
   public List<Student> fetchStudents(Course course) throws SQLException {
+    /**
+     * @brief A method that gets the students enrolled in a course
+     * @param course The target course
+     * @return The list of students enrolled in the target course
+     */
     String enrollment_query = "SELECT * FROM enrollment WHERE course_id = ?";
     List<Integer> student_ids =
         executeReturn(enrollment_query,
@@ -150,6 +213,10 @@ public class DatabaseManager {
   }
 
   public List<Course> fetchCourses() throws SQLException {
+    /**
+     * @brief A method that gets all courses in the database
+     * @return The list of courses
+     */
     String query = "SELECT * FROM courses";
     return executeReturn(query,
                          results
@@ -161,6 +228,10 @@ public class DatabaseManager {
   }
 
   public List<Student> fetchStudents() throws SQLException {
+    /**
+     * @brief A method that gets all students in the database
+     * @return The list of students
+     */
     String query = "SELECT * FROM students";
     return executeReturn(query,
                          results
@@ -172,12 +243,23 @@ public class DatabaseManager {
 
   public List<GradeItem> fetchGrades(Enrollment enrollment)
       throws SQLException {
+    /**
+     * @brief A method that gets all grades of a student/course pair
+     * @param enrollment The student/course pair
+     * @return The list of grades
+     */
     String query = "SELECT * FROM grade_items WHERE enrollment_id = ?";
     return executeReturn(query, results -> new GradeItem(), enrollment.getId());
   }
 
-  public List<Enrollment> fetchEnrollment(Student student, Course course)
+  public Enrollment fetchEnrollment(Student student, Course course)
       throws SQLException {
+    /**
+     * @brief A method that gets a specific enrollment
+     * @param student The target student
+     * @param course  The target course
+     * @return The Enrollment object
+     */
     String query =
         "SELECT * FROM enrollments WHERE student_id = ? AND course_id = ?";
     return executeReturn(query,
@@ -185,10 +267,16 @@ public class DatabaseManager {
                          -> new Enrollment(results.getInt("id"),
                                            results.getInt("student_id"),
                                            results.getInt("course_id")),
-                         student.getId(), course.getId());
+                         student.getId(), course.getId())
+        .getFirst();
   }
 
   public int updateCourse(Course course) throws SQLException {
+    /**
+     * @brief A method that updates a Course object in the database
+     * @param course The target course with updated attributes
+     * @return The number of rows modified
+     */
     String query =
         "UPDATE courses SET course_code = ?, title = ?, instructor = ?, "
         + "credit_hours = ?, total_students = ? WHERE id = ?";
@@ -198,6 +286,11 @@ public class DatabaseManager {
   }
 
   public int updateStudent(Student student) throws SQLException {
+    /**
+     * @brief A method that updates a Student object in the database
+     * @param student The target student with updated attributes
+     * @return The number of rows modified
+     */
     String query = "UPDATE students SET first_name = ?, last_name = ?, email "
                    + "= ? WHERE id = ?";
     return executeUpdate(query, student.getFirstName(), student.getLastName(),
@@ -205,6 +298,11 @@ public class DatabaseManager {
   }
 
   public int updateGrades(GradeItem grade) throws SQLException {
+    /**
+     * @brief A method that updates a GradeItem object in the database
+     * @param grade The target grade with updated attributes
+     * @return The number of rows modified
+     */
     String query = "UPDATE grade_items SET title = ?, category = ?, score = ?, "
                    + "max_score = ?, feedback = ? WHERE id = ?";
     return executeUpdate(query, grade.getTitle(), grade.getCategory(),
@@ -213,21 +311,41 @@ public class DatabaseManager {
   }
 
   public int deleteCourse(Course course) throws SQLException {
+    /**
+     * @brief A method that deletes a Course object from the database
+     * @param course The target course
+     * @return The number of rows modified
+     */
     String query = "DELETE FROM courses WHERE id = ?";
     return executeUpdate(query, course.getId());
   }
 
   public int deleteStudent(Student student) throws SQLException {
+    /**
+     * @brief A method that deletes a Student object from the database
+     * @param student The target student
+     * @return The number of rows modified
+     */
     String query = "DELETE FROM students WHERE id = ?";
     return executeUpdate(query, student.getId());
   }
 
   public int deleteGrade(GradeItem grade) throws SQLException {
+    /**
+     * @brief A method that deletes a GradeItem object from the database
+     * @param grade The target grade
+     * @return The number of rows modified
+     */
     String query = "DELETE FROM grade_items WHERE id = ?";
     return executeUpdate(query, grade.getId());
   }
 
   public int deleteEnrollment(Enrollment enrollment) throws SQLException {
+    /**
+     * @brief A method that deletes an Enrollment object from the database
+     * @param enrollment The target enrollment
+     * @return The number of rows modified
+     */
     String query = "DELETE FROM enrollments WHERE id = ?";
     return executeUpdate(query, enrollment.getId());
   }
