@@ -88,7 +88,7 @@ classDiagram
 
     class GradeItemService {
         -Databasemanager db
-        +addGradeItem(GradeItem grade) bool
+        +addGradeItem(Enrollment enrollment, GradeItem grade) bool
         +calculateWeight(GradeItem grade) double
         +calculatePercentage(GradeItem grade) double
         +contributionToTotal() double
