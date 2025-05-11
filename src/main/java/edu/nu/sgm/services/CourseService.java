@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 import edu.nu.sgm.models.Course;
 import edu.nu.sgm.models.Student;
-import edu.nu.sgm.utils.*;
 import edu.nu.sgm.utils.DatabaseManager;
 import java.io.File;
 
@@ -17,6 +16,28 @@ public class CourseService {
     }
 
     /*
+     * @brief Checks if a course exists in the database.
+     * 
+     * @param course The course to check for existence.
+     * 
+     * @return true if the course exists, false otherwise.
+     */
+    public static boolean courseExists(Course course) {
+        try {
+            List<Course> courses = db.fetchCourses();
+            for (int i = 0; i < courses.size(); i++) {
+                if (courses.get(i).getCourseCode().equals(course.getCourseCode())) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (SQLException e) {
+            System.err.println("Error checking course existence: " + e.getMessage());
+            return false;
+        }
+    }
+
+    /*
      * @brief Adds a course to the database.
      * 
      * @param course The course to be added.
@@ -24,8 +45,9 @@ public class CourseService {
      * @return true if the course was added successfully, false otherwise.
      */
     public static boolean addCourse(Course course) {
-        if (course == null) {
-            throw new IllegalArgumentException("Invalid course object.");
+        if (courseExists(course)) {
+            System.err.println("Course already exists.");
+            return false;
         }
         try {
             return db.createCourse(course);
@@ -43,8 +65,9 @@ public class CourseService {
      * @return true if the course was removed successfully, false otherwise.
      */
     public static boolean removeCourse(Course course) {
-        if (course == null) {
-            throw new IllegalArgumentException("Invalid course object.");
+        if (!courseExists(course)) {
+            System.err.println("Course does not exist.");
+            return false;
         }
         try {
             return db.deleteCourse(course) > 0;
@@ -62,9 +85,10 @@ public class CourseService {
      * @return A list of students enrolled in the course, or null if an error
      * occurred.
      */
-    public static List<Student> getStudents(Course course) {
-        if (course == null) {
-            throw new IllegalArgumentException("Invalid course object.");
+    public List<Student> getStudents(Course course) {
+        if (!courseExists(course)) {
+            System.err.println("Course does not exist.");
+            return null;
         }
         try {
             return db.fetchStudents(course);
@@ -80,7 +104,7 @@ public class CourseService {
      * @return The total number of students enrolled in the course, or 0 if an error
      * occurred.
      */
-    public static int getTotalStudents() {
+    public int getTotalStudents() {
         try {
             return db.fetchStudents().size();
         } catch (SQLException e) {
@@ -97,11 +121,13 @@ public class CourseService {
      * @return A string containing the course details.
      */
     public static String displayDetails(Course course) {
-        if (course == null) {
-            throw new IllegalArgumentException("Invalid course object.");
+        if (!courseExists(course)) {
+            System.err.println("Course does not exist.");
+            return null;
         }
-        return String.format("Course Name: %s\nCourse Code: %s\nInstructor: %s\nCredit Hours: %d\n",
-                course.getTitle(), course.getCourseCode(), course.getInstructor(), course.getCreditHours());
+        return String.format("%d\n%s\n%s\n%s\n%d",
+                course.getId(), course.getCourseCode(), course.getTitle(), course.getInstructor(),
+                course.getCreditHours());
     }
 
     /*
