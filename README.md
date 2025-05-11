@@ -58,7 +58,7 @@ classDiagram
         +removeCourse(Course course) bool
         +getStudents(Course course) List~Student~
         +getTotalStudents(Course course) int
-        +displayDetails() String
+        +displayDetails(Course course) String
         +importCourses(File file) boolean
         +exportCourses() boolean
     }
