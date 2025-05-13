@@ -52,6 +52,27 @@ public class CourseService {
             System.err.println("Course already exists.");
             return false;
         }
+
+        if (!course.getCourseCode().matches("^[A-Za-z]{4}-\\d{3}$")) {
+            System.err.println("Invalid course code format.");
+            return false;
+        }
+
+        if (course.getTitle().length() > 50) {
+            System.err.println("Invalid course title.");
+            return false;
+        }
+
+        if (course.getCreditHours() < 0) {
+            System.err.println("Invalid credit hours.");
+            return false;
+        }
+
+        if (course.getInstructor().length() > 20) {
+            System.err.println("Invalid instructor name length.");
+            return false;
+        }
+
         try {
             return db.createCourse(course);
         } catch (SQLException e) {
@@ -107,7 +128,7 @@ public class CourseService {
      * @return The total number of students enrolled in the course, or 0 if an error
      * occurred.
      */
-    public int getTotalStudents() {
+    public static int getTotalStudents() {
         try {
             return db.fetchStudents().size();
         } catch (SQLException e) {
