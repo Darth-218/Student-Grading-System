@@ -8,15 +8,18 @@ public class GradeItem {
   private double max_score;
   private String feedback;
   private int id;
+  private double weight; // percentage of total grade
+
 
   // constructor 
-  public GradeItem(String title, String category, double score, double max_score, String feedback, int id) {
+  public GradeItem(String title, String category, double score, double max_score, String feedback, int id, double weight) {
   this.title = title;
   this.category = category;
   this.score = score;
   this.max_score = max_score;
   this.feedback = feedback;
   this.id = id;
+  this.weight = weight;
 }
 
   // Title getter/setter
@@ -65,8 +68,45 @@ public class GradeItem {
     return this.id;
   }
 
+  public boolean setId(int id) {
+  if (id < 0) return false;
+  this.id = id;
+  return true;
+}
+
+
+  // MaxScore getter/setter
   public double getMaxScore() {
     return this.max_score;
   }
+
+  public boolean setMaxScore(double maxScore) {
+  if (maxScore <= 0 || this.score > maxScore) return false;
+  this.max_score = maxScore;
+  return true;
+}
+
+
+// Weight setter/getter
+public boolean setWeight(double weight) {
+  if (weight < 0 || weight > 100) return false;
+  this.weight = weight;
+  return true;
+}
+
+public double getWeight() {
+  return this.weight;
+}
+
+
+// checking validity
+public boolean isValid() {
+    return title != null && !title.isEmpty()
+        && category != null && !category.isEmpty()
+        && score >= 0 && max_score > 0 && score <= max_score
+        && weight >= 0 && weight <= 100
+        && feedback != null;
+}
+
 
 }
