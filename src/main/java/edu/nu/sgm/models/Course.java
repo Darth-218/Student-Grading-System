@@ -64,6 +64,16 @@ public class Course {
   }
 
   /**
+   * @brief Sets the unique identifier for the course.
+   * @param id The unique identifier for the course.
+   * @return {@code true} if the ID was successfully set, {@code false}
+   *         otherwise.
+   */
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  /**
    * @brief Retrieves the unique identifier for the course.
    * @return The unique identifier for the course.
    */
@@ -139,10 +149,21 @@ public class Course {
   }
 
   /**
+   * @brief Sets the total number of students enrolled in the course.
+   * @param total_students The total number of students.
+   * @return {@code true} if the total number of students was successfully set,
+   *         {@code false} otherwise.
+   */
+  public void setTotalStudents(int total_students) {
+    this.total_students = total_students;
+  }
+
+  /**
    * @brief Retrieves the total number of students enrolled in the course.
    * @return The total number of students enrolled in the course.
    */
   public int getTotalStudents() {
     return total_students;
   }
+
 }

@@ -27,7 +27,6 @@ classDiagram
         +getCourses(Student student) List~Course~
         +getTotalCourses(Student student) int
         +displayDetails(Student student) String
-        +calculateGPA(Student student) double
         +importStudents(File csv) boolean
         +exportStudents() boolean
     }
@@ -59,8 +58,7 @@ classDiagram
         +removeCourse(Course course) bool
         +getStudents(Course course) List~Student~
         +getTotalStudents(Course course) int
-        +displayDetails() String
-        +calculateTotalGrade(Student student) double
+        +displayDetails(Course course) String
         +importCourses(File file) boolean
         +exportCourses() boolean
     }
@@ -88,10 +86,10 @@ classDiagram
 
     class GradeItemService {
         -Databasemanager db
-        +addGradeItem(GradeItem grade) bool
-        +calculateWeight(GradeItem grade) double
+        +addGradeItem(Enrollment enrollment, GradeItem grade) bool
+        +removeGradeItem(GradeItem grade) bool
+        +calculateTotalGrade(Enrollment enrollment) double
         +calculatePercentage(GradeItem grade) double
-        +contributionToTotal() double
         +importGrades(File file) boolean
         +exportGrades() boolean
     }
@@ -111,6 +109,7 @@ classDiagram
         +enrollStudent(Student student, Course course) bool
         +dropCourse(Student student, Course course) bool
         +getGrades(Student student, Course course) List~GradeItem~
+        +calculateGPA(Student student) double
         +generateReportCard(Student student) String
     }
 ```
