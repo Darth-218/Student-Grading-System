@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.function.Function;
 
 import edu.nu.sgm.models.Course;
+import edu.nu.sgm.models.GradeItem;
 import edu.nu.sgm.models.Student;
 
 public class Reader {
@@ -44,6 +45,17 @@ public class Reader {
         String last_name = parts[1];
         String email = parts[2];
         return new Student(id, name, last_name, email);
+    }
+
+    public static GradeItem parseGradeItems(String line) {
+        String[] parts = line.split(",");
+        String title = parts[0];
+        String category = parts[1];
+        double score = Double.parseDouble(parts[2]);
+        double max_score = Double.parseDouble(parts[3]);
+        String feedback = parts[4];
+        int id = 0;
+        return new GradeItem(title, category, score, max_score, feedback, id);
     }
 
 }
