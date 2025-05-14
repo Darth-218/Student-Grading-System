@@ -10,7 +10,7 @@ public class Student {
     this.id = id;
     this.name = name;
     this.last_name = last_name;
-    this.email = generateStudentEmail();
+    this.email = email;
   }
 
   public int getId() { return id; }
