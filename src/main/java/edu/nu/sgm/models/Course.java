@@ -35,6 +35,7 @@ public class Course {
   public Course(int id, String course_code, String title, String instructor,
       int credit_hours) {
     this.id = id;
+    this.course_code = course_code;
     this.title = title;
     this.instructor = instructor;
     this.credit_hours = credit_hours;
