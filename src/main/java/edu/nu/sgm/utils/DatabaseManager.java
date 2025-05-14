@@ -173,8 +173,8 @@ public class DatabaseManager {
      * @param enrollment The enrollment to add
      * @return True when the enrollment is added successfully
      */
-    String query = "INSERT INTO enrollments (student_id, course_id, "
-                   + "semester) VALUES (?, ?, ?)";
+    String query = "INSERT INTO enrollments (student_id, course_id"
+                   + ") VALUES (?, ?)";
     int enrollment_id =
         executeInsert(query, enrollment.getStudent(), enrollment.getCourse());
     enrollment.setID(enrollment_id);
