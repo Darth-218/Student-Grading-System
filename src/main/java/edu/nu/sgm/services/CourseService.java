@@ -109,7 +109,7 @@ public class CourseService {
      * @return A list of students enrolled in the course, or null if an error
      * occurred.
      */
-    public List<Student> getStudents(Course course) {
+    public static List<Student> getStudents(Course course) {
         if (!courseExists(course)) {
             System.err.println("Course does not exist.");
             return null;

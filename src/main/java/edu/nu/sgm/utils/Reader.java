@@ -54,8 +54,9 @@ public class Reader {
         double score = Double.parseDouble(parts[2]);
         double max_score = Double.parseDouble(parts[3]);
         String feedback = parts[4];
+        double weight = Double.parseDouble(parts[5]);
         int id = 0;
-        return new GradeItem(title, category, score, max_score, feedback, id);
+        return new GradeItem(id, title, category, score, max_score, feedback, weight);
     }
 
 }
