@@ -89,7 +89,6 @@ classDiagram
         +addGradeItem(Enrollment enrollment, GradeItem grade) bool
         +removeGradeItem(GradeItem grade) bool
         +calculateTotalGrade(Enrollment enrollment) double
-        +calculatePercentage(GradeItem grade) double
         +importGrades(File file) boolean
         +exportGrades() boolean
     }
