@@ -10,17 +10,17 @@ public class GradeItem {
   private int id;
   private double weight; // percentage of total grade
 
-
-  // constructor 
-  public GradeItem(String title, String category, double score, double max_score, String feedback, int id, double weight) {
-  this.title = title;
-  this.category = category;
-  this.score = score;
-  this.max_score = max_score;
-  this.feedback = feedback;
-  this.id = id;
-  this.weight = weight;
-}
+  // constructor
+  public GradeItem(int id, String title, String category, double score,
+                   double max_score, String feedback, double weight) {
+    this.id = id;
+    this.title = title;
+    this.category = category;
+    this.score = score;
+    this.max_score = max_score;
+    this.feedback = feedback;
+    this.weight = weight;
+  }
 
   // Title getter/setter
   public boolean setTitle(String name) {
@@ -55,8 +55,6 @@ public class GradeItem {
 
   // feedback getter/setter
   public boolean setFeedback(String feedback) {
-    if (feedback == null)
-      return false;
     this.feedback = feedback;
     return true;
   }
@@ -64,49 +62,32 @@ public class GradeItem {
   public String getFeedback() { return this.feedback; }
 
   // id getter/setter
-  public int getId() {
-    return this.id;
-  }
+  public int getId() { return this.id; }
 
   public boolean setId(int id) {
-  if (id < 0) return false;
-  this.id = id;
-  return true;
-}
-
-
-  // MaxScore getter/setter
-  public double getMaxScore() {
-    return this.max_score;
+    if (id < 0)
+      return false;
+    this.id = id;
+    return true;
   }
 
+  // MaxScore getter/setter
+  public double getMaxScore() { return this.max_score; }
+
   public boolean setMaxScore(double maxScore) {
-  if (maxScore <= 0 || this.score > maxScore) return false;
-  this.max_score = maxScore;
-  return true;
-}
+    if (maxScore <= 0 || this.score > maxScore)
+      return false;
+    this.max_score = maxScore;
+    return true;
+  }
 
+  // Weight setter/getter
+  public boolean setWeight(double weight) {
+    if (weight < 0 || weight > 100)
+      return false;
+    this.weight = weight;
+    return true;
+  }
 
-// Weight setter/getter
-public boolean setWeight(double weight) {
-  if (weight < 0 || weight > 100) return false;
-  this.weight = weight;
-  return true;
-}
-
-public double getWeight() {
-  return this.weight;
-}
-
-
-// checking validity
-public boolean isValid() {
-    return title != null && !title.isEmpty()
-        && category != null && !category.isEmpty()
-        && score >= 0 && max_score > 0 && score <= max_score
-        && weight >= 0 && weight <= 100
-        && feedback != null;
-}
-
-
+  public double getWeight() { return this.weight; }
 }
