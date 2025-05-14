@@ -1,9 +1,7 @@
 package edu.nu.sgm.utils;
 
 import edu.nu.sgm.models.*;
-import java.io.InputStream;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,9 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseManager {
-  private static final String DB_URL = "jdbc:h2:mem";
-  private static final String SCHEMA =
-      "../../../../../resources/edu/nu/sgm/db/schema.sql";
+  private static final String DB_URL =
+      "jdbc:h2:mem:university;DB_CLOSE_DELAY=-1";
+  private static final String SCHEMA = "schema.sql";
   private static boolean init = false;
 
   ///< Link to the database

@@ -3,7 +3,6 @@ package edu.nu.sgm.services;
 import edu.nu.sgm.models.*;
 import edu.nu.sgm.utils.DatabaseManager;
 import java.sql.SQLException;
-import java.util.List;
 
 public class EnrollmentService {
   private DatabaseManager db;

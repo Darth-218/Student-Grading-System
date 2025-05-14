@@ -22,6 +22,7 @@ classDiagram
 
     class StudentService {
         -Databasemanager db
+        +List~Student~ students
         +addStudent(Student student) bool
         +removeStudent(Student student) bool
         +getCourses(Student student) List~Course~
@@ -54,6 +55,7 @@ classDiagram
 
     class CourseService {
         -Databasemanager db
+        +List~Course~ courses
         +addCourse(Course course) bool
         +removeCourse(Course course) bool
         +getStudents(Course course) List~Student~
