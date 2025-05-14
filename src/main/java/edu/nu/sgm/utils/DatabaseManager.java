@@ -249,7 +249,15 @@ public class DatabaseManager {
      * @return The list of grades
      */
     String query = "SELECT * FROM grade_items WHERE enrollment_id = ?";
-    return executeReturn(query, results -> new GradeItem(), enrollment.getId());
+    return executeReturn(
+        query,
+        results
+        -> new GradeItem(
+            results.getInt("id"), results.getString("title"),
+            results.getString("category"), results.getDouble("score"),
+            results.getDouble("max_score"), results.getString("feedback"),
+            results.getDouble("weight")),
+        enrollment.getId());
   }
 
   public List<Enrollment> fetchEnrollment(Student student, Course course)
