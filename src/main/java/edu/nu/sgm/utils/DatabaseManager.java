@@ -1,7 +1,6 @@
 package edu.nu.sgm.utils;
 
 import edu.nu.sgm.models.*;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,29 +13,27 @@ import java.util.List;
 public class DatabaseManager {
   private static final String DB_URL =
       "jdbc:h2:mem:university;DB_CLOSE_DELAY=-1";
-  private static final String SCHEMA = "schema.sql";
-  private static boolean init = false;
 
-  ///< Link to the database
+  public DatabaseManager() {
+    try {
+      initializeDatabase();
+    } catch (SQLException e) {
+      System.err.println("Failed to initialize database.");
+    }
+  }
 
-  private synchronized void initializeDatabase() throws SQLException {
-    if (init)
-      return;
-
-    try (Connection connection = DriverManager.getConnection(DB_URL)) {
-      // Get the path to your schema file
-      URL schemaUrl = getClass().getClassLoader().getResource(SCHEMA);
-      if (schemaUrl == null) {
-        throw new SQLException("Schema file not found: " + SCHEMA);
-      }
-
-      // Use H2's RUNSCRIPT command
-      String scriptPath = schemaUrl.getFile();
-      try (Statement stmt = connection.createStatement()) {
-        stmt.execute("RUNSCRIPT FROM '" + scriptPath + "'");
-      }
-
-      init = true;
+  public boolean initializeDatabase() throws SQLException {
+    String schemaPath = "";
+    try (Connection connection = DriverManager.getConnection(DB_URL);
+         Statement statement = connection.createStatement()) {
+      schemaPath =
+          getClass().getClassLoader().getResource("schema.sql").getPath();
+      statement.execute("RUNSCRIPT FROM '" + schemaPath + "'");
+      return true;
+    } catch (SQLException e) {
+      System.err.println("Database initialization failed: " + schemaPath +
+                         e.getMessage());
+      throw e;
     }
   }
 
@@ -53,8 +50,8 @@ public class DatabaseManager {
      * @param parameters The extra parameters bind to the statement
      * @return A parameterized statement
      */
-    for (int i = 1; i <= parameters.length; i++) {
-      statement.setObject(i, parameters[i]);
+    for (int i = 0; i < parameters.length; i++) {
+      statement.setObject(i + 1, parameters[i]);
     }
     return statement;
   }
@@ -67,7 +64,6 @@ public class DatabaseManager {
      * @param mapper The T constructor
      * @return A list of T objects
      */
-    initializeDatabase();
     List<T> output = new ArrayList<>(); ///< The output list
     try (Connection connection = DriverManager.getConnection(DB_URL);
          ResultSet results = connection.createStatement().executeQuery(query)) {
@@ -88,7 +84,6 @@ public class DatabaseManager {
      * @param parameters The statement parameters
      * @return A list of T objects
      */
-    initializeDatabase();
     List<T> output = new ArrayList<>(); ///< The output list
     try (Connection connection = DriverManager.getConnection(DB_URL);
          ResultSet results =
@@ -111,7 +106,6 @@ public class DatabaseManager {
      * @param parameters The statement parameters
      * @return The number of updated rows
      */
-    initializeDatabase();
     try (Connection connection = DriverManager.getConnection(DB_URL);
          PreparedStatement statement = parameterizedStatement(
              connection.prepareStatement(query), parameters)) {
@@ -127,14 +121,18 @@ public class DatabaseManager {
      * @param parameters The statement parameters
      * @return The generated ID of the inserted entry
      */
-    initializeDatabase();
-    try (Connection connection = DriverManager.getConnection(DB_URL);
-         PreparedStatement statement = parameterizedStatement(
-             connection.prepareStatement(query), parameters)) {
+    try (
+        Connection connection = DriverManager.getConnection(DB_URL);
+        PreparedStatement statement = parameterizedStatement(
+            connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS),
+            parameters)) {
       if (statement.executeUpdate() == 0)
         throw new SQLException("No rows updated");
-      ResultSet generated_keys = statement.getGeneratedKeys();
-      return generated_keys.getInt(1);
+      ResultSet keys = statement.getGeneratedKeys();
+      while (keys.next()) {
+        return keys.getInt(1);
+      }
+      return 0;
     }
   }
 
