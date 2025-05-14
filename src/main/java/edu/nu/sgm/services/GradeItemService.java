@@ -19,6 +19,22 @@ public class GradeItemService {
       return false;
     }
   }
+
+  public List<GradeItem> getGrades(Enrollment enrollment) {
+    if (enrollment == null) {
+        System.out.println("Enrollment is null.");
+        return List.of();
+    }
+
+    try {
+        return db.fetchGrades(enrollment);
+    } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Error fetching grades for enrollment.");
+        return List.of();
+    }
+}
+
   
 public boolean removeGradeItem(GradeItem grade, Enrollment enrollment) {
     if (grade == null || enrollment == null) {
@@ -26,58 +42,19 @@ public boolean removeGradeItem(GradeItem grade, Enrollment enrollment) {
         return false;
     }
 
-    // Step 1: Validate enrollment
-    Student student = studentService.getStudentById(enrollment.getStudentId());
-    Course course = courseService.getCourseById(enrollment.getCourseId());
-
-    if (student == null || course == null) {
-        System.out.println("Student or Course not found.");
-        return false;
-    }
-
-    if (db.fetchEnrollment(student, course).isEmpty()) {
-        System.out.println("Student is not enrolled in the specified course.");
-        return false;
-    }
-
-    // Step 2: Show all grades for this enrollment
-    List<GradeItem> gradeItems = getGradeItemsByEnrollmentId(enrollment.getId());
+    List<GradeItem> gradeItems = getGrades(enrollment);
     if (gradeItems.isEmpty()) {
         System.out.println("No grades found for this enrollment.");
         return false;
     }
 
-    System.out.println("Available grades:");
-    for (int i = 0; i < gradeItems.size(); i++) {
-        GradeItem gi = gradeItems.get(i);
-        System.out.println((i + 1) + ". " + gi.getName() + " (" + gi.getScore() + "/" + gi.getMaxScore() + ")");
+    try {
+      return db.deleteGrade(grade) > 0;
+    } catch (SQLException e) {
+    e.printStackTrace();
+    return false; 
     }
-
-    // Step 3: Check if the selected grade exists and delete it
-    boolean found = gradeItems.stream()
-        .anyMatch(g -> g.getId() == grade.getId());
-
-    if (!found) {
-        System.out.println("Grade item not found in this enrollment.");
-        return false;
-    }
-
-    String sql = "DELETE FROM grade_items WHERE id = ?";
-    boolean success = DatabaseManager.executeUpdate(sql, grade.getId()) > 0;
-
-    if (success) {
-        System.out.println("Grade item successfully removed.");
-    } else {
-        System.out.println("Failed to remove grade item.");
-    }
-
-    return success;
 }
 
-
-  public double calculateTotalGrade(Enrollment enrollment){
-
-
-  }
 
 }
