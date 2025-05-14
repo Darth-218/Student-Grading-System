@@ -1,10 +1,9 @@
+package edu.nu.sgm.services;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.io.FileWriter;
-import java.io.IOException;
 
 import edu.nu.sgm.models.*;
 import edu.nu.sgm.utils.DatabaseManager;
@@ -36,16 +35,27 @@ public class StudentService {
     if(!checkspecial(name)){
         return false;
     }
+    return true;
    }
     public boolean addstudent(Student s){
         if (!(checkName(s.getFirstName()) && checkName(s.getLastName()))) {
             return false;
         }
-        db.createStudent(s);
+        try {
+            return db.createStudent(s);
+        } catch (SQLException e) {
+            return false;
+        }
      }
 
   public List<Student> getStudents(){
-     return db.fetchStudents();
+    try {
+            return db.fetchStudents();
+        }
+    catch (SQLException e) {
+           return null;
+        }
+     
   }
 
      public boolean removeStudent(Student s){
@@ -53,18 +63,30 @@ public class StudentService {
             return false;
         }
         st.remove(s);
-        return db.deleteStudent(s) == 1;
+        try {
+            return db.deleteStudent(s) == 1;
+        }
+        catch (SQLException e) {
+           return false;
+        }
+         
      }
      public List<Course> getCourses(Student s) {
         if(s== null || !st.contains(s)){
          return new ArrayList<Course>();
         }
-        return db.fetchCourses(s);
+        try {
+            return db.fetchCourses(s);
+        }
+        catch (SQLException e) {
+           return null;
+        }
+        
     }
     
      public int getTotalCourses(Student s) {
          int count = 0;
-        for(Course c : getCourses(s)){
+        for(Course _ : getCourses(s)){
             count++;
         }
         return count;
