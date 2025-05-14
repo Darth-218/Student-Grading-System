@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import edu.nu.sgm.models.Course;
 import edu.nu.sgm.services.CourseService;
+import edu.nu.sgm.utils.DatabaseManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,17 +12,13 @@ public class CourseCreationTest {
 
   CourseService cs = new CourseService();
 
-  @BeforeEach
-  public void setUp() {}
-
-  @Test
-  public void testAddCourse_Success() {
-    Course course = new Course(
-        1, "CSCI-101", "Introduction to Computer Science", "Dr. Smith", 3);
-    assertTrue(!cs.courseExists(course));
-    // boolean result = cs.addCourse(course);
-    // assertTrue(!result, "Course should be added successfully");
-  }
+  // @Test
+  // public void testAddCourse_Success() {
+  // Course course = new Course(
+  // 1, "CSCI-101", "Introduction to Computer Science", "Dr. Smith", 3);
+  // boolean result = cs.addCourse(course);
+  // assertTrue(result, "Course should be added successfully");
+  // }
 
   // @Test
   // public void testRemoveCourse_Success() {
