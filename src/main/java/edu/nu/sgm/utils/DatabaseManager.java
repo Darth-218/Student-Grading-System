@@ -252,7 +252,7 @@ public class DatabaseManager {
     return executeReturn(query, results -> new GradeItem(), enrollment.getId());
   }
 
-  public Enrollment fetchEnrollment(Student student, Course course)
+  public List<Enrollment> fetchEnrollment(Student student, Course course)
       throws SQLException {
     /**
      * @brief A method that gets a specific enrollment
@@ -267,8 +267,7 @@ public class DatabaseManager {
                          -> new Enrollment(results.getInt("id"),
                                            results.getInt("student_id"),
                                            results.getInt("course_id")),
-                         student.getId(), course.getId())
-        .getFirst();
+                         student.getId(), course.getId());
   }
 
   public int updateCourse(Course course) throws SQLException {
@@ -340,13 +339,15 @@ public class DatabaseManager {
     return executeUpdate(query, grade.getId());
   }
 
-  public int deleteEnrollment(Enrollment enrollment) throws SQLException {
+  public int deleteEnrollment(Student student, Course course)
+      throws SQLException {
     /**
      * @brief A method that deletes an Enrollment object from the database
      * @param enrollment The target enrollment
      * @return The number of rows modified
      */
-    String query = "DELETE FROM enrollments WHERE id = ?";
-    return executeUpdate(query, enrollment.getId());
+    String query =
+        "DELETE FROM enrollments WHERE student_id = ? AND course_id = ?";
+    return executeUpdate(query, student.getId(), course.getId());
   }
 }
