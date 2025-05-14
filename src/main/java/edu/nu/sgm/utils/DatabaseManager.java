@@ -1,6 +1,9 @@
 package edu.nu.sgm.utils;
 
 import edu.nu.sgm.models.*;
+import java.io.InputStream;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,8 +15,32 @@ import java.util.List;
 
 public class DatabaseManager {
   private static final String DB_URL = "jdbc:h2:mem";
+  private static final String SCHEMA =
+      "../../../../../resources/edu/nu/sgm/db/schema.sql";
+  private static boolean init = false;
 
   ///< Link to the database
+
+  private synchronized void initializeDatabase() throws SQLException {
+    if (init)
+      return;
+
+    try (Connection connection = DriverManager.getConnection(DB_URL)) {
+      // Get the path to your schema file
+      URL schemaUrl = getClass().getClassLoader().getResource(SCHEMA);
+      if (schemaUrl == null) {
+        throw new SQLException("Schema file not found: " + SCHEMA);
+      }
+
+      // Use H2's RUNSCRIPT command
+      String scriptPath = schemaUrl.getFile();
+      try (Statement stmt = connection.createStatement()) {
+        stmt.execute("RUNSCRIPT FROM '" + scriptPath + "'");
+      }
+
+      init = true;
+    }
+  }
 
   private interface ResultSetMapper<T> {
     T map(ResultSet results) throws SQLException;
@@ -42,6 +69,7 @@ public class DatabaseManager {
      * @param mapper The T constructor
      * @return A list of T objects
      */
+    initializeDatabase();
     List<T> output = new ArrayList<>(); ///< The output list
     try (Connection connection = DriverManager.getConnection(DB_URL);
          ResultSet results = connection.createStatement().executeQuery(query)) {
@@ -62,6 +90,7 @@ public class DatabaseManager {
      * @param parameters The statement parameters
      * @return A list of T objects
      */
+    initializeDatabase();
     List<T> output = new ArrayList<>(); ///< The output list
     try (Connection connection = DriverManager.getConnection(DB_URL);
          ResultSet results =
@@ -84,6 +113,7 @@ public class DatabaseManager {
      * @param parameters The statement parameters
      * @return The number of updated rows
      */
+    initializeDatabase();
     try (Connection connection = DriverManager.getConnection(DB_URL);
          PreparedStatement statement = parameterizedStatement(
              connection.prepareStatement(query), parameters)) {
@@ -99,6 +129,7 @@ public class DatabaseManager {
      * @param parameters The statement parameters
      * @return The generated ID of the inserted entry
      */
+    initializeDatabase();
     try (Connection connection = DriverManager.getConnection(DB_URL);
          PreparedStatement statement = parameterizedStatement(
              connection.prepareStatement(query), parameters)) {
@@ -132,8 +163,8 @@ public class DatabaseManager {
      * @param student The student to add
      * @return True when the student is added successfully
      */
-    String query =
-        "INSERT INTO students (first_name, last_name, email) VALUES (?, ?, ?)";
+    String query = "INSERT INTO students (first_name, last_name, email) "
+                   + "VALUES (?, ?, ?)";
     int student_id = executeInsert(query, student.getFirstName(),
                                    student.getLastName(), student.getEmail());
     student.setId(student_id);

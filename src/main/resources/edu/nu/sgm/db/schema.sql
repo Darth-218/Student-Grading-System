@@ -30,5 +30,6 @@ CREATE TABLE IF NOT EXISTS grade_items (
   score FLOAT NOT NULL,
   max_score FLOAT DEFAULT 100.0,
   feedback TEXT DEFAULT "No feedback given.",
+  weight FLOAT NOT NULL,
   FOREIGN KEY(enrollment_id) REFERENCES enrollments(id)
 );
