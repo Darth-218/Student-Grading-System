@@ -19,17 +19,17 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="cgpa" layoutX="266.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cgpa" />
+      <Text fx:id="cc_gpa" layoutX="266.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cgpa" />
       <TableView layoutX="50.0" layoutY="110.0" prefHeight="220.0" prefWidth="500.0">
         <columns>
-          <TableColumn prefWidth="194.66669082641602" text="Courses Name" />
-            <TableColumn prefWidth="110.66667175292969" text="Code" />
-            <TableColumn prefWidth="105.33331298828125" text="Final Grade" />
-          <TableColumn minWidth="0.0" prefWidth="87.33340454101562" text="GPA" />
+          <TableColumn fx:id="c_name" prefWidth="194.66669082641602" text="Courses Name" />
+            <TableColumn fx:id="c_code" prefWidth="110.66667175292969" text="Code" />
+            <TableColumn fx:id="f_grade" prefWidth="105.33331298828125" text="Final Grade" />
+          <TableColumn fx:id="c_gpa" minWidth="0.0" prefWidth="87.33340454101562" text="GPA" />
         </columns>
       </TableView>
-      <Button layoutX="50.0" layoutY="347.0" mnemonicParsing="false" text="Remove student" />
-      <Button layoutX="497.0" layoutY="347.0" mnemonicParsing="false" text="Return" />
+      <Button fx:id="s_remove" layoutX="50.0" layoutY="347.0" mnemonicParsing="false" text="Remove student" />
+      <Button fx:id="back" layoutX="497.0" layoutY="347.0" mnemonicParsing="false" text="Return" />
       <Text layoutX="55.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail :">
          <font>
             <Font size="15.0" />
@@ -40,10 +40,10 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <Text fx:id="id" layoutX="85.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" />
-      <Text fx:id="email" layoutX="118.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" />
-      <Button layoutX="401.0" layoutY="347.0" mnemonicParsing="false" text="Enroll Course" />
-      <Button layoutX="264.0" layoutY="347.0" mnemonicParsing="false" text="Generate Reportcard" />
-      <Button layoutX="468.0" layoutY="50.0" mnemonicParsing="false" text="Edit Student" />
+      <Text fx:id="s_id" layoutX="85.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" />
+      <Text fx:id="s_email" layoutX="118.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" />
+      <Button fx:id="c_enroll" layoutX="401.0" layoutY="347.0" mnemonicParsing="false" text="Enroll Course" />
+      <Button fx:id="report_gen" layoutX="264.0" layoutY="347.0" mnemonicParsing="false" text="Generate Reportcard" />
+      <Button fx:id="s_edit" layoutX="468.0" layoutY="50.0" mnemonicParsing="false" text="Edit Student" />
    </children>
 </AnchorPane>
