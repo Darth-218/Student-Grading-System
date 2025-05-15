@@ -8,6 +8,8 @@ import edu.nu.sgm.utils.DatabaseManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 public class CourseCreationTest {
 
   CourseService cs = new CourseService();
@@ -18,6 +20,7 @@ public class CourseCreationTest {
         1, "CSCI-101", "Introduction to Computer Science", "Dr. Smith", 3);
     boolean result = cs.addCourse(course);
     assertTrue(result, "Course should be added successfully");
+
   }
 
   @Test
@@ -30,17 +33,26 @@ public class CourseCreationTest {
 
   @Test
   public void testDisplayDetails_Success() {
-    Course course = new Course(5, "BIO-101", "Biology Basics", "Dr. Green", 3);
+    Course course = new Course(5, "BIOl-101", "Biology Basics", "Dr. Green", 3);
     cs.addCourse(course);
 
     String details = cs.displayDetails(course);
     assertNotNull(details, "Course details should not be null");
-    assertTrue(details.contains("BIO-101"),
+    assertTrue(details.contains("BIOl-101"),
         "Course details should contain course code");
     assertTrue(details.contains("Biology Basics"),
         "Course details should contain course name");
     assertTrue(details.contains("Dr. Green"),
         "Course details should contain instructor name");
     assertTrue(details.contains("3"), "Course details should contain credits");
+  }
+
+  @Test
+  public void testPrintAllCourses() {
+    List<Course> courses = cs.getCourses();
+    for (Course c : courses) {
+      System.out.println(c);
+    }
+    assertFalse(courses.isEmpty(), "There should be at least one course in the database");
   }
 }
