@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,17 +15,15 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text fill="#707070" layoutX="51.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Name">
+      <Text fx:id="s_name" fill="#707070" layoutX="51.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="s_name">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Text>
-      <Button layoutX="49.0" layoutY="350.0" mnemonicParsing="false" text="Remove Grade" />
-      <Button layoutX="498.0" layoutY="350.0" mnemonicParsing="false" text="Return" />
-      <Button layoutX="476.0" layoutY="72.0" mnemonicParsing="false" text="Edit Grade" />
+      <Button fx:id="g_edit" layoutX="476.0" layoutY="72.0" mnemonicParsing="false" text="Edit Grade" />
       <TitledPane layoutX="230.0" layoutY="161.0" prefHeight="175.0" prefWidth="318.0" text="Feedback">
          <content>
-            <TextArea prefHeight="200.0" prefWidth="200.0" text="No feedback " />
+            <TextArea fx:id="feedback" prefHeight="200.0" prefWidth="200.0" text="No feedback " />
          </content>
       </TitledPane>
       <GridPane layoutX="51.0" layoutY="72.0" prefHeight="60.0" prefWidth="295.0">
@@ -54,7 +53,7 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="course_gpa" strokeType="OUTSIDE" strokeWidth="0.0" text="c_gpa" />
+                  <Text fx:id="c_gpa" strokeType="OUTSIDE" strokeWidth="0.0" text="c_gpa" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0">
@@ -64,7 +63,7 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="c_code1" strokeType="OUTSIDE" strokeWidth="0.0" text="c_name" />
+                  <Text fx:id="c_name" strokeType="OUTSIDE" strokeWidth="0.0" text="c_name" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
@@ -74,7 +73,7 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="c_code11" strokeType="OUTSIDE" strokeWidth="0.0" text="g_name" />
+                  <Text fx:id="g_name" strokeType="OUTSIDE" strokeWidth="0.0" text="g_name" />
                </children>
             </HBox>
          </children>
@@ -96,12 +95,12 @@
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text layoutX="14.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score">
+                        <Text fx:id="g_score" layoutX="10.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score" textAlignment="RIGHT" wrappingWidth="71.33333333333348">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Text>
-                        <Text layoutX="83.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/out of">
+                        <Text fx:id="g_s_max" layoutX="83.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/out of">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -115,12 +114,12 @@
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text layoutX="14.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%">
+                        <Text fx:id="g_weight" layoutX="-23.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight%" textAlignment="RIGHT" wrappingWidth="110.0000241597495">
                            <font>
                               <Font size="25.0" />
                            </font>
                         </Text>
-                        <Text layoutX="83.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/Total%">
+                        <Text fx:id="g_w_max" layoutX="83.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/Total%">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -129,6 +128,27 @@
                   </AnchorPane>
                </children>
             </VBox>
+         </children>
+      </GridPane>
+      <GridPane layoutX="50.0" layoutY="356.0" prefHeight="30.0" prefWidth="498.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+              <buttons>
+                <Button fx:id="back" mnemonicParsing="false" text="Return" />
+              </buttons>
+            </ButtonBar>
+            <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1">
+              <buttons>
+                <Button fx:id="g_remove" mnemonicParsing="false" text="Remove Grade" />
+              </buttons>
+            </ButtonBar>
          </children>
       </GridPane>
    </children>

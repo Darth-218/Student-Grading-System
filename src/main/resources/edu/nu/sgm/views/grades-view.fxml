@@ -1,52 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text fill="#707070" layoutX="51.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Name">
+      <Text fx:id="s_name" fill="#707070" layoutX="51.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="s_name">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Text>
-      <Text layoutX="51.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text layoutX="208.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GPA:">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
       <TableView layoutX="50.0" layoutY="112.0" prefHeight="219.0" prefWidth="500.0">
         <columns>
-          <TableColumn prefWidth="172.66662979125977" text="Category" />
-          <TableColumn prefWidth="165.3332977294922" text="Content" />
-            <TableColumn prefWidth="162.66677856445312" text="Grade" />
+          <TableColumn fx:id="c_category" prefWidth="172.66662979125977" text="Category" />
+          <TableColumn fx:id="g_content" prefWidth="165.3332977294922" text="Content" />
+            <TableColumn fx:id="c_grade" prefWidth="162.66677856445312" text="Grade" />
         </columns>
       </TableView>
-      <Button layoutX="49.0" layoutY="350.0" mnemonicParsing="false" text="Remove course" />
-      <Button layoutX="498.0" layoutY="350.0" mnemonicParsing="false" text="Return" />
-      <Text fx:id="course_gpa" layoutX="268.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_gpa" />
-      <Text fx:id="Corse_name" layoutX="109.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Corse_name" />
-      <Text layoutX="208.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grade:">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text fx:id="final_g" layoutX="266.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="final_g" />
-      <Text layoutX="51.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code:">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text fx:id="c_code" layoutX="109.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_code" />
-      <Button layoutX="416.0" layoutY="350.0" mnemonicParsing="false" text="Add Grade" />
+      <GridPane layoutX="51.0" layoutY="54.0" prefHeight="45.0" prefWidth="250.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="125.6666259765625" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="124.3333740234375" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Text layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="c_name" layoutX="51.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="course_name" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <Text layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grade:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="f_grade" layoutX="51.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="final_g" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <Text layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="c_code" layoutX="51.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_code" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Text layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GPA:">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="c_gpa" layoutX="51.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_gpa" />
+               </children>
+            </AnchorPane>
+         </children>
+      </GridPane>
+      <GridPane layoutX="51.0" layoutY="345.0" prefHeight="30.0" prefWidth="500.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+              <buttons>
+                <Button fx:id="back" mnemonicParsing="false" text="Return" />
+              </buttons>
+            </ButtonBar>
+            <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1">
+              <buttons>
+                  <Button fx:id="g_add" mnemonicParsing="false" text="Add Grade" />
+              </buttons>
+            </ButtonBar>
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>

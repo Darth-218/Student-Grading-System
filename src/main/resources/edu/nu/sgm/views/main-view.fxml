@@ -16,7 +16,7 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="488.0" layoutY="322.0" mnemonicParsing="false" text="Add Student" />
+                  <Button fx:id="s_add" layoutX="488.0" layoutY="322.0" mnemonicParsing="false" text="Add Student" />
                   <Text fill="#707070" layoutX="28.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Students">
                      <font>
                         <Font name="System Bold" size="30.0" />
@@ -26,9 +26,9 @@
                      <items>
                         <TableView prefHeight="200.0" prefWidth="200.0">
                           <columns>
-                              <TableColumn prefWidth="200.0" text="Name" />
-                            <TableColumn minWidth="66.66" prefWidth="150.0" text="ID" />
-                            <TableColumn maxWidth="339.3333435058594" minWidth="25.333343505859375" prefWidth="190.66666666666663" text="E-Mail" />
+                              <TableColumn fx:id="s_name" prefWidth="200.0" text="Name" />
+                            <TableColumn fx:id="s_id" minWidth="66.66" prefWidth="150.0" text="ID" />
+                            <TableColumn fx:id="s_email" maxWidth="339.3333435058594" minWidth="25.333343505859375" prefWidth="190.66666666666663" text="E-Mail" />
                           </columns>
                         </TableView>
                      </items>
@@ -40,7 +40,7 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="493.0" layoutY="322.0" mnemonicParsing="false" text="Add Course" />
+                  <Button fx:id="c_add" layoutX="493.0" layoutY="322.0" mnemonicParsing="false" text="Add Course" />
                   <Text fill="#707070" layoutX="28.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Courses">
                      <font>
                         <Font name="System Bold" size="30.0" />
@@ -50,9 +50,9 @@
                      <items>
                         <TableView prefHeight="220.0" prefWidth="541.0">
                            <columns>
-                              <TableColumn prefWidth="200.0" text="Name" />
-                              <TableColumn minWidth="66.66" prefWidth="150.0" text="Code" />
-                              <TableColumn maxWidth="339.3333435058594" minWidth="25.333343505859375" prefWidth="190.66666666666663" text="Enrolled" />
+                              <TableColumn fx:id="c_name" prefWidth="200.0" text="Name" />
+                              <TableColumn fx:id="c_code" minWidth="66.66" prefWidth="150.0" text="Code" />
+                              <TableColumn fx:id="c_enroll" maxWidth="339.3333435058594" minWidth="25.333343505859375" prefWidth="190.66666666666663" text="Enrolled" />
                            </columns>
                         </TableView>
                      </items>
