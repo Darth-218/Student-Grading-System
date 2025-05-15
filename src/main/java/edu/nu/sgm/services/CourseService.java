@@ -4,6 +4,7 @@ import edu.nu.sgm.models.Course;
 import edu.nu.sgm.models.Student;
 import edu.nu.sgm.utils.DatabaseManager;
 import java.io.File;
+import edu.nu.sgm.utils.Reader;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -86,8 +87,8 @@ public class CourseService {
    */
   public boolean removeCourse(Course course) {
     if (!courseExists(course)) {
-    System.err.println("Course does not exist.");
-    return false;
+      System.err.println("Course does not exist.");
+      return false;
     }
     try {
       return db.deleteCourse(course) > 0;
@@ -107,8 +108,8 @@ public class CourseService {
    */
   public List<Student> getStudents(Course course) {
     if (!courseExists(course)) {
-    System.err.println("Course does not exist.");
-    return null;
+      System.err.println("Course does not exist.");
+      return null;
     }
     try {
       return db.fetchStudents(course);
@@ -143,8 +144,8 @@ public class CourseService {
    */
   public String displayDetails(Course course) {
     if (!courseExists(course)) {
-    System.err.println("Course does not exist.");
-    return null;
+      System.err.println("Course does not exist.");
+      return null;
     }
     return String.format("%d, %s, %s, %s, %d", course.getId(),
         course.getCourseCode(), course.getTitle(),
@@ -158,12 +159,9 @@ public class CourseService {
    *
    * @return true if the courses were imported successfully, false otherwise.
    */
-  public boolean importCourses(File file) {
-    if (file == null) {
-      throw new IllegalArgumentException("Invalid file object.");
-    }
-    // also under construction
-    return false;
+  public List<Course> importCourses(File file) {
+    List<Course> courses = Reader.readCSV(file, Reader::parseCourseImport);
+    return courses;
   }
 
   /*
@@ -173,11 +171,9 @@ public class CourseService {
    *
    * @return true if the courses were exported successfully, false otherwise.
    */
-  public boolean exportCourses(File file) {
-    if (file == null) {
-      throw new IllegalArgumentException("Invalid file object.");
-    }
-    // also under construction
-    return false;
+  public boolean exportCourses(List<Course> courses) {
+    Reader.writeCSV(new File("courses_export.csv"), courses,
+        Reader::parseCourseExport);
+    return true;
   }
 }
