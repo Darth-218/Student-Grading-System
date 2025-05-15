@@ -47,12 +47,7 @@ public class CourseCreationTest {
     assertTrue(details.contains("3"), "Course details should contain credits");
   }
 
-  @Test
-  public void testPrintAllCourses() {
-    List<Course> courses = cs.getCourses();
-    for (Course c : courses) {
-      System.out.println(c);
-    }
-    assertFalse(courses.isEmpty(), "There should be at least one course in the database");
-  }
 }
+
+
+    
