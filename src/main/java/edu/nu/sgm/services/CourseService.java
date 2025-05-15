@@ -6,6 +6,7 @@ import edu.nu.sgm.utils.DatabaseManager;
 import java.io.File;
 import edu.nu.sgm.utils.Reader;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CourseService {
@@ -133,6 +134,19 @@ public class CourseService {
       System.err.println("Error retrieving total students: " + e.getMessage());
       return 0;
     }
+  }
+
+  public List<Course> getAllCourses() {
+    try {
+      List<Course> courses = db.fetchCourses();
+      if (courses != null) {
+        return courses;
+      }
+    } catch (SQLException e) {
+      System.err.println("Error retrieving courses: " + e.getMessage());
+    }
+
+    return new ArrayList<Course>();
   }
 
   /*
