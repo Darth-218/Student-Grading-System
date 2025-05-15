@@ -18,20 +18,20 @@ public class CourseService {
    *
    * @return true if the course exists, false otherwise.
    */
-  // public boolean courseExists(Course course) {
-  // try {
-  // List<Course> courses = db.fetchCourses();
-  // for (int i = 0; i < courses.size(); i++) {
-  // if (courses.get(i).getCourseCode().equals(course.getCourseCode())) {
-  // return true;
-  // }
-  // }
-  // return false;
-  // } catch (SQLException e) {
-  // System.err.println("Error checking course existence: " + e.getMessage());
-  // return false;
-  // }
-  // }
+  public boolean courseExists(Course course) {
+    try {
+      List<Course> courses = db.fetchCourses();
+      for (int i = 0; i < courses.size(); i++) {
+        if (courses.get(i).getCourseCode().equals(course.getCourseCode())) {
+          return true;
+        }
+      }
+      return false;
+    } catch (SQLException e) {
+      System.err.println("Error checking course existence: " + e.getMessage());
+      return false;
+    }
+  }
 
   /*
    * @brief Adds a course to the database.
@@ -41,10 +41,10 @@ public class CourseService {
    * @return true if the course was added successfully, false otherwise.
    */
   public boolean addCourse(Course course) {
-    // if (courseExists(course)) {
-    // System.err.println("Course already exists.");
-    // return false;
-    // }
+    if (courseExists(course)) {
+      System.err.println("Course already exists.");
+      return false;
+    }
     if (course == null) {
       throw new IllegalArgumentException("Invalid course object.");
     }
@@ -85,10 +85,10 @@ public class CourseService {
    * @return true if the course was removed successfully, false otherwise.
    */
   public boolean removeCourse(Course course) {
-    // if (!courseExists(course)) {
-    // System.err.println("Course does not exist.");
-    // return false;
-    // }
+    if (!courseExists(course)) {
+    System.err.println("Course does not exist.");
+    return false;
+    }
     try {
       return db.deleteCourse(course) > 0;
     } catch (SQLException e) {
@@ -106,10 +106,10 @@ public class CourseService {
    * occurred.
    */
   public List<Student> getStudents(Course course) {
-    // // if (!courseExists(course)) {
-    // // System.err.println("Course does not exist.");
-    // // return null;
-    // }
+    if (!courseExists(course)) {
+    System.err.println("Course does not exist.");
+    return null;
+    }
     try {
       return db.fetchStudents(course);
     } catch (SQLException e) {
@@ -142,10 +142,10 @@ public class CourseService {
    * @return A string containing the course details.
    */
   public String displayDetails(Course course) {
-    // if (!courseExists(course)) {
-    // System.err.println("Course does not exist.");
-    // return null;
-    // }
+    if (!courseExists(course)) {
+    System.err.println("Course does not exist.");
+    return null;
+    }
     return String.format("%d, %s, %s, %s, %d", course.getId(),
         course.getCourseCode(), course.getTitle(),
         course.getInstructor(), course.getCreditHours());
