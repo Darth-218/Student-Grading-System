@@ -12,6 +12,7 @@ import edu.nu.sgm.models.GradeItem;
 import edu.nu.sgm.models.Student;
 
 public class Reader {
+
     public static <T> List<T> readCSV(File file, Function<String, T> parser) {
         List<T> list = new ArrayList<>();
         try {
@@ -28,7 +29,19 @@ public class Reader {
         return list;
     }
 
-    public static Course parseCourse(String line) {
+    public static <T> void writeCSV(File file, List<T> list, Function<T, String> parser) {
+        List<String> lines = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            lines.add(parser.apply(list.get(i)));
+        }
+        try {
+            Files.write(file.toPath(), lines);
+        } catch (IOException e) {
+            System.err.println("Error writing file: " + e.getMessage());
+        }
+    }
+
+    public static Course parseCourseImport(String line) {
         String[] parts = line.split(",");
         int id = 0;
         String courseCode = parts[0];
@@ -38,7 +51,7 @@ public class Reader {
         return new Course(id, courseCode, title, instructor, creditHours);
     }
 
-    public static Student parseStudent(String line) {
+    public static Student parseStudentImport(String line) {
         String[] parts = line.split(",");
         int id = 0;
         String name = parts[0];
@@ -47,7 +60,7 @@ public class Reader {
         return new Student(id, name, last_name, email);
     }
 
-    public static GradeItem parseGradeItems(String line) {
+    public static GradeItem parseGradeItemsImport(String line) {
         String[] parts = line.split(",");
         String title = parts[0];
         String category = parts[1];
@@ -57,6 +70,21 @@ public class Reader {
         double weight = Double.parseDouble(parts[5]);
         int id = 0;
         return new GradeItem(id, title, category, score, max_score, feedback, weight);
+    }
+
+    public static String parseCourseExport(Course course) {
+        return String.format("%s,%s,%s,%d", course.getCourseCode(), course.getTitle(),
+                course.getInstructor(), course.getCreditHours());
+    }
+
+    public static String parseStudentExport(Student student) {
+        return String.format("%s,%s,%s", student.getFirstName(), student.getLastName(),
+                student.getEmail());
+    }
+
+    public static String parseGradeItemsExport(GradeItem grade) {
+        return String.format("%s,%s,%f,%f,%s,%f", grade.getTitle(), grade.getCategory(),
+                grade.getScore(), grade.getMaxScore(), grade.getFeedback(), grade.getWeight());
     }
 
 }

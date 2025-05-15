@@ -4,11 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import edu.nu.sgm.models.Course;
 import edu.nu.sgm.services.CourseService;
-import edu.nu.sgm.utils.DatabaseManager;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
+import java.io.File;
 
 public class CourseCreationTest {
 
@@ -47,7 +44,25 @@ public class CourseCreationTest {
     assertTrue(details.contains("3"), "Course details should contain credits");
   }
 
+  @Test
+  public void testImportCourses_Success() {
+    File file = new File("courses.csv");
+    java.util.List<Course> importedCourses = cs.importCourses(file);
+    for (int i = 0; i < importedCourses.size(); i++) {
+      assertTrue(cs.addCourse(importedCourses.get(i)));
+    }
+    assertNotNull(importedCourses, "Imported courses list should not be null");
+    assertTrue(importedCourses.isEmpty(), "Courses should be imported successfully");
+  }
+
+  @Test
+  public void testExportCourses_Success() {
+
+    Course course = new Course(2, "MATH-101", "Calculus I", "Dr. Brown", 3);
+    cs.addCourse(course);
+    java.util.List<Course> courses = new java.util.ArrayList<>();
+    courses.add(course);
+    cs.exportCourses(courses);
+  }
+
 }
-
-
-    
