@@ -7,25 +7,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text fx:id="student_name" fill="#707070" layoutX="28.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Name">
+      <Text fx:id="s_name" fill="#707070" layoutX="51.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Name">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Text>
-      <Text layoutX="28.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department :">
+      <Text layoutX="217.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CGPA:">
          <font>
             <Font size="15.0" />
          </font>
       </Text>
-      <Text layoutX="28.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cumlative GPA :">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <TableView layoutX="51.0" layoutY="110.0" prefHeight="221.0" prefWidth="498.0">
+      <Text fx:id="cgpa" layoutX="266.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cgpa" />
+      <TableView layoutX="50.0" layoutY="110.0" prefHeight="220.0" prefWidth="500.0">
         <columns>
           <TableColumn prefWidth="194.66669082641602" text="Courses Name" />
             <TableColumn prefWidth="110.66667175292969" text="Code" />
@@ -33,9 +28,22 @@
           <TableColumn minWidth="0.0" prefWidth="87.33340454101562" text="GPA" />
         </columns>
       </TableView>
-      <Text fx:id="dp" layoutX="122.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dp" />
-      <Text fx:id="cgpa" layoutX="145.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cgpa" />
-      <Button layoutX="51.0" layoutY="360.0" mnemonicParsing="false" text="Remove student" />
-      <Button layoutX="497.0" layoutY="360.0" mnemonicParsing="false" text="Return" />
+      <Button layoutX="50.0" layoutY="347.0" mnemonicParsing="false" text="Remove student" />
+      <Button layoutX="497.0" layoutY="347.0" mnemonicParsing="false" text="Return" />
+      <Text layoutX="55.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="55.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="id" layoutX="85.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" />
+      <Text fx:id="email" layoutX="118.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" />
+      <Button layoutX="401.0" layoutY="347.0" mnemonicParsing="false" text="Enroll Course" />
+      <Button layoutX="264.0" layoutY="347.0" mnemonicParsing="false" text="Generate Reportcard" />
+      <Button layoutX="468.0" layoutY="50.0" mnemonicParsing="false" text="Edit Student" />
    </children>
 </AnchorPane>
