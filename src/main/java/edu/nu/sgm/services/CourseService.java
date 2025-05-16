@@ -167,6 +167,22 @@ public class CourseService {
   }
 
   /*
+   * @brief retrieves a course by its ID.
+   *
+   * @param id The ID of the course to retrieve.
+   *
+   * @return The course with the specified ID, or null if not found.
+   */
+  public Course getCourseById(int id) {
+    try {
+      return db.fetchCourse(id);
+    } catch (SQLException e) {
+      System.err.println("Error retrieving course: " + e.getMessage());
+      return null;
+    }
+  }
+
+  /*
    * @brief imports courses from a file.
    *
    * @param file The file containing the course data.
