@@ -1,18 +1,34 @@
+/**
+ * @file Student.java
+ * @brief Represents a student in the grading system.
+ */
+
 package edu.nu.sgm.models;
 
+/**
+ * @class Student
+ * @brief Represents a student with ID, name, and email.
+ */
 public class Student {
-  // attributes all details of the student
   private int id;
   private String firstName;
   private String lastName;
   private String email;
-  // Constructor all the attributes 
+
+  /**
+   * @brief Constructs a Student object with the specified details.
+   * @param id        The student's ID.
+   * @param firstName The student's first name.
+   * @param lastName  The student's last name.
+   * @param email     The student's email address.
+   */
   public Student(int id, String firstName, String lastName, String email) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
   }
+
   // Getter and Setter
   public int getId() { return id; }
 
@@ -30,11 +46,29 @@ public class Student {
 
   public void setEmail(String email) { this.email = email; }
 
-  // generating email of the student to each student template email
-  public String generateStudentEmail() {
-    String first = firstName.split(" ")[0].toLowerCase();
-    String last = lastName.toLowerCase().replaceAll("[^a-z]", "");
-    int studentId = id;
-    return String.format("%s.%s%d@nu.edu.eg", first, last, studentId);
-  }
+  /**
+   * @brief Generates an email for the student based on their name and ID.
+   * @return The generated email address.
+   */
+  public String generateEmail() {
+    /**
+     * @brief A method generate email of each student 
+     * @return email that contain the first letter of the student, the last name and 4 numbers from the id
+     */    
+        String fi = firstName.substring(0, 1).toLowerCase();
+        String cln = lastName.toLowerCase().replaceAll("[^a-z]", "");
+        
+        String idStr = String.valueOf(id);
+        String id_Part = "";
+        if (idStr.length() >= 4) {
+            String firstTwo = idStr.substring(0, 2);
+            String lastTwo = idStr.substring(idStr.length() - 2);
+            id_Part = firstTwo + lastTwo;
+        } 
+        else {
+            id_Part = idStr;
+        }
+        
+        return String.format("%s.%s%s@nu.edu.eg", fi, cln, id_Part);
+    }
 }

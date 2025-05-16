@@ -1,3 +1,8 @@
+/**
+ * @file CourseService.java
+ * @brief Service class for managing courses in the grading system.
+ */
+
 package edu.nu.sgm.services;
 
 import edu.nu.sgm.models.Course;
@@ -9,15 +14,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @class CourseService
+ * @brief Provides methods to add, remove, retrieve, and manage courses.
+ */
 public class CourseService {
 
   private DatabaseManager db = new DatabaseManager();
 
-  /*
+  /**
    * @brief Checks if a course exists in the database.
-   *
    * @param course The course to check for existence.
-   *
    * @return true if the course exists, false otherwise.
    */
   public boolean courseExists(Course course) {
@@ -35,11 +42,9 @@ public class CourseService {
     }
   }
 
-  /*
+  /**
    * @brief Adds a course to the database.
-   *
    * @param course The course to be added.
-   *
    * @return true if the course was added successfully, false otherwise.
    */
   public boolean addCourse(Course course) {
@@ -79,11 +84,9 @@ public class CourseService {
     }
   }
 
-  /*
-   * @brief removes a course from the database.
-   *
+  /**
+   * @brief Removes a course from the database.
    * @param course The course to be removed.
-   *
    * @return true if the course was removed successfully, false otherwise.
    */
   public boolean removeCourse(Course course) {
@@ -99,13 +102,10 @@ public class CourseService {
     }
   }
 
-  /*
+  /**
    * @brief Retrieves a list of students enrolled in a course.
-   *
    * @param course The course for which to retrieve the students.
-   *
-   * @return A list of students enrolled in the course, or null if an error
-   * occurred.
+   * @return A list of students enrolled in the course, or null if an error occurred.
    */
   public List<Student> getStudents(Course course) {
     if (!courseExists(course)) {
@@ -120,12 +120,10 @@ public class CourseService {
     }
   }
 
-  /*
-   * @brief retrieves total number of students enrolled in a course.
-   *
-   * @return The total number of students enrolled in the course, or 0 if an
-   * error
-   * occurred.
+  /**
+   * @brief Retrieves total number of students enrolled in a course.
+   * @param course The course for which to count students.
+   * @return The total number of students enrolled in the course, or 0 if an error occurred.
    */
   public int getTotalStudents(Course course) {
     try {
@@ -136,6 +134,10 @@ public class CourseService {
     }
   }
 
+  /**
+   * @brief Retrieves all courses from the database.
+   * @return A list of all courses.
+   */
   public List<Course> getAllCourses() {
     try {
       List<Course> courses = db.fetchCourses();
@@ -149,11 +151,9 @@ public class CourseService {
     return new ArrayList<Course>();
   }
 
-  /*
-   * @brief displays the details of a course.
-   *
+  /**
+   * @brief Displays the details of a course.
    * @param course The course for which to display the details.
-   *
    * @return A string containing the course details.
    */
   public String displayDetails(Course course) {
@@ -166,11 +166,9 @@ public class CourseService {
         course.getInstructor(), course.getCreditHours());
   }
 
-  /*
-   * @brief retrieves a course by its ID.
-   *
+  /**
+   * @brief Retrieves a course by its ID.
    * @param id The ID of the course to retrieve.
-   *
    * @return The course with the specified ID, or null if not found.
    */
   public Course getCourseById(int id) {
@@ -182,23 +180,19 @@ public class CourseService {
     }
   }
 
-  /*
-   * @brief imports courses from a file.
-   *
+  /**
+   * @brief Imports courses from a file.
    * @param file The file containing the course data.
-   *
-   * @return true if the courses were imported successfully, false otherwise.
+   * @return List of imported courses.
    */
   public List<Course> importCourses(File file) {
     List<Course> courses = Reader.readCSV(file, Reader::parseCourseImport);
     return courses;
   }
 
-  /*
-   * @brief exports courses to a file.
-   *
-   * @param file The file to which the course data will be exported.
-   *
+  /**
+   * @brief Exports courses to a file.
+   * @param courses The courses to export.
    * @return true if the courses were exported successfully, false otherwise.
    */
   public boolean exportCourses(List<Course> courses) {

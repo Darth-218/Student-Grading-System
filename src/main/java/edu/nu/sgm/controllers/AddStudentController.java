@@ -1,3 +1,8 @@
+/**
+ * @file AddStudentController.java
+ * @brief Controller for adding or editing a student via the add-student dialog.
+ */
+
 package edu.nu.sgm.controllers;
 
 import edu.nu.sgm.models.Student;
@@ -8,6 +13,10 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 
+/**
+ * @class AddStudentController
+ * @brief Handles logic for adding or editing a student from the dialog.
+ */
 public class AddStudentController {
     
     private StudentService studentService = new StudentService();
@@ -17,17 +26,29 @@ public class AddStudentController {
     @FXML private TextField sl_name;
     
     private Dialog<ButtonType> dialog;
-    
+
+    /**
+     * @brief Sets the dialog reference for this controller.
+     * @param dialog The dialog instance.
+     */
     public void setDialog(Dialog<ButtonType> dialog) {
         this.dialog = dialog;
     }
-    
+
+    /**
+     * @brief Sets the student data for editing.
+     * @param student The student to edit.
+     */
     public void setStudentData(Student student) {
         this.currentStudent = student;
         sf_name.setText(student.getFirstName());
         sl_name.setText(student.getLastName());
     }
-    
+
+    /**
+     * @brief Handles the confirm button click event.
+     *        Validates input and adds/updates the student.
+     */
     @FXML
     private void handleConfirm() {
         String firstName = sf_name.getText().trim();
@@ -56,19 +77,34 @@ public class AddStudentController {
             showAlert("Database Error", "Failed to save student.");
         }
     }
-    
+
+    /**
+     * @brief Handles the cancel button click event.
+     *        Closes the dialog.
+     */
     @FXML
     private void handleCancel() {
         dialog.setResult(ButtonType.CANCEL);
         dialog.close();
     }
-    
+
+    /**
+     * @brief Adds a new student.
+     * @param first_name First name.
+     * @param last_name Last name.
+     * @return true if student was added successfully.
+     */
     private boolean addStudent(String first_name, String last_name) {
         Student student = new Student(0, first_name, last_name, "");
-        student.setEmail(student.generateStudentEmail());
+        student.setEmail(student.generateEmail());
         return studentService.addstudent(student);
     }
-    
+
+    /**
+     * @brief Shows an alert dialog.
+     * @param title Dialog title.
+     * @param message Dialog message.
+     */
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR, message);
         alert.setTitle(title);

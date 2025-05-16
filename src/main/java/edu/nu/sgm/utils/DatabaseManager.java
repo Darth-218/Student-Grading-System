@@ -171,6 +171,7 @@ public class DatabaseManager {
     int student_id = executeInsert(query, student.getFirstName(),
                                    student.getLastName(), student.getEmail());
     student.setId(student_id);
+    student.setEmail(student.generateEmail());
     return true;
   }
 
@@ -232,7 +233,7 @@ public class DatabaseManager {
      * @param course The target course
      * @return The list of students enrolled in the target course
      */
-    String enrollment_query = "SELECT * FROM enrollment WHERE course_id = ?";
+    String enrollment_query = "SELECT * FROM enrollments WHERE course_id = ?";
     List<Integer> student_ids =
         executeReturn(enrollment_query,
                       results -> results.getInt("student_id"), course.getId());

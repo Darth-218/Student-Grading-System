@@ -1,9 +1,18 @@
+/**
+ * @file EnrollmentService.java
+ * @brief Service class for managing student enrollments in courses.
+ */
+
 package edu.nu.sgm.services;
 
 import edu.nu.sgm.models.*;
 import edu.nu.sgm.utils.DatabaseManager;
 import java.sql.SQLException;
 
+/**
+ * @class EnrollmentService
+ * @brief Provides methods to enroll students, drop courses, and generate report cards.
+ */
 public class EnrollmentService {
   private DatabaseManager db = new DatabaseManager();
 

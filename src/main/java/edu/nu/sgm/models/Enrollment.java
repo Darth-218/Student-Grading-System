@@ -1,5 +1,14 @@
+/**
+ * @file Enrollment.java
+ * @brief Represents an enrollment of a student in a course.
+ */
+
 package edu.nu.sgm.models;
 
+/**
+ * @class Enrollment
+ * @brief Represents the enrollment relationship between a student and a course.
+ */
 public class Enrollment {
   private int id;
   ///< Enrollment ID.
@@ -9,6 +18,7 @@ public class Enrollment {
 
   /**
    * @brief The enrollment object constructor.
+   * @param id         The enrollment ID.
    * @param student_id The student to enroll.
    * @param course_id  The course to enroll in.
    */

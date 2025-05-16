@@ -1,9 +1,15 @@
+/**
+ * @file Course.java
+ * @brief Represents a course in the student grading system.
+ * @details This class contains details about a course such as its
+ *          ID, name, credit hours, and the total number of students enrolled.
+ */
+
 package edu.nu.sgm.models;
 
 /**
- * @brief Represents a course in the student grading system.
- * @details This class contains details about a course such as its
- *          ID,name,credit hours, and the total number of students enrolled.
+ * @class Course
+ * @brief Represents a course with its details and enrollment count.
  */
 public class Course {
 
@@ -27,11 +33,11 @@ public class Course {
   /**
    * @brief Constructs a Course object with the specified details.
    * @param id           The unique identifier for the course.
-   * @param name         The name of the course.
+   * @param course_code  The code of the course.
+   * @param title        The name of the course.
    * @param instructor   The name of the instructor teaching the course.
    * @param credit_hours The number of credit hours assigned to the course.
    */
-
   public Course(int id, String course_code, String title, String instructor,
       int credit_hours) {
     this.id = id;

@@ -1,11 +1,17 @@
-package edu.nu.sgm.models;
-
 /**
+ * @file GradeItem.java
  * @brief Represents a single grade item for a student.
  *
  * A GradeItem includes information such as title, category,
  * score, maximum possible score, feedback, an identifier, and
  * the item's weight in the total grade calculation.
+ */
+
+package edu.nu.sgm.models;
+
+/**
+ * @class GradeItem
+ * @brief Represents a grade item (e.g., assignment, exam) for a student.
  */
 public class GradeItem {
 

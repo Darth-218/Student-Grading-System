@@ -1,3 +1,8 @@
+/**
+ * @file GradeItemService.java
+ * @brief Service class for managing grade items related to student enrollments.
+ */
+
 package edu.nu.sgm.services;
 
 import edu.nu.sgm.models.*;
@@ -8,17 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @brief Service class for managing grade items related to student enrollments.
- *
- *        This class provides methods to create, retrieve, delete, and process
- *        grade items
- *        including calculating total grades and importing/exporting grade data.
+ * @class GradeItemService
+ * @brief Provides methods to create, retrieve, delete, and process grade items.
  */
 public class GradeItemService {
 
   private DatabaseManager db = new DatabaseManager();
-
-  /** < Manages database operations */
 
   /**
    * @brief Adds a new grade item to an enrollment.
@@ -39,8 +39,7 @@ public class GradeItemService {
   /**
    * @brief Retrieves all grade items for a given enrollment.
    * @param enrollment The enrollment whose grades are to be retrieved
-   * @return A list of GradeItem objects, or an empty list on error or null
-   *         input
+   * @return A list of GradeItem objects, or an empty list on error or null input
    */
   public List<GradeItem> getGrades(Enrollment enrollment) {
     if (enrollment == null) {
@@ -84,8 +83,7 @@ public class GradeItemService {
   }
 
   /**
-   * @brief Calculates the total grade for an enrollment based on weighted
-   *        scores.
+   * @brief Calculates the total grade for an enrollment based on weighted scores.
    * @param enrollment The enrollment whose total grade is to be calculated
    * @return The total grade as a percentage
    */

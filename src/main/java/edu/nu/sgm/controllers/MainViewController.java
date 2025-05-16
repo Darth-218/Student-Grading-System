@@ -22,6 +22,7 @@ import edu.nu.sgm.models.Course;
 import edu.nu.sgm.services.CourseService;
 import edu.nu.sgm.models.Student;
 import edu.nu.sgm.services.StudentService;
+import edu.nu.sgm.controllers.CourseViewController;
 
 public class MainViewController {
     private Stage stage;
@@ -153,18 +154,42 @@ public class MainViewController {
             }
         });
 
+        c_table.getSelectionModel().selectedItemProperty().addListener((_, _, newSelection) -> {
+            if (newSelection != null) {
+                try {
+                    openCourseView(newSelection);
+                    // Clear selection so it doesn't trigger again unintentionally
+                    c_table.getSelectionModel().clearSelection();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Alert alert = new Alert(AlertType.ERROR, "Failed to open course view: " + e.getMessage());
+                    alert.showAndWait();
+                }
+            }
+        });
     }
-        private void openStudentView(Student student) throws IOException {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/student-view.fxml"));
-            Parent root = loader.load();
-            
-            // Get the controller and pass the student data
-            StudentsViewController controller = loader.getController();
-            controller.setStudentData(student);
-            
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Student Details");
-            stage.show();
-        }
+
+    private void openStudentView(Student student) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/student-view.fxml"));
+        Parent root = loader.load();
+        // Get the controller and pass the student data
+        StudentViewController controller = loader.getController();
+        controller.setStudent(student);
+        // Switch scene in the current window
+        Stage stage = (Stage) s_table.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Student Details");
+    }
+
+    private void openCourseView(Course course) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/course-view.fxml"));
+        Parent root = loader.load();
+        // Get the controller and pass the course data
+        CourseViewController controller = loader.getController();
+        controller.setCourse(course);
+        // Switch scene in the current window
+        Stage stage = (Stage) c_table.getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Course Details");
+    }
 }

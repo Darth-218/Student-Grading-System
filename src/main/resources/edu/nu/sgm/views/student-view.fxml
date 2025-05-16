@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml" fx:controller="edu.nu.sgm.controllers.StudentsViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml" fx:controller="edu.nu.sgm.controllers.StudentViewController">
    <children>
       <Text fx:id="s_name" fill="#707070" layoutX="51.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Name">
          <font>
@@ -20,7 +20,7 @@
          </font>
       </Text>
       <Text fx:id="cc_gpa" layoutX="266.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="cgpa" />
-      <TableView layoutX="50.0" layoutY="110.0" prefHeight="220.0" prefWidth="500.0">
+      <TableView fx:id="enrolledCoursesTable" layoutX="50.0" layoutY="110.0" prefHeight="220.0" prefWidth="500.0">
         <columns>
           <TableColumn fx:id="c_name" prefWidth="194.66669082641602" text="Courses Name" />
             <TableColumn fx:id="c_code" prefWidth="110.66667175292969" text="Code" />

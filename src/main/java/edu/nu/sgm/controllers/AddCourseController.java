@@ -1,3 +1,9 @@
+/**
+ * @file AddCourseController.java
+ * @brief Controller for adding a new course via the add-course dialog.
+ * @author 
+ */
+
 package edu.nu.sgm.controllers;
 
 import edu.nu.sgm.models.Course;
@@ -8,6 +14,10 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 
+/**
+ * @class AddCourseController
+ * @brief Handles the logic for adding a new course from the dialog.
+ */
 public class AddCourseController {
 
     private CourseService courseService = new CourseService();
@@ -23,10 +33,18 @@ public class AddCourseController {
 
     private Dialog<ButtonType> dialog; // reference to the dialog
 
+    /**
+     * @brief Sets the dialog reference for this controller.
+     * @param dialog The dialog instance.
+     */
     public void setDialog(Dialog<ButtonType> dialog) {
         this.dialog = dialog;
     }
 
+    /**
+     * @brief Handles the confirm button click event.
+     *        Validates input and adds the course.
+     */
     @FXML
     private void handleConfirm() {
         String name = c_name.getText().trim();
@@ -65,12 +83,24 @@ public class AddCourseController {
         }
     }
 
+    /**
+     * @brief Handles the cancel button click event.
+     *        Closes the dialog.
+     */
     @FXML
     private void handleCancel() {
         dialog.setResult(ButtonType.CANCEL);
         dialog.close();
     }
 
+    /**
+     * @brief Adds a course using the provided details.
+     * @param name Course name.
+     * @param code Course code.
+     * @param instructor Instructor name.
+     * @param credits Credit hours.
+     * @return true if course was added successfully.
+     */
     public boolean addCourse(String name, String code, String instructor, int credits) {
         Course course = new Course(0, code, name, instructor, credits);
         return courseService.addCourse(course);
