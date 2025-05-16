@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.nu.sgm.controllers.CourseViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.nu.sgm.controllers.CourseViewController">
    <children>
       <Text fx:id="c_name" fill="#707070" layoutX="51.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_name">
          <font>
@@ -26,11 +26,11 @@
           <TableColumn fx:id="c_gpa" minWidth="0.0" prefWidth="87.33340454101562" text="GPA" />
         </columns>
       </TableView>
-      <Button fx:id="c_edit" layoutX="455.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleEditCourse" text="Edit Course" />
+      <Button fx:id="c_edit" layoutX="455.0" layoutY="49.0" mnemonicParsing="false" onAction="#handleEditCourse" text="Edit Course" />
       <GridPane layoutX="50.0" layoutY="58.0" prefHeight="45.0" prefWidth="250.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.66668701171875" minWidth="10.0" prefWidth="118.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="153.99995930989581" minWidth="10.0" prefWidth="117.33333333333331" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="149.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="153.99995930989581" minWidth="10.0" prefWidth="101.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -44,7 +44,7 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="c_code" layoutX="59.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_code" />
+                  <Text fx:id="c_code" layoutX="74.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_code" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
@@ -54,7 +54,7 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="c_totals" layoutX="91.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_totals" />
+                  <Text fx:id="c_totals" layoutX="109.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_totals" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
@@ -64,7 +64,7 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="c_credits" layoutX="59.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_credits" />
+                  <Text fx:id="c_credits" layoutX="74.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_credits" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="23.0" prefWidth="115.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -74,7 +74,7 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="c_instructor" layoutX="91.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_instructor" />
+                  <Text fx:id="c_instructor" layoutX="109.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_instructor" />
                </children>
             </AnchorPane>
          </children>
@@ -93,9 +93,9 @@
                   <Button fx:id="c_remove" mnemonicParsing="false" onAction="#handleRemoveCourse" text="Remove Course" />
                </buttons>
             </ButtonBar>
-            <ButtonBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="370.0" GridPane.columnIndex="1">
+            <ButtonBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="346.0" GridPane.columnIndex="1">
               <buttons>
-                <Button fx:id="back" mnemonicParsing="false" onAction="#handleBackButton" text="Return" />
+                <Button fx:id="back" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="24.0" text="Return" />
                 <Button fx:id="s_enroll" mnemonicParsing="false" onAction="#switchToEnrollCourse" prefHeight="24.0" prefWidth="131.0" text="Enroll Student" />
               </buttons>
             </ButtonBar>
