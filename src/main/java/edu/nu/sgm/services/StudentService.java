@@ -110,4 +110,28 @@ public class StudentService {
         
     }
 
+    // Add this method to StudentService class
+    // (Removed duplicate updateStudent method)
+
+    public Student getStudentById(int id) {
+        try {
+            List<Student> students = db.fetchStudents();
+            for (Student student : students) {
+                if (student.getId() == id) {
+                    return student;
+                }
+            }
+            return null;
+        } catch (SQLException e) {
+            return null;
+        }
+    }
+
+    public boolean updateStudent(Student student) {
+        try {
+            return db.updateStudent(student) > 0;
+        } catch (SQLException e) {
+            return false;
+        }
+    }
 }

@@ -140,5 +140,30 @@ public class MainViewController {
 
         studentList.setAll(studentService.getStudents());
         s_table.setItems(studentList);
+
+        s_table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                try {
+                    openStudentView(newSelection);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Alert alert = new Alert(AlertType.ERROR, "Failed to open student view: " + e.getMessage());
+                    alert.showAndWait();
+                }
+            }
+        });
     }
+        private void openStudentView(Student student) throws IOException {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/student-view.fxml"));
+            Parent root = loader.load();
+            
+            // Get the controller and pass the student data
+            StudentsViewController controller = loader.getController();
+            controller.setStudentData(student);
+            
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Student Details");
+            stage.show();
+        }
 }

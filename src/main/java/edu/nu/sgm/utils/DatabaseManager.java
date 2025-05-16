@@ -219,7 +219,7 @@ public class DatabaseManager {
     return executeReturn(query,
                          results
                          -> new Course(results.getInt("id"),
-                                       results.getString("coures_code"),
+                                       results.getString("course_code"),
                                        results.getString("title"),
                                        results.getString("instructor"),
                                        results.getInt("credit_hours")),
