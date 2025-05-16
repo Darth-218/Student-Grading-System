@@ -42,7 +42,7 @@
       </Text>
       <Text fx:id="s_id" layoutX="85.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" />
       <Text fx:id="s_email" layoutX="118.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" />
-      <Button fx:id="c_enroll" layoutX="401.0" layoutY="347.0" mnemonicParsing="false" text="Enroll Course" />
+      <Button fx:id="c_enroll" layoutX="401.0" layoutY="347.0" mnemonicParsing="false" text="Enroll Course" onAction="#handleEnroll" />
       <Button fx:id="report_gen" layoutX="264.0" layoutY="347.0" mnemonicParsing="false" text="Generate Reportcard" />
       <Button fx:id="s_edit" layoutX="468.0" layoutY="50.0" mnemonicParsing="false" text="Edit Student" />
    </children>

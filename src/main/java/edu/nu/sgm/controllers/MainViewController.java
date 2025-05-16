@@ -140,5 +140,28 @@ public class MainViewController {
 
         studentList.setAll(studentService.getStudents());
         s_table.setItems(studentList);
+
+        // Add this listener to open student view on row selection
+        s_table.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> {
+            if (newSel != null) {
+                showStudentView(newSel);
+            }
+        });
+    }
+
+    private void showStudentView(Student student) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/student-view.fxml"));
+            Parent studentRoot = loader.load();
+            StudentViewController controller = loader.getController();
+            controller.setStudent(student); // Pass the selected student object
+
+            Stage stage = (Stage) s_table.getScene().getWindow();
+            stage.setScene(new Scene(studentRoot));
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to load student view: " + e.getMessage());
+            alert.showAndWait();
+        }
     }
 }

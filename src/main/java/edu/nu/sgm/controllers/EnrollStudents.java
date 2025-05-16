@@ -1,22 +1,21 @@
-
 package edu.nu.sgm.controllers;
 
-import edu.nu.sgm.models.Course;
 import edu.nu.sgm.services.CourseService;
 import edu.nu.sgm.services.EnrollmentService;
+import edu.nu.sgm.services.StudentService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
 
-public class EnrollCourse {
-
+public class EnrollStudents {
     private EnrollmentService es = new EnrollmentService();
     private CourseService cs = new CourseService();
+    private StudentService ss = new StudentService();
 
     @FXML
-    private TextField c_code;
+    private TextField s_id;
 
     private Dialog<ButtonType> dialog;
 
@@ -27,7 +26,7 @@ public class EnrollCourse {
     @FXML
     private void handleConfirm() {
 
-        if (c_code.getText().isEmpty()) {
+        if (s_id.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Please fill in all fields.");
             alert.setTitle("Input Error");
             alert.setHeaderText(null);
@@ -35,9 +34,9 @@ public class EnrollCourse {
             return;
         }
 
-        int id = Integer.parseInt(c_code.getText().trim());
+        int id = Integer.parseInt(s_id.getText().trim());
 
-        boolean success = es.enrollStudent(student, cs.getCourseById(id));
+        boolean success = es.enrollStudent(ss.getStudentById(id), course);
         if (success) {
             dialog.setResult(ButtonType.OK);
             dialog.close();
