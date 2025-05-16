@@ -40,7 +40,7 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="c_add" layoutX="493.0" layoutY="322.0" mnemonicParsing="false" text="Add Course" />
+                  <Button fx:id="c_add" layoutX="493.0" layoutY="322.0" mnemonicParsing="false" onAction="#SwitchTOAddCourse" text="Add Course" />
                   <Text fill="#707070" layoutX="28.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Courses">
                      <font>
                         <Font name="System Bold" size="30.0" />
