@@ -28,13 +28,13 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <Text layoutX="24.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instractor">
+            <Text layoutX="24.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructor">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
             <TextField fx:id="c_code" layoutX="115.0" layoutY="76.0" />
-            <TextField fx:id="c_instractor" layoutX="115.0" layoutY="126.0" />
+            <TextField fx:id="c_instructor" layoutX="115.0" layoutY="126.0" />
             <TextField fx:id="c_credits" layoutX="115.0" layoutY="176.0" />
             <ButtonBar layoutX="83.0" layoutY="216.0" prefHeight="0.0" prefWidth="181.0">
                <buttons>
