@@ -5,7 +5,7 @@ import edu.nu.sgm.utils.DatabaseManager;
 import java.sql.SQLException;
 
 public class EnrollmentService {
-  private DatabaseManager db;
+  private DatabaseManager db = new DatabaseManager();
 
   /**
    * @brief Enrolls a student in a course.
@@ -49,5 +49,20 @@ public class EnrollmentService {
    * @param student The target student.
    * @return The generated report card.
    */
-  public void generateReportCard(Student student) { return; }
+  public String generateReportCard(Student student) {
+    String report = "";
+    GradeItemService gradeservice = new GradeItemService();
+    try {
+      for (Enrollment enrollment : db.fetchEnrollment(student)) {
+        Double grades = gradeservice.calculateTotalGrade(enrollment);
+        Course course = db.fetchCourse(enrollment.getCourse());
+        report += String.format("%s: %s\t Final Grade: %f\t GPA: %f\n",
+                                course.getTitle(), course.getCourseCode(),
+                                grades, 0.0);
+      }
+    } catch (SQLException e) {
+      return "";
+    }
+    return report;
+  }
 }
