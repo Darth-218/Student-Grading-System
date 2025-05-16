@@ -10,13 +10,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.nu.sgm.controllers.MainViewController">
   <tabs>
     <Tab text="Students">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="s_add" layoutX="488.0" layoutY="322.0" mnemonicParsing="false" text="Add Student" />
+                  <Button fx:id="s_add" layoutX="488.0" layoutY="322.0" mnemonicParsing="false" onAction="#SwitchTOAddStudent" text="Add Student" />
                   <Text fill="#707070" layoutX="28.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Students">
                      <font>
                         <Font name="System Bold" size="30.0" />
@@ -40,7 +40,7 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="c_add" layoutX="493.0" layoutY="322.0" mnemonicParsing="false" text="Add Course" />
+                  <Button fx:id="c_add" layoutX="493.0" layoutY="322.0" mnemonicParsing="false" onAction="#SwitchTOAddCourse" text="Add Course" />
                   <Text fill="#707070" layoutX="28.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Courses">
                      <font>
                         <Font name="System Bold" size="30.0" />

@@ -1,55 +1,91 @@
 package edu.nu.sgm.controllers;
+
 import java.io.IOException;
+import java.util.Optional;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 
 public class MainViewController {
     private Stage stage;
     private Scene scene;
-    private Dialog dialog;
     private Parent root;
 
+    @FXML
     public void switchToScene1(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("main-view.fxml"));
-        stage = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("/edu/nu/sgm/views/main-view.fxml"));
+        stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    // public void switchToScene2(ActionEvent event) {
-    // try {
-    //     FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/add-student.fxml"));
-    //     javafx.scene.control.DialogPane dialogPane = loader.load();
-
-    //     javafx.scene.control.Dialog<Void> dialog = new javafx.scene.control.Dialog<>();
-    //     dialog.setDialogPane(dialogPane);
-    //     dialog.setTitle("Add Student");
-    //     dialog.initOwner(((javafx.scene.Node)event.getSource()).getScene().getWindow());
-    //     dialog.showAndWait();
-    // } catch (IOException e) {
-    //     e.printStackTrace();
-    //     Alert alert = new Alert(AlertType.ERROR, "Failed to load Add Student dialog.");
-    //     alert.showAndWait();
-    // }
-
-    public void switchToScene2(ActionEvent event) {
+    @FXML
+    public void SwitchTOAddStudent(ActionEvent event) {
         try {
-            root = FXMLLoader.load(getClass().getResource("student-view.fxml"));
-            stage = (Stage)((javafx.scene.Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            // Load the dialog FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/add-student.fxml"));
+            DialogPane dialogPane = loader.load();
+            AddStudentController controller = loader.getController();
+
+            // Create the dialog
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setDialogPane(dialogPane);
+            dialog.setTitle("Add Student");
+
+            // Set the owner window
+            dialog.initOwner(((javafx.scene.Node) event.getSource()).getScene().getWindow());
+            // Set the dialog in the controller
+            controller.setDialog(dialog);
+
+            // Show dialog and wait for response
+            Optional<ButtonType> result = dialog.showAndWait();
+
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                // Student was added successfully
+                Alert alert = new Alert(AlertType.INFORMATION, "Student added successfully!");
+                alert.show();
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
+            Alert alert = new Alert(AlertType.ERROR, "Failed to load Add Student dialog: " + e.getMessage());
+            alert.showAndWait();
+        }
+    }
+
+    @FXML
+    public void SwitchTOAddCourse(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/add-course.fxml"));
+            DialogPane dialogPane = loader.load();
+            AddCourseController controller = loader.getController();
+
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setDialogPane(dialogPane);
+            dialog.setTitle("Add Course");
+            dialog.initOwner(((javafx.scene.Node) event.getSource()).getScene().getWindow());
+            controller.setDialog(dialog);
+
+            Optional<ButtonType> result = dialog.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Course added successfully!");
+                alert.show();
+                // Optionally refresh your course table here
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to load Add Course dialog: " + e.getMessage());
+            alert.showAndWait();
         }
     }
 }
-
