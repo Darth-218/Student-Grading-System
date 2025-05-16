@@ -9,10 +9,22 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.PrintWriter;
 
+/**
+ * @brief Service class for managing grade items related to student enrollments.
+ *
+ * This class provides methods to create, retrieve, delete, and process grade items
+ * including calculating total grades and importing/exporting grade data.
+ */
 public class GradeItemService {
 
-    private DatabaseManager db;
+    private DatabaseManager db; /**< Manages database operations */
 
+    /**
+     * @brief Adds a new grade item to an enrollment.
+     * @param enrollment The enrollment associated with the grade
+     * @param item The grade item to add
+     * @return True if the grade item is successfully added; false otherwise
+     */
     public boolean addGradeItem(Enrollment enrollment, GradeItem item) {
         try {
             db.createGrade(enrollment, item);
@@ -23,6 +35,11 @@ public class GradeItemService {
         }
     }
 
+    /**
+     * @brief Retrieves all grade items for a given enrollment.
+     * @param enrollment The enrollment whose grades are to be retrieved
+     * @return A list of GradeItem objects, or an empty list on error or null input
+     */
     public List<GradeItem> getGrades(Enrollment enrollment) {
         if (enrollment == null) {
             System.out.println("Enrollment is null.");
@@ -38,6 +55,12 @@ public class GradeItemService {
         }
     }
 
+    /**
+     * @brief Removes a specific grade item from an enrollment.
+     * @param grade The grade item to remove
+     * @param enrollment The associated enrollment
+     * @return True if the item is successfully removed; false otherwise
+     */
     public boolean removeGradeItem(GradeItem grade, Enrollment enrollment) {
         if (grade == null || enrollment == null) {
             System.out.println("Either grade item or enrollment is null.");
@@ -58,6 +81,11 @@ public class GradeItemService {
         }
     }
 
+    /**
+     * @brief Calculates the total grade for an enrollment based on weighted scores.
+     * @param enrollment The enrollment whose total grade is to be calculated
+     * @return The total grade as a percentage
+     */
     public double calculateTotalGrade(Enrollment enrollment) {
         List<GradeItem> grades = getGrades(enrollment);
         if (grades.isEmpty())
@@ -69,6 +97,11 @@ public class GradeItemService {
         return totalScore;
     }
 
+    /**
+     * @brief Imports grade items from a CSV file.
+     * @param file The CSV file to import from
+     * @return A list of GradeItem objects, or an empty list if import fails
+     */
     public List<GradeItem> impoGradeItems(File file) {
         List<GradeItem> GradeItem = Reader.readCSV(file, Reader::parseGradeItemsImport);
         if (GradeItem == null) {
@@ -77,6 +110,11 @@ public class GradeItemService {
         return GradeItem;
     }
 
+    /**
+     * @brief Exports grade items of multiple enrollments to a CSV file.
+     * @param enrollments A list of enrollments whose grades will be exported
+     * @return True if export is successful
+     */
     public boolean exportGradeItems(List<Enrollment> enrollments) {
         List<GradeItem> allGradeItems = new ArrayList<>();
         for (int i = 0; i < enrollments.size(); i++) {
@@ -89,5 +127,4 @@ public class GradeItemService {
         Reader.writeCSV(new File("grade_item_export.csv"), allGradeItems, Reader::parseGradeItemsExport);
         return true;
     }
-
 }
