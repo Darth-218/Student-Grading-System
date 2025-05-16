@@ -69,7 +69,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="23.0" prefWidth="115.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Text layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instractor:">
+                  <Text layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructor:">
                      <font>
                         <Font size="15.0" />
                      </font>

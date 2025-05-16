@@ -32,7 +32,7 @@ public class CourseViewController implements Initializable {
     @FXML
     private Text c_code;
     @FXML
-    private Text c_instractor;
+    private Text c_instructor;
     @FXML
     private Text c_credits;
     @FXML
@@ -92,7 +92,7 @@ public class CourseViewController implements Initializable {
         this.course = course;
         if (c_name != null) c_name.setText(course.getTitle());
         if (c_code != null) c_code.setText(course.getCourseCode());
-        if (c_instractor != null) c_instractor.setText(course.getInstructor());
+        if (c_instructor != null) c_instructor.setText(course.getInstructor());
         if (c_credits != null) c_credits.setText(String.valueOf(course.getCreditHours()));
         // Set c_totals if you have enrollment data
         if (c_totals != null) {
