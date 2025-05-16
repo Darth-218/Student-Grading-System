@@ -152,6 +152,7 @@ public class MainViewController {
                 }
             }
         });
+
     }
         private void openStudentView(Student student) throws IOException {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/student-view.fxml"));
