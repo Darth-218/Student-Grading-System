@@ -52,7 +52,7 @@ public class CourseCreationTest {
       assertTrue(cs.addCourse(importedCourses.get(i)));
     }
     assertNotNull(importedCourses, "Imported courses list should not be null");
-    assertTrue(importedCourses.isEmpty(), "Courses should be imported successfully");
+    assertFalse(importedCourses.isEmpty(), "Courses should be imported successfully");
   }
 
   @Test

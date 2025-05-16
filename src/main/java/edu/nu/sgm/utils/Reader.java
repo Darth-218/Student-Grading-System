@@ -54,10 +54,10 @@ public class Reader {
     public static Student parseStudentImport(String line) {
         String[] parts = line.split(",");
         int id = 0;
-        String name = parts[0];
-        String last_name = parts[1];
+        String firstName = parts[0];
+        String lastName = parts[1];
         String email = parts[2];
-        return new Student(id, name, last_name, email);
+        return new Student(id, firstName, lastName, email);
     }
 
     public static GradeItem parseGradeItemsImport(String line) {

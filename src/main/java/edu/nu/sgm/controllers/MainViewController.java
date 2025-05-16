@@ -141,27 +141,30 @@ public class MainViewController {
         studentList.setAll(studentService.getStudents());
         s_table.setItems(studentList);
 
-        // Add this listener to open student view on row selection
-        s_table.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> {
-            if (newSel != null) {
-                showStudentView(newSel);
+        s_table.getSelectionModel().selectedItemProperty().addListener((_, _, newSelection) -> {
+            if (newSelection != null) {
+                try {
+                    openStudentView(newSelection);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Alert alert = new Alert(AlertType.ERROR, "Failed to open student view: " + e.getMessage());
+                    alert.showAndWait();
+                }
             }
         });
-    }
 
-    private void showStudentView(Student student) {
-        try {
+    }
+        private void openStudentView(Student student) throws IOException {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/student-view.fxml"));
-            Parent studentRoot = loader.load();
-            StudentViewController controller = loader.getController();
-            controller.setStudent(student); // Pass the selected student object
-
-            Stage stage = (Stage) s_table.getScene().getWindow();
-            stage.setScene(new Scene(studentRoot));
-        } catch (Exception e) {
-            e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to load student view: " + e.getMessage());
-            alert.showAndWait();
+            Parent root = loader.load();
+            
+            // Get the controller and pass the student data
+            StudentsViewController controller = loader.getController();
+            controller.setStudentData(student);
+            
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Student Details");
+            stage.show();
         }
-    }
 }

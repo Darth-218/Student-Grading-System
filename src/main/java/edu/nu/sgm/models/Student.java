@@ -3,14 +3,14 @@ package edu.nu.sgm.models;
 public class Student {
   // attributes all details of the student
   private int id;
-  private String name;
-  private String last_name;
+  private String firstName;
+  private String lastName;
   private String email;
   // Constructor all the attributes 
-  public Student(int id, String name, String last_name, String email) {
+  public Student(int id, String firstName, String lastName, String email) {
     this.id = id;
-    this.name = name;
-    this.last_name = last_name;
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.email = email;
   }
   // Getter and Setter
@@ -18,20 +18,23 @@ public class Student {
 
   public void setId(int id) { this.id = id; }
 
-  public String getFirstName() { return name; }
+  public String getFirstName() { return firstName; }
 
-  public void setName(String name) { this.name = name; }
+  public void setName(String firstName) { this.firstName = firstName; }
 
-  public String getLastName() { return last_name; }
+  public String getLastName() { return lastName; }
 
-  public void setLastName(String last_name) { this.last_name = last_name; }
+  public void setLastName(String lastName) { this.lastName = lastName; }
 
   public String getEmail() { return email; }
+
+  public void setEmail(String email) { this.email = email; }
+
   // generating email of the student to each student template email
   public String generateStudentEmail() {
-    String firstName = name.split(" ")[0].toLowerCase();
-    String lastName = last_name.toLowerCase().replaceAll("[^a-z]", "");
-    int studentId = (int)id;
-    return String.format("%s.%s%d@nu.edu.eg", firstName, lastName, studentId);
+    String first = firstName.split(" ")[0].toLowerCase();
+    String last = lastName.toLowerCase().replaceAll("[^a-z]", "");
+    int studentId = id;
+    return String.format("%s.%s%d@nu.edu.eg", first, last, studentId);
   }
 }

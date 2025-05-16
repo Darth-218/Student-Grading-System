@@ -12,7 +12,7 @@ public class DatabaseManagerTest {
 
   DatabaseManager db = new DatabaseManager();
 
-  // @Test
+  @Test
   public void test_AddStudent() {
     Student student = new Student(0, "first", "last", "f@f");
     try {
@@ -63,7 +63,7 @@ public class DatabaseManagerTest {
     try {
       db.createCourse(course);
       assertTrue(db.deleteCourse(course) > 0);
-      assertEquals(0, db.fetchCourses());
+      assertEquals(0, db.fetchCourses().size());
     } catch (SQLException e) {
       System.out.println("ERROR: " + e);
     }

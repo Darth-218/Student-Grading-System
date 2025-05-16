@@ -10,17 +10,22 @@ import javafx.scene.control.Alert;
 
 public class AddStudentController {
     
-    private StudentService studentservice = new StudentService();
+    private StudentService studentService = new StudentService();
+    private Student currentStudent;
     
-    @FXML
-    private TextField sf_name;  // matches fx:id in FXML
-    @FXML
-    private TextField sl_name;  // matches fx:id in FXML
+    @FXML private TextField sf_name;
+    @FXML private TextField sl_name;
     
-    private Dialog<ButtonType> dialog;  // reference to the dialog
+    private Dialog<ButtonType> dialog;
     
     public void setDialog(Dialog<ButtonType> dialog) {
         this.dialog = dialog;
+    }
+    
+    public void setStudentData(Student student) {
+        this.currentStudent = student;
+        sf_name.setText(student.getFirstName());
+        sl_name.setText(student.getLastName());
     }
     
     @FXML
@@ -29,24 +34,26 @@ public class AddStudentController {
         String lastName = sl_name.getText().trim();
         
         if (firstName.isEmpty() || lastName.isEmpty()) {
-            // Show error message
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Please fill in all fields.");
-            alert.setTitle("Input Error");
-            alert.setHeaderText(null);
-            alert.showAndWait();
+            showAlert("Input Error", "Please fill in all fields.");
             return;
         }
         
-        boolean success = addStudent(firstName, lastName);
+        boolean success;
+        if (currentStudent != null) {
+            // Editing existing student
+            currentStudent.setName(firstName);
+            currentStudent.setLastName(lastName);
+            success = studentService.updateStudent(currentStudent);
+        } else {
+            // Adding new student
+            success = addStudent(firstName, lastName);
+        }
+        
         if (success) {
             dialog.setResult(ButtonType.OK);
             dialog.close();
         } else {
-            // Show error message
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to add student.");
-            alert.setTitle("Database Error");
-            alert.setHeaderText(null);
-            alert.showAndWait();
+            showAlert("Database Error", "Failed to save student.");
         }
     }
     
@@ -56,8 +63,16 @@ public class AddStudentController {
         dialog.close();
     }
     
-    public boolean addStudent(String first_name, String last_name) {
+    private boolean addStudent(String first_name, String last_name) {
         Student student = new Student(0, first_name, last_name, "");
-        return studentservice.addstudent(student);
+        student.setEmail(student.generateStudentEmail());
+        return studentService.addstudent(student);
+    }
+    
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR, message);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.showAndWait();
     }
 }
