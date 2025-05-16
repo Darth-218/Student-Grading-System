@@ -142,16 +142,6 @@ public class CourseViewController implements Initializable {
     }
 
     /**
-     * @brief Handles the enroll student button action.
-     */
-    @FXML
-    private void handleEnrollStudent() {
-        // Implement enroll student dialog logic here
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Enroll Student not implemented.");
-        alert.showAndWait();
-    }
-
-    /**
      * @brief Opens the enroll student dialog and handles course enrollment.
      */
     @FXML

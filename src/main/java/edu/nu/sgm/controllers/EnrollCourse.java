@@ -68,7 +68,7 @@ public class EnrollCourse {
             dialog.setResult(ButtonType.OK);
             dialog.close();
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to add course.");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to enroll student.");
             alert.setTitle("Database Error");
             alert.setHeaderText(null);
             alert.showAndWait();

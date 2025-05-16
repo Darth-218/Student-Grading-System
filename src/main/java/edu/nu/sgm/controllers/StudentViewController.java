@@ -156,7 +156,7 @@ public class StudentViewController implements Initializable {
             }
         }
         // Load and display enrolled courses for this student
-        var courses = studentService.getCourses(student);
+        List<Course> courses = studentService.getCourses(student);
         if (courses.size() == 0) {
             enrolledCourses.setAll(Collections.emptyList());
         } else {

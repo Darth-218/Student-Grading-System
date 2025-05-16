@@ -62,12 +62,29 @@ public class EnrollStudents {
 
         int id = Integer.parseInt(s_id.getText().trim());
 
-        boolean success = es.enrollStudent(ss.getStudentById(id), course);
+        // Fix: Ensure the correct student object is passed and course is not null
+        var student = ss.getStudentById(id);
+        if (student == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Student not found.");
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return;
+        }
+        if (course == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Course not found.");
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return;
+        }
+
+        boolean success = es.enrollStudent(student, course);
         if (success) {
             dialog.setResult(ButtonType.OK);
             dialog.close();
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to add course.");
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to enroll student.");
             alert.setTitle("Database Error");
             alert.setHeaderText(null);
             alert.showAndWait();
