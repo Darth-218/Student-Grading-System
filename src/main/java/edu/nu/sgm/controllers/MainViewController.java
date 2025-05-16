@@ -3,6 +3,8 @@ package edu.nu.sgm.controllers;
 import java.io.IOException;
 import java.util.Optional;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,11 +16,43 @@ import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TableColumn;
+import edu.nu.sgm.models.Course;
+import edu.nu.sgm.services.CourseService;
+import edu.nu.sgm.models.Student;
+import edu.nu.sgm.services.StudentService;
 
 public class MainViewController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    @FXML
+    private TableView<Course> c_table;
+    @FXML
+    private TableColumn<Course, String> c_name;
+    @FXML
+    private TableColumn<Course, String> c_code;
+    @FXML
+    private TableColumn<Course, String> c_instractor;
+    @FXML
+    private TableColumn<Course, Integer> c_credits;
+
+    @FXML
+    private TableView<Student> s_table;
+    @FXML
+    private TableColumn<Student, String> s_name;
+    @FXML
+    private TableColumn<Student, String> s_id;
+    @FXML
+    private TableColumn<Student, String> s_email;
+
+    private ObservableList<Course> courseList = FXCollections.observableArrayList();
+    private CourseService courseService = new CourseService();
+
+    private ObservableList<Student> studentList = FXCollections.observableArrayList();
+    private StudentService studentService = new StudentService();
 
     @FXML
     public void switchToScene1(ActionEvent event) throws IOException {
@@ -32,26 +66,21 @@ public class MainViewController {
     @FXML
     public void SwitchTOAddStudent(ActionEvent event) {
         try {
-            // Load the dialog FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/add-student.fxml"));
             DialogPane dialogPane = loader.load();
             AddStudentController controller = loader.getController();
 
-            // Create the dialog
             Dialog<ButtonType> dialog = new Dialog<>();
             dialog.setDialogPane(dialogPane);
             dialog.setTitle("Add Student");
 
-            // Set the owner window
             dialog.initOwner(((javafx.scene.Node) event.getSource()).getScene().getWindow());
-            // Set the dialog in the controller
             controller.setDialog(dialog);
 
-            // Show dialog and wait for response
             Optional<ButtonType> result = dialog.showAndWait();
 
             if (result.isPresent() && result.get() == ButtonType.OK) {
-                // Student was added successfully
+                studentList.setAll(studentService.getStudents());
                 Alert alert = new Alert(AlertType.INFORMATION, "Student added successfully!");
                 alert.show();
             }
@@ -78,14 +107,38 @@ public class MainViewController {
 
             Optional<ButtonType> result = dialog.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
+                courseList.setAll(courseService.getAllCourses());
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Course added successfully!");
                 alert.show();
-                // Optionally refresh your course table here
             }
         } catch (Exception e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to load Add Course dialog: " + e.getMessage());
             alert.showAndWait();
         }
+    }
+
+    @FXML
+    public void initialize() {
+        c_name.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getTitle()));
+        c_code.setCellValueFactory(
+                data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getCourseCode()));
+        c_instractor.setCellValueFactory(
+                data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getInstructor()));
+        c_credits.setCellValueFactory(
+                data -> new javafx.beans.property.SimpleIntegerProperty(data.getValue().getCreditHours()).asObject());
+
+        courseList.setAll(courseService.getAllCourses());
+        c_table.setItems(courseList);
+
+        s_name.setCellValueFactory(
+                data -> new javafx.beans.property.SimpleStringProperty(
+                        data.getValue().getFirstName() + " " + data.getValue().getLastName()));
+        s_id.setCellValueFactory(
+                data -> new javafx.beans.property.SimpleStringProperty(String.valueOf(data.getValue().getId())));
+        s_email.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getEmail()));
+
+        studentList.setAll(studentService.getStudents());
+        s_table.setItems(studentList);
     }
 }

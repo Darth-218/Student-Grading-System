@@ -24,7 +24,7 @@
                   </Text>
                   <SplitPane layoutX="28.0" layoutY="80.0" prefHeight="209.0" prefWidth="543.0">
                      <items>
-                        <TableView prefHeight="200.0" prefWidth="200.0">
+                        <TableView fx:id="s_table" prefHeight="200.0" prefWidth="200.0">
                           <columns>
                               <TableColumn fx:id="s_name" prefWidth="200.0" text="Name" />
                             <TableColumn fx:id="s_id" minWidth="66.66" prefWidth="150.0" text="ID" />
@@ -48,11 +48,12 @@
                   </Text>
                   <SplitPane layoutX="28.0" layoutY="80.0" prefHeight="209.0" prefWidth="543.0">
                      <items>
-                        <TableView prefHeight="220.0" prefWidth="541.0">
+                        <TableView fx:id="c_table" prefHeight="220.0" prefWidth="541.0">
                            <columns>
                               <TableColumn fx:id="c_name" prefWidth="200.0" text="Name" />
                               <TableColumn fx:id="c_code" minWidth="66.66" prefWidth="150.0" text="Code" />
-                              <TableColumn fx:id="c_enroll" maxWidth="339.3333435058594" minWidth="25.333343505859375" prefWidth="190.66666666666663" text="Enrolled" />
+                              <TableColumn fx:id="c_instractor" />
+                              <TableColumn fx:id="c_credits" />
                            </columns>
                         </TableView>
                      </items>
