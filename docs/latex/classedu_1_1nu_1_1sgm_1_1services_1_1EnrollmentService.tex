@@ -1,0 +1,85 @@
+\doxysection{edu.\+nu.\+sgm.\+services.\+Enrollment\+Service Class Reference}
+\hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1EnrollmentService}{}\label{classedu_1_1nu_1_1sgm_1_1services_1_1EnrollmentService}\index{edu.nu.sgm.services.EnrollmentService@{edu.nu.sgm.services.EnrollmentService}}
+
+
+Provides methods to enroll students, drop courses, and generate report cards.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1EnrollmentService_a3ba71ac5a8fa372762f93ec68e622140}{enroll\+Student}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} student, \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)
+\begin{DoxyCompactList}\small\item\em Enrolls a student in a course. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1EnrollmentService_a9348dc60095bbd99dae13003b78d7c58}{drop\+Course}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} student, \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)
+\begin{DoxyCompactList}\small\item\em Drops a course from the student\textquotesingle{}s record. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1EnrollmentService_a1e4b93a9b8c83949e9837fa25d27fd34}{generate\+Report\+Card}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} student)
+\begin{DoxyCompactList}\small\item\em Generates a student\textquotesingle{}s report card. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides methods to enroll students, drop courses, and generate report cards. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1EnrollmentService_a9348dc60095bbd99dae13003b78d7c58}\index{edu.nu.sgm.services.EnrollmentService@{edu.nu.sgm.services.EnrollmentService}!dropCourse@{dropCourse}}
+\index{dropCourse@{dropCourse}!edu.nu.sgm.services.EnrollmentService@{edu.nu.sgm.services.EnrollmentService}}
+\doxysubsubsection{\texorpdfstring{dropCourse()}{dropCourse()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1EnrollmentService_a9348dc60095bbd99dae13003b78d7c58} 
+boolean edu.\+nu.\+sgm.\+services.\+Enrollment\+Service.\+drop\+Course (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{student}{, }\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Drops a course from the student\textquotesingle{}s record. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student} & The target student. \\
+\hline
+{\em course} & The target course. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True when the course is successfully dropped. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1EnrollmentService_a3ba71ac5a8fa372762f93ec68e622140}\index{edu.nu.sgm.services.EnrollmentService@{edu.nu.sgm.services.EnrollmentService}!enrollStudent@{enrollStudent}}
+\index{enrollStudent@{enrollStudent}!edu.nu.sgm.services.EnrollmentService@{edu.nu.sgm.services.EnrollmentService}}
+\doxysubsubsection{\texorpdfstring{enrollStudent()}{enrollStudent()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1EnrollmentService_a3ba71ac5a8fa372762f93ec68e622140} 
+boolean edu.\+nu.\+sgm.\+services.\+Enrollment\+Service.\+enroll\+Student (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{student}{, }\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Enrolls a student in a course. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student} & The target student. \\
+\hline
+{\em course} & The target course. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True when the student is successfully enrolled. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1EnrollmentService_a1e4b93a9b8c83949e9837fa25d27fd34}\index{edu.nu.sgm.services.EnrollmentService@{edu.nu.sgm.services.EnrollmentService}!generateReportCard@{generateReportCard}}
+\index{generateReportCard@{generateReportCard}!edu.nu.sgm.services.EnrollmentService@{edu.nu.sgm.services.EnrollmentService}}
+\doxysubsubsection{\texorpdfstring{generateReportCard()}{generateReportCard()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1EnrollmentService_a1e4b93a9b8c83949e9837fa25d27fd34} 
+String edu.\+nu.\+sgm.\+services.\+Enrollment\+Service.\+generate\+Report\+Card (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{student}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Generates a student\textquotesingle{}s report card. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student} & The target student. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The generated report card. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/edu/nu/sgm/services/\mbox{\hyperlink{EnrollmentService_8java}{Enrollment\+Service.\+java}}\end{DoxyCompactItemize}

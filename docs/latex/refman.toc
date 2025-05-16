@@ -1,0 +1,194 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Hierarchical Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Class Hierarchy}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}File List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Class Documentation}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}controllers.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Add\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Course\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller Class Reference}{7}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{7}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Member Function Documentation}{7}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}addCourse()}{7}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}setDialog()}{8}{subsubsection.4.1.2.2}%
+\contentsline {section}{\numberline {4.2}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}controllers.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Add\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Student\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller Class Reference}{8}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{8}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Member Function Documentation}{8}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}setDialog()}{8}{subsubsection.4.2.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2.2}setStudentData()}{8}{subsubsection.4.2.2.2}%
+\contentsline {section}{\numberline {4.3}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Course Class Reference}{9}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Detailed Description}{9}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Constructor \& Destructor Documentation}{10}{subsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}Course()}{10}{subsubsection.4.3.2.1}%
+\contentsline {subsection}{\numberline {4.3.3}Member Function Documentation}{10}{subsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.3.1}getCourseCode()}{10}{subsubsection.4.3.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.3.2}getCreditHours()}{10}{subsubsection.4.3.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3.3}getId()}{10}{subsubsection.4.3.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.3.4}getInstructor()}{11}{subsubsection.4.3.3.4}%
+\contentsline {subsubsection}{\numberline {4.3.3.5}getTitle()}{11}{subsubsection.4.3.3.5}%
+\contentsline {subsubsection}{\numberline {4.3.3.6}getTotalStudents()}{11}{subsubsection.4.3.3.6}%
+\contentsline {subsubsection}{\numberline {4.3.3.7}setCourseCode()}{11}{subsubsection.4.3.3.7}%
+\contentsline {subsubsection}{\numberline {4.3.3.8}setCreditHours()}{11}{subsubsection.4.3.3.8}%
+\contentsline {subsubsection}{\numberline {4.3.3.9}setId()}{12}{subsubsection.4.3.3.9}%
+\contentsline {subsubsection}{\numberline {4.3.3.10}setInstructor()}{12}{subsubsection.4.3.3.10}%
+\contentsline {subsubsection}{\numberline {4.3.3.11}setTitle()}{12}{subsubsection.4.3.3.11}%
+\contentsline {subsubsection}{\numberline {4.3.3.12}setTotalStudents()}{13}{subsubsection.4.3.3.12}%
+\contentsline {section}{\numberline {4.4}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Course\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Creation\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test Class Reference}{13}{section.4.4}%
+\contentsline {section}{\numberline {4.5}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}services.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Course\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service Class Reference}{13}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{14}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Member Function Documentation}{14}{subsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}addCourse()}{14}{subsubsection.4.5.2.1}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}courseExists()}{14}{subsubsection.4.5.2.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.3}displayDetails()}{15}{subsubsection.4.5.2.3}%
+\contentsline {subsubsection}{\numberline {4.5.2.4}exportCourses()}{15}{subsubsection.4.5.2.4}%
+\contentsline {subsubsection}{\numberline {4.5.2.5}getAllCourses()}{15}{subsubsection.4.5.2.5}%
+\contentsline {subsubsection}{\numberline {4.5.2.6}getCourseById()}{15}{subsubsection.4.5.2.6}%
+\contentsline {subsubsection}{\numberline {4.5.2.7}getStudents()}{16}{subsubsection.4.5.2.7}%
+\contentsline {subsubsection}{\numberline {4.5.2.8}getTotalStudents()}{16}{subsubsection.4.5.2.8}%
+\contentsline {subsubsection}{\numberline {4.5.2.9}importCourses()}{16}{subsubsection.4.5.2.9}%
+\contentsline {subsubsection}{\numberline {4.5.2.10}removeCourse()}{17}{subsubsection.4.5.2.10}%
+\contentsline {section}{\numberline {4.6}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}controllers.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Course\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller Class Reference}{17}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Detailed Description}{18}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Member Function Documentation}{18}{subsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.1}setCourse()}{18}{subsubsection.4.6.2.1}%
+\contentsline {section}{\numberline {4.7}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}utils.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Database\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager Class Reference}{18}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Member Function Documentation}{19}{subsection.4.7.1}%
+\contentsline {subsubsection}{\numberline {4.7.1.1}createCourse()}{19}{subsubsection.4.7.1.1}%
+\contentsline {subsubsection}{\numberline {4.7.1.2}createEnrollment()}{19}{subsubsection.4.7.1.2}%
+\contentsline {subsubsection}{\numberline {4.7.1.3}createGrade()}{19}{subsubsection.4.7.1.3}%
+\contentsline {subsubsection}{\numberline {4.7.1.4}createStudent()}{19}{subsubsection.4.7.1.4}%
+\contentsline {subsubsection}{\numberline {4.7.1.5}deleteCourse()}{20}{subsubsection.4.7.1.5}%
+\contentsline {subsubsection}{\numberline {4.7.1.6}deleteEnrollment()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{20}{subsubsection.4.7.1.6}%
+\contentsline {subsubsection}{\numberline {4.7.1.7}deleteEnrollment()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{20}{subsubsection.4.7.1.7}%
+\contentsline {subsubsection}{\numberline {4.7.1.8}deleteEnrollment()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{21}{subsubsection.4.7.1.8}%
+\contentsline {subsubsection}{\numberline {4.7.1.9}deleteGrade()}{21}{subsubsection.4.7.1.9}%
+\contentsline {subsubsection}{\numberline {4.7.1.10}deleteStudent()}{21}{subsubsection.4.7.1.10}%
+\contentsline {subsubsection}{\numberline {4.7.1.11}fetchCourse()}{22}{subsubsection.4.7.1.11}%
+\contentsline {subsubsection}{\numberline {4.7.1.12}fetchCourses()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{22}{subsubsection.4.7.1.12}%
+\contentsline {subsubsection}{\numberline {4.7.1.13}fetchCourses()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{22}{subsubsection.4.7.1.13}%
+\contentsline {subsubsection}{\numberline {4.7.1.14}fetchEnrollment()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{22}{subsubsection.4.7.1.14}%
+\contentsline {subsubsection}{\numberline {4.7.1.15}fetchEnrollment()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{23}{subsubsection.4.7.1.15}%
+\contentsline {subsubsection}{\numberline {4.7.1.16}fetchEnrollment()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{23}{subsubsection.4.7.1.16}%
+\contentsline {subsubsection}{\numberline {4.7.1.17}fetchGrades()}{23}{subsubsection.4.7.1.17}%
+\contentsline {subsubsection}{\numberline {4.7.1.18}fetchStudents()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{24}{subsubsection.4.7.1.18}%
+\contentsline {subsubsection}{\numberline {4.7.1.19}fetchStudents()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{24}{subsubsection.4.7.1.19}%
+\contentsline {subsubsection}{\numberline {4.7.1.20}updateCourse()}{24}{subsubsection.4.7.1.20}%
+\contentsline {subsubsection}{\numberline {4.7.1.21}updateGrades()}{24}{subsubsection.4.7.1.21}%
+\contentsline {subsubsection}{\numberline {4.7.1.22}updateStudent()}{25}{subsubsection.4.7.1.22}%
+\contentsline {section}{\numberline {4.8}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Database\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test Class Reference}{25}{section.4.8}%
+\contentsline {section}{\numberline {4.9}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}controllers.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Enroll\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Course Class Reference}{25}{section.4.9}%
+\contentsline {section}{\numberline {4.10}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Enrollment Class Reference}{26}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}Detailed Description}{26}{subsection.4.10.1}%
+\contentsline {subsection}{\numberline {4.10.2}Constructor \& Destructor Documentation}{26}{subsection.4.10.2}%
+\contentsline {subsubsection}{\numberline {4.10.2.1}Enrollment()}{26}{subsubsection.4.10.2.1}%
+\contentsline {subsection}{\numberline {4.10.3}Member Function Documentation}{26}{subsection.4.10.3}%
+\contentsline {subsubsection}{\numberline {4.10.3.1}getCourse()}{26}{subsubsection.4.10.3.1}%
+\contentsline {subsubsection}{\numberline {4.10.3.2}getId()}{27}{subsubsection.4.10.3.2}%
+\contentsline {subsubsection}{\numberline {4.10.3.3}getStudent()}{27}{subsubsection.4.10.3.3}%
+\contentsline {subsubsection}{\numberline {4.10.3.4}setID()}{27}{subsubsection.4.10.3.4}%
+\contentsline {section}{\numberline {4.11}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}services.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Enrollment\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service Class Reference}{27}{section.4.11}%
+\contentsline {subsection}{\numberline {4.11.1}Detailed Description}{28}{subsection.4.11.1}%
+\contentsline {subsection}{\numberline {4.11.2}Member Function Documentation}{28}{subsection.4.11.2}%
+\contentsline {subsubsection}{\numberline {4.11.2.1}dropCourse()}{28}{subsubsection.4.11.2.1}%
+\contentsline {subsubsection}{\numberline {4.11.2.2}enrollStudent()}{28}{subsubsection.4.11.2.2}%
+\contentsline {subsubsection}{\numberline {4.11.2.3}generateReportCard()}{28}{subsubsection.4.11.2.3}%
+\contentsline {section}{\numberline {4.12}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Enrollment\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test Class Reference}{29}{section.4.12}%
+\contentsline {section}{\numberline {4.13}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}controllers.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Enroll\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Students Class Reference}{29}{section.4.13}%
+\contentsline {subsection}{\numberline {4.13.1}Detailed Description}{29}{subsection.4.13.1}%
+\contentsline {subsection}{\numberline {4.13.2}Member Function Documentation}{29}{subsection.4.13.2}%
+\contentsline {subsubsection}{\numberline {4.13.2.1}setCourse()}{29}{subsubsection.4.13.2.1}%
+\contentsline {subsubsection}{\numberline {4.13.2.2}setDialog()}{30}{subsubsection.4.13.2.2}%
+\contentsline {section}{\numberline {4.14}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Grade\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item Class Reference}{30}{section.4.14}%
+\contentsline {subsection}{\numberline {4.14.1}Detailed Description}{31}{subsection.4.14.1}%
+\contentsline {subsection}{\numberline {4.14.2}Constructor \& Destructor Documentation}{31}{subsection.4.14.2}%
+\contentsline {subsubsection}{\numberline {4.14.2.1}GradeItem()}{31}{subsubsection.4.14.2.1}%
+\contentsline {subsection}{\numberline {4.14.3}Member Function Documentation}{31}{subsection.4.14.3}%
+\contentsline {subsubsection}{\numberline {4.14.3.1}getCategory()}{31}{subsubsection.4.14.3.1}%
+\contentsline {subsubsection}{\numberline {4.14.3.2}getFeedback()}{32}{subsubsection.4.14.3.2}%
+\contentsline {subsubsection}{\numberline {4.14.3.3}getId()}{32}{subsubsection.4.14.3.3}%
+\contentsline {subsubsection}{\numberline {4.14.3.4}getMaxScore()}{32}{subsubsection.4.14.3.4}%
+\contentsline {subsubsection}{\numberline {4.14.3.5}getScore()}{32}{subsubsection.4.14.3.5}%
+\contentsline {subsubsection}{\numberline {4.14.3.6}getTitle()}{32}{subsubsection.4.14.3.6}%
+\contentsline {subsubsection}{\numberline {4.14.3.7}getWeight()}{33}{subsubsection.4.14.3.7}%
+\contentsline {subsubsection}{\numberline {4.14.3.8}setCategory()}{33}{subsubsection.4.14.3.8}%
+\contentsline {subsubsection}{\numberline {4.14.3.9}setFeedback()}{33}{subsubsection.4.14.3.9}%
+\contentsline {subsubsection}{\numberline {4.14.3.10}setId()}{33}{subsubsection.4.14.3.10}%
+\contentsline {subsubsection}{\numberline {4.14.3.11}setMaxScore()}{34}{subsubsection.4.14.3.11}%
+\contentsline {subsubsection}{\numberline {4.14.3.12}setScore()}{34}{subsubsection.4.14.3.12}%
+\contentsline {subsubsection}{\numberline {4.14.3.13}setTitle()}{34}{subsubsection.4.14.3.13}%
+\contentsline {subsubsection}{\numberline {4.14.3.14}setWeight()}{35}{subsubsection.4.14.3.14}%
+\contentsline {section}{\numberline {4.15}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}services.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Grade\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service Class Reference}{35}{section.4.15}%
+\contentsline {subsection}{\numberline {4.15.1}Detailed Description}{36}{subsection.4.15.1}%
+\contentsline {subsection}{\numberline {4.15.2}Member Function Documentation}{36}{subsection.4.15.2}%
+\contentsline {subsubsection}{\numberline {4.15.2.1}addGradeItem()}{36}{subsubsection.4.15.2.1}%
+\contentsline {subsubsection}{\numberline {4.15.2.2}calculateTotalGrade()}{36}{subsubsection.4.15.2.2}%
+\contentsline {subsubsection}{\numberline {4.15.2.3}exportGradeItems()}{36}{subsubsection.4.15.2.3}%
+\contentsline {subsubsection}{\numberline {4.15.2.4}getGrades()}{37}{subsubsection.4.15.2.4}%
+\contentsline {subsubsection}{\numberline {4.15.2.5}impoGradeItems()}{37}{subsubsection.4.15.2.5}%
+\contentsline {subsubsection}{\numberline {4.15.2.6}removeGradeItem()}{37}{subsubsection.4.15.2.6}%
+\contentsline {section}{\numberline {4.16}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Grade\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Test Class Reference}{38}{section.4.16}%
+\contentsline {section}{\numberline {4.17}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Main Class Reference}{38}{section.4.17}%
+\contentsline {section}{\numberline {4.18}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}controllers.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller Class Reference}{39}{section.4.18}%
+\contentsline {section}{\numberline {4.19}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}utils.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reader Class Reference}{39}{section.4.19}%
+\contentsline {subsection}{\numberline {4.19.1}Detailed Description}{39}{subsection.4.19.1}%
+\contentsline {subsection}{\numberline {4.19.2}Member Function Documentation}{39}{subsection.4.19.2}%
+\contentsline {subsubsection}{\numberline {4.19.2.1}parseCourseExport()}{39}{subsubsection.4.19.2.1}%
+\contentsline {subsubsection}{\numberline {4.19.2.2}parseCourseImport()}{40}{subsubsection.4.19.2.2}%
+\contentsline {subsubsection}{\numberline {4.19.2.3}parseGradeItemsExport()}{40}{subsubsection.4.19.2.3}%
+\contentsline {subsubsection}{\numberline {4.19.2.4}parseGradeItemsImport()}{40}{subsubsection.4.19.2.4}%
+\contentsline {subsubsection}{\numberline {4.19.2.5}parseStudentExport()}{41}{subsubsection.4.19.2.5}%
+\contentsline {subsubsection}{\numberline {4.19.2.6}parseStudentImport()}{41}{subsubsection.4.19.2.6}%
+\contentsline {subsubsection}{\numberline {4.19.2.7}readCSV()}{41}{subsubsection.4.19.2.7}%
+\contentsline {subsubsection}{\numberline {4.19.2.8}writeCSV()}{42}{subsubsection.4.19.2.8}%
+\contentsline {section}{\numberline {4.20}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}utils.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Database\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Result\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Set\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mapper$<$ T $>$ Interface Template Reference}{42}{section.4.20}%
+\contentsline {section}{\numberline {4.21}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}models.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Student Class Reference}{43}{section.4.21}%
+\contentsline {subsection}{\numberline {4.21.1}Detailed Description}{43}{subsection.4.21.1}%
+\contentsline {subsection}{\numberline {4.21.2}Constructor \& Destructor Documentation}{43}{subsection.4.21.2}%
+\contentsline {subsubsection}{\numberline {4.21.2.1}Student()}{43}{subsubsection.4.21.2.1}%
+\contentsline {subsection}{\numberline {4.21.3}Member Function Documentation}{44}{subsection.4.21.3}%
+\contentsline {subsubsection}{\numberline {4.21.3.1}generateEmail()}{44}{subsubsection.4.21.3.1}%
+\contentsline {section}{\numberline {4.22}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}services.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Student\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service Class Reference}{44}{section.4.22}%
+\contentsline {subsection}{\numberline {4.22.1}Detailed Description}{44}{subsection.4.22.1}%
+\contentsline {subsection}{\numberline {4.22.2}Member Function Documentation}{44}{subsection.4.22.2}%
+\contentsline {subsubsection}{\numberline {4.22.2.1}addstudent()}{44}{subsubsection.4.22.2.1}%
+\contentsline {subsubsection}{\numberline {4.22.2.2}displayDetails()}{45}{subsubsection.4.22.2.2}%
+\contentsline {subsubsection}{\numberline {4.22.2.3}getCourses()}{45}{subsubsection.4.22.2.3}%
+\contentsline {subsubsection}{\numberline {4.22.2.4}getStudentById()}{45}{subsubsection.4.22.2.4}%
+\contentsline {subsubsection}{\numberline {4.22.2.5}getStudents()}{46}{subsubsection.4.22.2.5}%
+\contentsline {subsubsection}{\numberline {4.22.2.6}getTotalCourses()}{46}{subsubsection.4.22.2.6}%
+\contentsline {subsubsection}{\numberline {4.22.2.7}removeStudent()}{46}{subsubsection.4.22.2.7}%
+\contentsline {subsubsection}{\numberline {4.22.2.8}updateStudent()}{46}{subsubsection.4.22.2.8}%
+\contentsline {section}{\numberline {4.23}edu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}nu.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}sgm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}controllers.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Student\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller Class Reference}{47}{section.4.23}%
+\contentsline {subsection}{\numberline {4.23.1}Detailed Description}{47}{subsection.4.23.1}%
+\contentsline {subsection}{\numberline {4.23.2}Member Function Documentation}{47}{subsection.4.23.2}%
+\contentsline {subsubsection}{\numberline {4.23.2.1}setStudent()}{47}{subsubsection.4.23.2.1}%
+\contentsline {chapter}{\numberline {5}File Documentation}{49}{chapter.5}%
+\contentsline {section}{\numberline {5.1}src/main/java/edu/nu/sgm/controllers/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Add\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Course\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller.java File Reference}{49}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{49}{subsection.5.1.1}%
+\contentsline {section}{\numberline {5.2}src/main/java/edu/nu/sgm/controllers/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Add\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Student\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller.java File Reference}{49}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{50}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.3}src/main/java/edu/nu/sgm/controllers/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Course\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller.java File Reference}{50}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{50}{subsection.5.3.1}%
+\contentsline {section}{\numberline {5.4}src/main/java/edu/nu/sgm/controllers/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Enroll\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Students.java File Reference}{51}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Detailed Description}{51}{subsection.5.4.1}%
+\contentsline {section}{\numberline {5.5}src/main/java/edu/nu/sgm/controllers/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Student\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller.java File Reference}{51}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Detailed Description}{52}{subsection.5.5.1}%
+\contentsline {section}{\numberline {5.6}src/main/java/edu/nu/sgm/models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Course.java File Reference}{52}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}Detailed Description}{52}{subsection.5.6.1}%
+\contentsline {section}{\numberline {5.7}src/main/java/edu/nu/sgm/models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Enrollment.java File Reference}{52}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Detailed Description}{52}{subsection.5.7.1}%
+\contentsline {section}{\numberline {5.8}src/main/java/edu/nu/sgm/models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Grade\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item.java File Reference}{52}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}Detailed Description}{53}{subsection.5.8.1}%
+\contentsline {section}{\numberline {5.9}src/main/java/edu/nu/sgm/models/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Student.java File Reference}{53}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Detailed Description}{53}{subsection.5.9.1}%
+\contentsline {section}{\numberline {5.10}src/main/java/edu/nu/sgm/services/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Course\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service.java File Reference}{53}{section.5.10}%
+\contentsline {subsection}{\numberline {5.10.1}Detailed Description}{54}{subsection.5.10.1}%
+\contentsline {section}{\numberline {5.11}src/main/java/edu/nu/sgm/services/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Enrollment\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service.java File Reference}{54}{section.5.11}%
+\contentsline {subsection}{\numberline {5.11.1}Detailed Description}{54}{subsection.5.11.1}%
+\contentsline {section}{\numberline {5.12}src/main/java/edu/nu/sgm/services/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Grade\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Item\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service.java File Reference}{54}{section.5.12}%
+\contentsline {subsection}{\numberline {5.12.1}Detailed Description}{54}{subsection.5.12.1}%
+\contentsline {section}{\numberline {5.13}src/main/java/edu/nu/sgm/services/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Student\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Service.java File Reference}{55}{section.5.13}%
+\contentsline {subsection}{\numberline {5.13.1}Detailed Description}{55}{subsection.5.13.1}%
+\contentsline {section}{\numberline {5.14}src/main/java/edu/nu/sgm/utils/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Reader.java File Reference}{55}{section.5.14}%
+\contentsline {subsection}{\numberline {5.14.1}Detailed Description}{55}{subsection.5.14.1}%
+\contentsline {chapter}{Index}{57}{section*.43}%

@@ -1,0 +1,366 @@
+\doxysection{edu.\+nu.\+sgm.\+utils.\+Database\+Manager Class Reference}
+\hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager}{}\label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+interface \mbox{\hyperlink{interfaceedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_1_1ResultSetMapper}{Result\+Set\+Mapper}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a607b817625e9102d9bc6bd52b89b1df9}\label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a607b817625e9102d9bc6bd52b89b1df9} 
+boolean {\bfseries initialize\+Database} ()  throws SQLException 
+\item 
+boolean \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a0377a83d47acfda54d6d6b0990b491e7}{create\+Course}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)  throws SQLException 
+\item 
+boolean \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a92d1af4d4c663f1a154c4351c618c420}{create\+Student}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} student)  throws SQLException 
+\item 
+boolean \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ae34dfbc1bdcfe41db2dd8a19e910bbbe}{create\+Enrollment}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}} enrollment)  throws SQLException 
+\item 
+boolean \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a9758d05711e4e23cea2929c4579e14ab}{create\+Grade}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}} enrollment, \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}} grade)  throws SQLException 
+\item 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} $>$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_aac997130f4c3dcb3273087aa4edcba38}{fetch\+Courses}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} student)  throws SQLException 
+\item 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} $>$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_aa35fe21f3dceefd3dadd1e8063db9d41}{fetch\+Students}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)  throws SQLException 
+\item 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} $>$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ae580ca647da5f1499f8d882189096718}{fetch\+Courses}} ()  throws SQLException 
+\item 
+\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a5b054566b9386067bc9687b217496d47}{fetch\+Course}} (int course\+\_\+id)  throws SQLException 
+\item 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} $>$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a61dd650be00b8480cc231aa7ae087d1a}{fetch\+Students}} ()  throws SQLException 
+\item 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}} $>$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_aef0144948f23e6299cb799dcfcef3807}{fetch\+Grades}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}} enrollment)  throws SQLException 
+\item 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}} $>$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a3135ffa3b0a61e90f2398fdb4887651e}{fetch\+Enrollment}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} student, \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)  throws SQLException 
+\item 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}} $>$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a2928f49376ca2487fc7211f048546f71}{fetch\+Enrollment}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)  throws SQLException 
+\item 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}} $>$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a1e6a924d3a3ee0d95a18340c2208799c}{fetch\+Enrollment}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} student)  throws SQLException 
+\item 
+int \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ab5490cb145370759e82c7ffb2d51573f}{update\+Course}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)  throws SQLException 
+\item 
+int \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a2a0c28830a1d4fb4a2f6834ba1f7105d}{update\+Student}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} student)  throws SQLException 
+\item 
+int \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ad86a3f22a62c2e28da178bc4e4616834}{update\+Grades}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}} grade)  throws SQLException 
+\item 
+int \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a30899039d4331a47a3af4a1e1ce4fe18}{delete\+Course}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)  throws SQLException 
+\item 
+int \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a6b41e9d254f2e5d74d0c1bd07d95034b}{delete\+Student}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} student)  throws SQLException 
+\item 
+int \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a18da8864796099b706463a53c5595acf}{delete\+Grade}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}} grade)  throws SQLException 
+\item 
+int \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ae34d287a9c513c472eb63d7db1a10b41}{delete\+Enrollment}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} student, \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)  throws SQLException 
+\item 
+int \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a856d24d33f23377e92af000b4877e4e8}{delete\+Enrollment}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)  throws SQLException 
+\item 
+int \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ab8a083aff5aa005730f4078a79c1f30e}{delete\+Enrollment}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} student)  throws SQLException 
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a0377a83d47acfda54d6d6b0990b491e7}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!createCourse@{createCourse}}
+\index{createCourse@{createCourse}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{createCourse()}{createCourse()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a0377a83d47acfda54d6d6b0990b491e7} 
+boolean edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+create\+Course (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that inserts a course object into the database 
+\begin{DoxyParams}{Parameters}
+{\em student} & The course to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True when the course is added successfully
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ae34dfbc1bdcfe41db2dd8a19e910bbbe}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!createEnrollment@{createEnrollment}}
+\index{createEnrollment@{createEnrollment}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{createEnrollment()}{createEnrollment()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ae34dfbc1bdcfe41db2dd8a19e910bbbe} 
+boolean edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+create\+Enrollment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}}}]{enrollment}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that inserts an \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment} object into the database 
+\begin{DoxyParams}{Parameters}
+{\em enrollment} & The enrollment to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True when the enrollment is added successfully
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a9758d05711e4e23cea2929c4579e14ab}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!createGrade@{createGrade}}
+\index{createGrade@{createGrade}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{createGrade()}{createGrade()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a9758d05711e4e23cea2929c4579e14ab} 
+boolean edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+create\+Grade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}}}]{enrollment}{, }\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}}}]{grade}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that inserts a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item} object into the database 
+\begin{DoxyParams}{Parameters}
+{\em enrollment} & The course/student pair \\
+\hline
+{\em grade} & The grade to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True when the grade is added successfully
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a92d1af4d4c663f1a154c4351c618c420}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!createStudent@{createStudent}}
+\index{createStudent@{createStudent}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{createStudent()}{createStudent()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a92d1af4d4c663f1a154c4351c618c420} 
+boolean edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+create\+Student (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{student}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that inserts a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student} object into the database 
+\begin{DoxyParams}{Parameters}
+{\em student} & The student to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True when the student is added successfully
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a30899039d4331a47a3af4a1e1ce4fe18}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!deleteCourse@{deleteCourse}}
+\index{deleteCourse@{deleteCourse}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{deleteCourse()}{deleteCourse()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a30899039d4331a47a3af4a1e1ce4fe18} 
+int edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+delete\+Course (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that deletes a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course} object from the database 
+\begin{DoxyParams}{Parameters}
+{\em course} & The target course \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of rows modified
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a856d24d33f23377e92af000b4877e4e8}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!deleteEnrollment@{deleteEnrollment}}
+\index{deleteEnrollment@{deleteEnrollment}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{deleteEnrollment()}{deleteEnrollment()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a856d24d33f23377e92af000b4877e4e8} 
+int edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+delete\+Enrollment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that deletes an \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment} object from the database 
+\begin{DoxyParams}{Parameters}
+{\em enrollment} & The target enrollment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of rows modified
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ab8a083aff5aa005730f4078a79c1f30e}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!deleteEnrollment@{deleteEnrollment}}
+\index{deleteEnrollment@{deleteEnrollment}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{deleteEnrollment()}{deleteEnrollment()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ab8a083aff5aa005730f4078a79c1f30e} 
+int edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+delete\+Enrollment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{student}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that deletes an \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment} object from the database 
+\begin{DoxyParams}{Parameters}
+{\em enrollment} & The target enrollment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of rows modified
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ae34d287a9c513c472eb63d7db1a10b41}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!deleteEnrollment@{deleteEnrollment}}
+\index{deleteEnrollment@{deleteEnrollment}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{deleteEnrollment()}{deleteEnrollment()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ae34d287a9c513c472eb63d7db1a10b41} 
+int edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+delete\+Enrollment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{student}{, }\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that deletes an \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment} object from the database 
+\begin{DoxyParams}{Parameters}
+{\em enrollment} & The target enrollment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of rows modified
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a18da8864796099b706463a53c5595acf}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!deleteGrade@{deleteGrade}}
+\index{deleteGrade@{deleteGrade}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{deleteGrade()}{deleteGrade()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a18da8864796099b706463a53c5595acf} 
+int edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+delete\+Grade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}}}]{grade}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that deletes a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item} object from the database 
+\begin{DoxyParams}{Parameters}
+{\em grade} & The target grade \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of rows modified
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a6b41e9d254f2e5d74d0c1bd07d95034b}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!deleteStudent@{deleteStudent}}
+\index{deleteStudent@{deleteStudent}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{deleteStudent()}{deleteStudent()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a6b41e9d254f2e5d74d0c1bd07d95034b} 
+int edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+delete\+Student (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{student}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that deletes a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student} object from the database 
+\begin{DoxyParams}{Parameters}
+{\em student} & The target student \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of rows modified
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a5b054566b9386067bc9687b217496d47}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!fetchCourse@{fetchCourse}}
+\index{fetchCourse@{fetchCourse}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{fetchCourse()}{fetchCourse()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a5b054566b9386067bc9687b217496d47} 
+\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+fetch\+Course (\begin{DoxyParamCaption}\item[{int}]{course\+\_\+id}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that gets all courses in the database \begin{DoxyReturn}{Returns}
+The list of courses
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ae580ca647da5f1499f8d882189096718}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!fetchCourses@{fetchCourses}}
+\index{fetchCourses@{fetchCourses}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{fetchCourses()}{fetchCourses()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ae580ca647da5f1499f8d882189096718} 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} $>$ edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+fetch\+Courses (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that gets all courses in the database \begin{DoxyReturn}{Returns}
+The list of courses
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_aac997130f4c3dcb3273087aa4edcba38}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!fetchCourses@{fetchCourses}}
+\index{fetchCourses@{fetchCourses}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{fetchCourses()}{fetchCourses()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_aac997130f4c3dcb3273087aa4edcba38} 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} $>$ edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+fetch\+Courses (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{student}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that gets the courses a student is enrolled in 
+\begin{DoxyParams}{Parameters}
+{\em student} & The target student \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The list of courses the target student is enrolled in
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a2928f49376ca2487fc7211f048546f71}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!fetchEnrollment@{fetchEnrollment}}
+\index{fetchEnrollment@{fetchEnrollment}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{fetchEnrollment()}{fetchEnrollment()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a2928f49376ca2487fc7211f048546f71} 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}} $>$ edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+fetch\+Enrollment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that gets a specific enrollment 
+\begin{DoxyParams}{Parameters}
+{\em student} & The target student \\
+\hline
+{\em course} & The target course \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment} object
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a1e6a924d3a3ee0d95a18340c2208799c}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!fetchEnrollment@{fetchEnrollment}}
+\index{fetchEnrollment@{fetchEnrollment}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{fetchEnrollment()}{fetchEnrollment()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a1e6a924d3a3ee0d95a18340c2208799c} 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}} $>$ edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+fetch\+Enrollment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{student}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that gets a specific enrollment 
+\begin{DoxyParams}{Parameters}
+{\em student} & The target student \\
+\hline
+{\em course} & The target course \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment} object
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a3135ffa3b0a61e90f2398fdb4887651e}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!fetchEnrollment@{fetchEnrollment}}
+\index{fetchEnrollment@{fetchEnrollment}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{fetchEnrollment()}{fetchEnrollment()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a3135ffa3b0a61e90f2398fdb4887651e} 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}} $>$ edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+fetch\+Enrollment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{student}{, }\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that gets a specific enrollment 
+\begin{DoxyParams}{Parameters}
+{\em student} & The target student \\
+\hline
+{\em course} & The target course \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment} object
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_aef0144948f23e6299cb799dcfcef3807}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!fetchGrades@{fetchGrades}}
+\index{fetchGrades@{fetchGrades}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{fetchGrades()}{fetchGrades()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_aef0144948f23e6299cb799dcfcef3807} 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}} $>$ edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+fetch\+Grades (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}}}]{enrollment}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that gets all grades of a student/course pair 
+\begin{DoxyParams}{Parameters}
+{\em enrollment} & The student/course pair \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The list of grades
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a61dd650be00b8480cc231aa7ae087d1a}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!fetchStudents@{fetchStudents}}
+\index{fetchStudents@{fetchStudents}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{fetchStudents()}{fetchStudents()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a61dd650be00b8480cc231aa7ae087d1a} 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} $>$ edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+fetch\+Students (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that gets all students in the database \begin{DoxyReturn}{Returns}
+The list of students
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_aa35fe21f3dceefd3dadd1e8063db9d41}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!fetchStudents@{fetchStudents}}
+\index{fetchStudents@{fetchStudents}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{fetchStudents()}{fetchStudents()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_aa35fe21f3dceefd3dadd1e8063db9d41} 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} $>$ edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+fetch\+Students (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that gets the students enrolled in a course 
+\begin{DoxyParams}{Parameters}
+{\em course} & The target course \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The list of students enrolled in the target course
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ab5490cb145370759e82c7ffb2d51573f}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!updateCourse@{updateCourse}}
+\index{updateCourse@{updateCourse}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{updateCourse()}{updateCourse()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ab5490cb145370759e82c7ffb2d51573f} 
+int edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+update\+Course (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that updates a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course} object in the database 
+\begin{DoxyParams}{Parameters}
+{\em course} & The target course with updated attributes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of rows modified
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ad86a3f22a62c2e28da178bc4e4616834}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!updateGrades@{updateGrades}}
+\index{updateGrades@{updateGrades}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{updateGrades()}{updateGrades()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_ad86a3f22a62c2e28da178bc4e4616834} 
+int edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+update\+Grades (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}}}]{grade}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that updates a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item} object in the database 
+\begin{DoxyParams}{Parameters}
+{\em grade} & The target grade with updated attributes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of rows modified
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a2a0c28830a1d4fb4a2f6834ba1f7105d}\index{edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}!updateStudent@{updateStudent}}
+\index{updateStudent@{updateStudent}!edu.nu.sgm.utils.DatabaseManager@{edu.nu.sgm.utils.DatabaseManager}}
+\doxysubsubsection{\texorpdfstring{updateStudent()}{updateStudent()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1DatabaseManager_a2a0c28830a1d4fb4a2f6834ba1f7105d} 
+int edu.\+nu.\+sgm.\+utils.\+Database\+Manager.\+update\+Student (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{student}{}\end{DoxyParamCaption}) throws SQLException\hspace{0.3cm}{\ttfamily [inline]}}
+
+A method that updates a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student} object in the database 
+\begin{DoxyParams}{Parameters}
+{\em student} & The target student with updated attributes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of rows modified
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/edu/nu/sgm/utils/Database\+Manager.\+java\end{DoxyCompactItemize}

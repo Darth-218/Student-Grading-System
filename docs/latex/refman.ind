@@ -1,0 +1,361 @@
+\begin{theindex}
+
+  \item {addCourse}
+    \subitem {edu.nu.sgm.controllers.AddCourseController}, 
+		\hyperpage{7}
+    \subitem {edu.nu.sgm.services.CourseService}, \hyperpage{14}
+  \item {addGradeItem}
+    \subitem {edu.nu.sgm.services.GradeItemService}, \hyperpage{36}
+  \item {addstudent}
+    \subitem {edu.nu.sgm.services.StudentService}, \hyperpage{44}
+
+  \indexspace
+
+  \item {calculateTotalGrade}
+    \subitem {edu.nu.sgm.services.GradeItemService}, \hyperpage{36}
+  \item {Course}
+    \subitem {edu.nu.sgm.models.Course}, \hyperpage{10}
+  \item {courseExists}
+    \subitem {edu.nu.sgm.services.CourseService}, \hyperpage{14}
+  \item {createCourse}
+    \subitem {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{19}
+  \item {createEnrollment}
+    \subitem {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{19}
+  \item {createGrade}
+    \subitem {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{19}
+  \item {createStudent}
+    \subitem {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{19}
+
+  \indexspace
+
+  \item {deleteCourse}
+    \subitem {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{20}
+  \item {deleteEnrollment}
+    \subitem {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{20, 21}
+  \item {deleteGrade}
+    \subitem {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{21}
+  \item {deleteStudent}
+    \subitem {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{21}
+  \item {displayDetails}
+    \subitem {edu.nu.sgm.services.CourseService}, \hyperpage{15}
+    \subitem {edu.nu.sgm.services.StudentService}, \hyperpage{45}
+  \item {dropCourse}
+    \subitem {edu.nu.sgm.services.EnrollmentService}, \hyperpage{28}
+
+  \indexspace
+
+  \item {edu.nu.sgm.controllers.AddCourseController}, \hyperpage{7}
+    \subitem {addCourse}, \hyperpage{7}
+    \subitem {setDialog}, \hyperpage{7}
+  \item {edu.nu.sgm.controllers.AddStudentController}, \hyperpage{8}
+    \subitem {setDialog}, \hyperpage{8}
+    \subitem {setStudentData}, \hyperpage{8}
+  \item {edu.nu.sgm.controllers.CourseViewController}, \hyperpage{17}
+    \subitem {setCourse}, \hyperpage{18}
+  \item {edu.nu.sgm.controllers.EnrollCourse}, \hyperpage{25}
+  \item {edu.nu.sgm.controllers.EnrollStudents}, \hyperpage{29}
+    \subitem {setCourse}, \hyperpage{29}
+    \subitem {setDialog}, \hyperpage{30}
+  \item {edu.nu.sgm.controllers.MainViewController}, \hyperpage{39}
+  \item {edu.nu.sgm.controllers.StudentViewController}, \hyperpage{47}
+    \subitem {setStudent}, \hyperpage{47}
+  \item {edu.nu.sgm.CourseCreationTest}, \hyperpage{13}
+  \item {edu.nu.sgm.DatabaseManagerTest}, \hyperpage{25}
+  \item {edu.nu.sgm.EnrollmentTest}, \hyperpage{29}
+  \item {edu.nu.sgm.GradeItemServiceTest}, \hyperpage{38}
+  \item {edu.nu.sgm.Main}, \hyperpage{38}
+  \item {edu.nu.sgm.models.Course}, \hyperpage{9}
+    \subitem {Course}, \hyperpage{10}
+    \subitem {getCourseCode}, \hyperpage{10}
+    \subitem {getCreditHours}, \hyperpage{10}
+    \subitem {getId}, \hyperpage{10}
+    \subitem {getInstructor}, \hyperpage{10}
+    \subitem {getTitle}, \hyperpage{11}
+    \subitem {getTotalStudents}, \hyperpage{11}
+    \subitem {setCourseCode}, \hyperpage{11}
+    \subitem {setCreditHours}, \hyperpage{11}
+    \subitem {setId}, \hyperpage{12}
+    \subitem {setInstructor}, \hyperpage{12}
+    \subitem {setTitle}, \hyperpage{12}
+    \subitem {setTotalStudents}, \hyperpage{13}
+  \item {edu.nu.sgm.models.Enrollment}, \hyperpage{26}
+    \subitem {Enrollment}, \hyperpage{26}
+    \subitem {getCourse}, \hyperpage{26}
+    \subitem {getId}, \hyperpage{26}
+    \subitem {getStudent}, \hyperpage{27}
+    \subitem {setID}, \hyperpage{27}
+  \item {edu.nu.sgm.models.GradeItem}, \hyperpage{30}
+    \subitem {getCategory}, \hyperpage{31}
+    \subitem {getFeedback}, \hyperpage{31}
+    \subitem {getId}, \hyperpage{32}
+    \subitem {getMaxScore}, \hyperpage{32}
+    \subitem {getScore}, \hyperpage{32}
+    \subitem {getTitle}, \hyperpage{32}
+    \subitem {getWeight}, \hyperpage{32}
+    \subitem {GradeItem}, \hyperpage{31}
+    \subitem {setCategory}, \hyperpage{33}
+    \subitem {setFeedback}, \hyperpage{33}
+    \subitem {setId}, \hyperpage{33}
+    \subitem {setMaxScore}, \hyperpage{34}
+    \subitem {setScore}, \hyperpage{34}
+    \subitem {setTitle}, \hyperpage{34}
+    \subitem {setWeight}, \hyperpage{35}
+  \item {edu.nu.sgm.models.Student}, \hyperpage{43}
+    \subitem {generateEmail}, \hyperpage{44}
+    \subitem {Student}, \hyperpage{43}
+  \item {edu.nu.sgm.services.CourseService}, \hyperpage{13}
+    \subitem {addCourse}, \hyperpage{14}
+    \subitem {courseExists}, \hyperpage{14}
+    \subitem {displayDetails}, \hyperpage{15}
+    \subitem {exportCourses}, \hyperpage{15}
+    \subitem {getAllCourses}, \hyperpage{15}
+    \subitem {getCourseById}, \hyperpage{15}
+    \subitem {getStudents}, \hyperpage{16}
+    \subitem {getTotalStudents}, \hyperpage{16}
+    \subitem {importCourses}, \hyperpage{16}
+    \subitem {removeCourse}, \hyperpage{17}
+  \item {edu.nu.sgm.services.EnrollmentService}, \hyperpage{27}
+    \subitem {dropCourse}, \hyperpage{28}
+    \subitem {enrollStudent}, \hyperpage{28}
+    \subitem {generateReportCard}, \hyperpage{28}
+  \item {edu.nu.sgm.services.GradeItemService}, \hyperpage{35}
+    \subitem {addGradeItem}, \hyperpage{36}
+    \subitem {calculateTotalGrade}, \hyperpage{36}
+    \subitem {exportGradeItems}, \hyperpage{36}
+    \subitem {getGrades}, \hyperpage{37}
+    \subitem {impoGradeItems}, \hyperpage{37}
+    \subitem {removeGradeItem}, \hyperpage{37}
+  \item {edu.nu.sgm.services.StudentService}, \hyperpage{44}
+    \subitem {addstudent}, \hyperpage{44}
+    \subitem {displayDetails}, \hyperpage{45}
+    \subitem {getCourses}, \hyperpage{45}
+    \subitem {getStudentById}, \hyperpage{45}
+    \subitem {getStudents}, \hyperpage{46}
+    \subitem {getTotalCourses}, \hyperpage{46}
+    \subitem {removeStudent}, \hyperpage{46}
+    \subitem {updateStudent}, \hyperpage{46}
+  \item {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{18}
+    \subitem {createCourse}, \hyperpage{19}
+    \subitem {createEnrollment}, \hyperpage{19}
+    \subitem {createGrade}, \hyperpage{19}
+    \subitem {createStudent}, \hyperpage{19}
+    \subitem {deleteCourse}, \hyperpage{20}
+    \subitem {deleteEnrollment}, \hyperpage{20, 21}
+    \subitem {deleteGrade}, \hyperpage{21}
+    \subitem {deleteStudent}, \hyperpage{21}
+    \subitem {fetchCourse}, \hyperpage{22}
+    \subitem {fetchCourses}, \hyperpage{22}
+    \subitem {fetchEnrollment}, \hyperpage{22, 23}
+    \subitem {fetchGrades}, \hyperpage{23}
+    \subitem {fetchStudents}, \hyperpage{24}
+    \subitem {updateCourse}, \hyperpage{24}
+    \subitem {updateGrades}, \hyperpage{24}
+    \subitem {updateStudent}, \hyperpage{25}
+  \item {edu.nu.sgm.utils.DatabaseManager.ResultSetMapper$<$ T $>$}, 
+		\hyperpage{42}
+  \item {edu.nu.sgm.utils.Reader}, \hyperpage{39}
+    \subitem {parseCourseExport}, \hyperpage{39}
+    \subitem {parseCourseImport}, \hyperpage{40}
+    \subitem {parseGradeItemsExport}, \hyperpage{40}
+    \subitem {parseGradeItemsImport}, \hyperpage{40}
+    \subitem {parseStudentExport}, \hyperpage{41}
+    \subitem {parseStudentImport}, \hyperpage{41}
+    \subitem {readCSV}, \hyperpage{41}
+    \subitem {writeCSV}, \hyperpage{42}
+  \item {Enrollment}
+    \subitem {edu.nu.sgm.models.Enrollment}, \hyperpage{26}
+  \item {enrollStudent}
+    \subitem {edu.nu.sgm.services.EnrollmentService}, \hyperpage{28}
+  \item {exportCourses}
+    \subitem {edu.nu.sgm.services.CourseService}, \hyperpage{15}
+  \item {exportGradeItems}
+    \subitem {edu.nu.sgm.services.GradeItemService}, \hyperpage{36}
+
+  \indexspace
+
+  \item {fetchCourse}
+    \subitem {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{22}
+  \item {fetchCourses}
+    \subitem {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{22}
+  \item {fetchEnrollment}
+    \subitem {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{22, 23}
+  \item {fetchGrades}
+    \subitem {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{23}
+  \item {fetchStudents}
+    \subitem {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{24}
+
+  \indexspace
+
+  \item {generateEmail}
+    \subitem {edu.nu.sgm.models.Student}, \hyperpage{44}
+  \item {generateReportCard}
+    \subitem {edu.nu.sgm.services.EnrollmentService}, \hyperpage{28}
+  \item {getAllCourses}
+    \subitem {edu.nu.sgm.services.CourseService}, \hyperpage{15}
+  \item {getCategory}
+    \subitem {edu.nu.sgm.models.GradeItem}, \hyperpage{31}
+  \item {getCourse}
+    \subitem {edu.nu.sgm.models.Enrollment}, \hyperpage{26}
+  \item {getCourseById}
+    \subitem {edu.nu.sgm.services.CourseService}, \hyperpage{15}
+  \item {getCourseCode}
+    \subitem {edu.nu.sgm.models.Course}, \hyperpage{10}
+  \item {getCourses}
+    \subitem {edu.nu.sgm.services.StudentService}, \hyperpage{45}
+  \item {getCreditHours}
+    \subitem {edu.nu.sgm.models.Course}, \hyperpage{10}
+  \item {getFeedback}
+    \subitem {edu.nu.sgm.models.GradeItem}, \hyperpage{31}
+  \item {getGrades}
+    \subitem {edu.nu.sgm.services.GradeItemService}, \hyperpage{37}
+  \item {getId}
+    \subitem {edu.nu.sgm.models.Course}, \hyperpage{10}
+    \subitem {edu.nu.sgm.models.Enrollment}, \hyperpage{26}
+    \subitem {edu.nu.sgm.models.GradeItem}, \hyperpage{32}
+  \item {getInstructor}
+    \subitem {edu.nu.sgm.models.Course}, \hyperpage{10}
+  \item {getMaxScore}
+    \subitem {edu.nu.sgm.models.GradeItem}, \hyperpage{32}
+  \item {getScore}
+    \subitem {edu.nu.sgm.models.GradeItem}, \hyperpage{32}
+  \item {getStudent}
+    \subitem {edu.nu.sgm.models.Enrollment}, \hyperpage{27}
+  \item {getStudentById}
+    \subitem {edu.nu.sgm.services.StudentService}, \hyperpage{45}
+  \item {getStudents}
+    \subitem {edu.nu.sgm.services.CourseService}, \hyperpage{16}
+    \subitem {edu.nu.sgm.services.StudentService}, \hyperpage{46}
+  \item {getTitle}
+    \subitem {edu.nu.sgm.models.Course}, \hyperpage{11}
+    \subitem {edu.nu.sgm.models.GradeItem}, \hyperpage{32}
+  \item {getTotalCourses}
+    \subitem {edu.nu.sgm.services.StudentService}, \hyperpage{46}
+  \item {getTotalStudents}
+    \subitem {edu.nu.sgm.models.Course}, \hyperpage{11}
+    \subitem {edu.nu.sgm.services.CourseService}, \hyperpage{16}
+  \item {getWeight}
+    \subitem {edu.nu.sgm.models.GradeItem}, \hyperpage{32}
+  \item {GradeItem}
+    \subitem {edu.nu.sgm.models.GradeItem}, \hyperpage{31}
+
+  \indexspace
+
+  \item {impoGradeItems}
+    \subitem {edu.nu.sgm.services.GradeItemService}, \hyperpage{37}
+  \item {importCourses}
+    \subitem {edu.nu.sgm.services.CourseService}, \hyperpage{16}
+
+  \indexspace
+
+  \item {parseCourseExport}
+    \subitem {edu.nu.sgm.utils.Reader}, \hyperpage{39}
+  \item {parseCourseImport}
+    \subitem {edu.nu.sgm.utils.Reader}, \hyperpage{40}
+  \item {parseGradeItemsExport}
+    \subitem {edu.nu.sgm.utils.Reader}, \hyperpage{40}
+  \item {parseGradeItemsImport}
+    \subitem {edu.nu.sgm.utils.Reader}, \hyperpage{40}
+  \item {parseStudentExport}
+    \subitem {edu.nu.sgm.utils.Reader}, \hyperpage{41}
+  \item {parseStudentImport}
+    \subitem {edu.nu.sgm.utils.Reader}, \hyperpage{41}
+
+  \indexspace
+
+  \item {readCSV}
+    \subitem {edu.nu.sgm.utils.Reader}, \hyperpage{41}
+  \item {removeCourse}
+    \subitem {edu.nu.sgm.services.CourseService}, \hyperpage{17}
+  \item {removeGradeItem}
+    \subitem {edu.nu.sgm.services.GradeItemService}, \hyperpage{37}
+  \item {removeStudent}
+    \subitem {edu.nu.sgm.services.StudentService}, \hyperpage{46}
+
+  \indexspace
+
+  \item {setCategory}
+    \subitem {edu.nu.sgm.models.GradeItem}, \hyperpage{33}
+  \item {setCourse}
+    \subitem {edu.nu.sgm.controllers.CourseViewController}, 
+		\hyperpage{18}
+    \subitem {edu.nu.sgm.controllers.EnrollStudents}, \hyperpage{29}
+  \item {setCourseCode}
+    \subitem {edu.nu.sgm.models.Course}, \hyperpage{11}
+  \item {setCreditHours}
+    \subitem {edu.nu.sgm.models.Course}, \hyperpage{11}
+  \item {setDialog}
+    \subitem {edu.nu.sgm.controllers.AddCourseController}, 
+		\hyperpage{7}
+    \subitem {edu.nu.sgm.controllers.AddStudentController}, 
+		\hyperpage{8}
+    \subitem {edu.nu.sgm.controllers.EnrollStudents}, \hyperpage{30}
+  \item {setFeedback}
+    \subitem {edu.nu.sgm.models.GradeItem}, \hyperpage{33}
+  \item {setID}
+    \subitem {edu.nu.sgm.models.Enrollment}, \hyperpage{27}
+  \item {setId}
+    \subitem {edu.nu.sgm.models.Course}, \hyperpage{12}
+    \subitem {edu.nu.sgm.models.GradeItem}, \hyperpage{33}
+  \item {setInstructor}
+    \subitem {edu.nu.sgm.models.Course}, \hyperpage{12}
+  \item {setMaxScore}
+    \subitem {edu.nu.sgm.models.GradeItem}, \hyperpage{34}
+  \item {setScore}
+    \subitem {edu.nu.sgm.models.GradeItem}, \hyperpage{34}
+  \item {setStudent}
+    \subitem {edu.nu.sgm.controllers.StudentViewController}, 
+		\hyperpage{47}
+  \item {setStudentData}
+    \subitem {edu.nu.sgm.controllers.AddStudentController}, 
+		\hyperpage{8}
+  \item {setTitle}
+    \subitem {edu.nu.sgm.models.Course}, \hyperpage{12}
+    \subitem {edu.nu.sgm.models.GradeItem}, \hyperpage{34}
+  \item {setTotalStudents}
+    \subitem {edu.nu.sgm.models.Course}, \hyperpage{13}
+  \item {setWeight}
+    \subitem {edu.nu.sgm.models.GradeItem}, \hyperpage{35}
+  \item {src/main/java/edu/nu/sgm/controllers/AddCourseController.java}, 
+		\hyperpage{49}
+  \item {src/main/java/edu/nu/sgm/controllers/AddStudentController.java}, 
+		\hyperpage{49}
+  \item {src/main/java/edu/nu/sgm/controllers/CourseViewController.java}, 
+		\hyperpage{50}
+  \item {src/main/java/edu/nu/sgm/controllers/EnrollStudents.java}, 
+		\hyperpage{51}
+  \item {src/main/java/edu/nu/sgm/controllers/StudentViewController.java}, 
+		\hyperpage{51}
+  \item {src/main/java/edu/nu/sgm/models/Course.java}, \hyperpage{52}
+  \item {src/main/java/edu/nu/sgm/models/Enrollment.java}, 
+		\hyperpage{52}
+  \item {src/main/java/edu/nu/sgm/models/GradeItem.java}, 
+		\hyperpage{52}
+  \item {src/main/java/edu/nu/sgm/models/Student.java}, \hyperpage{53}
+  \item {src/main/java/edu/nu/sgm/services/CourseService.java}, 
+		\hyperpage{53}
+  \item {src/main/java/edu/nu/sgm/services/EnrollmentService.java}, 
+		\hyperpage{54}
+  \item {src/main/java/edu/nu/sgm/services/GradeItemService.java}, 
+		\hyperpage{54}
+  \item {src/main/java/edu/nu/sgm/services/StudentService.java}, 
+		\hyperpage{55}
+  \item {src/main/java/edu/nu/sgm/utils/Reader.java}, \hyperpage{55}
+  \item {Student}
+    \subitem {edu.nu.sgm.models.Student}, \hyperpage{43}
+
+  \indexspace
+
+  \item {updateCourse}
+    \subitem {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{24}
+  \item {updateGrades}
+    \subitem {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{24}
+  \item {updateStudent}
+    \subitem {edu.nu.sgm.services.StudentService}, \hyperpage{46}
+    \subitem {edu.nu.sgm.utils.DatabaseManager}, \hyperpage{25}
+
+  \indexspace
+
+  \item {writeCSV}
+    \subitem {edu.nu.sgm.utils.Reader}, \hyperpage{42}
+
+\end{theindex}

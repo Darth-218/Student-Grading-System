@@ -1,0 +1,216 @@
+\doxysection{edu.\+nu.\+sgm.\+services.\+Course\+Service Class Reference}
+\hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService}{}\label{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService}\index{edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}}
+
+
+Provides methods to add, remove, retrieve, and manage courses.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a77327441305e18b1851ed5c4574d0e02}{course\+Exists}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)
+\begin{DoxyCompactList}\small\item\em Checks if a course exists in the database. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_ab16b20e856fba4b715ff9e096cf0aee4}{add\+Course}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)
+\begin{DoxyCompactList}\small\item\em Adds a course to the database. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a236ac1d4ad0e343033bb1f19d739f10a}{remove\+Course}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)
+\begin{DoxyCompactList}\small\item\em Removes a course from the database. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} $>$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a40b00af9285444182ccdd5b64defd813}{get\+Students}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)
+\begin{DoxyCompactList}\small\item\em Retrieves a list of students enrolled in a course. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a38f407fce9c2ff921a4c1a666e55e980}{get\+Total\+Students}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)
+\begin{DoxyCompactList}\small\item\em Retrieves total number of students enrolled in a course. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} $>$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a5a695da5eaa4ff34db7015c458e60bfb}{get\+All\+Courses}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all courses from the database. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_ab20d9938f00ec37c31305f0625570343}{display\+Details}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)
+\begin{DoxyCompactList}\small\item\em Displays the details of a course. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_ae6a140afa2fcccbe9f6e91df6cac6f00}{get\+Course\+By\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Retrieves a course by its ID. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} $>$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a8dda764a22fb8454598df365e850082a}{import\+Courses}} (File file)
+\begin{DoxyCompactList}\small\item\em Imports courses from a file. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a3a777b94290fa99b804ed268fe6c9b9d}{export\+Courses}} (List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} $>$ courses)
+\begin{DoxyCompactList}\small\item\em Exports courses to a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides methods to add, remove, retrieve, and manage courses. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_ab16b20e856fba4b715ff9e096cf0aee4}\index{edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}!addCourse@{addCourse}}
+\index{addCourse@{addCourse}!edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}}
+\doxysubsubsection{\texorpdfstring{addCourse()}{addCourse()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_ab16b20e856fba4b715ff9e096cf0aee4} 
+boolean edu.\+nu.\+sgm.\+services.\+Course\+Service.\+add\+Course (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a course to the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em course} & The course to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the course was added successfully, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a77327441305e18b1851ed5c4574d0e02}\index{edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}!courseExists@{courseExists}}
+\index{courseExists@{courseExists}!edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}}
+\doxysubsubsection{\texorpdfstring{courseExists()}{courseExists()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a77327441305e18b1851ed5c4574d0e02} 
+boolean edu.\+nu.\+sgm.\+services.\+Course\+Service.\+course\+Exists (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if a course exists in the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em course} & The course to check for existence. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the course exists, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_ab20d9938f00ec37c31305f0625570343}\index{edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}!displayDetails@{displayDetails}}
+\index{displayDetails@{displayDetails}!edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}}
+\doxysubsubsection{\texorpdfstring{displayDetails()}{displayDetails()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_ab20d9938f00ec37c31305f0625570343} 
+String edu.\+nu.\+sgm.\+services.\+Course\+Service.\+display\+Details (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays the details of a course. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em course} & The course for which to display the details. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string containing the course details. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a3a777b94290fa99b804ed268fe6c9b9d}\index{edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}!exportCourses@{exportCourses}}
+\index{exportCourses@{exportCourses}!edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}}
+\doxysubsubsection{\texorpdfstring{exportCourses()}{exportCourses()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a3a777b94290fa99b804ed268fe6c9b9d} 
+boolean edu.\+nu.\+sgm.\+services.\+Course\+Service.\+export\+Courses (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} $>$}]{courses}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Exports courses to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em courses} & The courses to export. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the courses were exported successfully, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a5a695da5eaa4ff34db7015c458e60bfb}\index{edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}!getAllCourses@{getAllCourses}}
+\index{getAllCourses@{getAllCourses}!edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}}
+\doxysubsubsection{\texorpdfstring{getAllCourses()}{getAllCourses()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a5a695da5eaa4ff34db7015c458e60bfb} 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} $>$ edu.\+nu.\+sgm.\+services.\+Course\+Service.\+get\+All\+Courses (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all courses from the database. 
+
+\begin{DoxyReturn}{Returns}
+A list of all courses. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_ae6a140afa2fcccbe9f6e91df6cac6f00}\index{edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}!getCourseById@{getCourseById}}
+\index{getCourseById@{getCourseById}!edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}}
+\doxysubsubsection{\texorpdfstring{getCourseById()}{getCourseById()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_ae6a140afa2fcccbe9f6e91df6cac6f00} 
+\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} edu.\+nu.\+sgm.\+services.\+Course\+Service.\+get\+Course\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves a course by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the course to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The course with the specified ID, or null if not found. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a40b00af9285444182ccdd5b64defd813}\index{edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}!getStudents@{getStudents}}
+\index{getStudents@{getStudents}!edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}}
+\doxysubsubsection{\texorpdfstring{getStudents()}{getStudents()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a40b00af9285444182ccdd5b64defd813} 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} $>$ edu.\+nu.\+sgm.\+services.\+Course\+Service.\+get\+Students (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves a list of students enrolled in a course. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em course} & The course for which to retrieve the students. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of students enrolled in the course, or null if an error occurred. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a38f407fce9c2ff921a4c1a666e55e980}\index{edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}!getTotalStudents@{getTotalStudents}}
+\index{getTotalStudents@{getTotalStudents}!edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}}
+\doxysubsubsection{\texorpdfstring{getTotalStudents()}{getTotalStudents()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a38f407fce9c2ff921a4c1a666e55e980} 
+int edu.\+nu.\+sgm.\+services.\+Course\+Service.\+get\+Total\+Students (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves total number of students enrolled in a course. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em course} & The course for which to count students. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The total number of students enrolled in the course, or 0 if an error occurred. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a8dda764a22fb8454598df365e850082a}\index{edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}!importCourses@{importCourses}}
+\index{importCourses@{importCourses}!edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}}
+\doxysubsubsection{\texorpdfstring{importCourses()}{importCourses()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a8dda764a22fb8454598df365e850082a} 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} $>$ edu.\+nu.\+sgm.\+services.\+Course\+Service.\+import\+Courses (\begin{DoxyParamCaption}\item[{File}]{file}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Imports courses from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & The file containing the course data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of imported courses. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a236ac1d4ad0e343033bb1f19d739f10a}\index{edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}!removeCourse@{removeCourse}}
+\index{removeCourse@{removeCourse}!edu.nu.sgm.services.CourseService@{edu.nu.sgm.services.CourseService}}
+\doxysubsubsection{\texorpdfstring{removeCourse()}{removeCourse()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1CourseService_a236ac1d4ad0e343033bb1f19d739f10a} 
+boolean edu.\+nu.\+sgm.\+services.\+Course\+Service.\+remove\+Course (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes a course from the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em course} & The course to be removed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the course was removed successfully, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/edu/nu/sgm/services/\mbox{\hyperlink{CourseService_8java}{Course\+Service.\+java}}\end{DoxyCompactItemize}

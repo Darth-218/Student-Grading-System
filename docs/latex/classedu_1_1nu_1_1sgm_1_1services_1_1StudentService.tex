@@ -1,0 +1,176 @@
+\doxysection{edu.\+nu.\+sgm.\+services.\+Student\+Service Class Reference}
+\hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService}{}\label{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService}\index{edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}}
+
+
+Provides methods to add, remove, update, and retrieve students and their courses.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_acf20a1968156b3e08c84ca13185aa584}{addstudent}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} s)
+\begin{DoxyCompactList}\small\item\em Adds a student to the database after validation. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} $>$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a33f816508a39bd3c3981671573f3a507}{get\+Students}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all students from the database. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a49c95cc30213a98ca49974872a242fd9}{remove\+Student}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} s)
+\begin{DoxyCompactList}\small\item\em Removes a student from the list and the database. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} $>$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a39d52c047288e0ca4d64c62a6a127a0b}{get\+Courses}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} s)
+\begin{DoxyCompactList}\small\item\em Retrieves the courses a student is enrolled in. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a551363e80cae96312de7ce9b8818cde8}{get\+Total\+Courses}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} s)
+\begin{DoxyCompactList}\small\item\em Counts the total courses a student is enrolled in. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a44063ca6083e3efcc2ecb3f7aed37d53}{display\+Details}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} s)
+\begin{DoxyCompactList}\small\item\em Displays the details of a student. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_aca16817f7d28c31922009c8cc08af70d}{get\+Student\+By\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Retrieves a student by their ID. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a5277813f42f4792dc43e5d5303025fea}{update\+Student}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} student)
+\begin{DoxyCompactList}\small\item\em Updates a student\textquotesingle{}s information in the database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides methods to add, remove, update, and retrieve students and their courses. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_acf20a1968156b3e08c84ca13185aa584}\index{edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}!addstudent@{addstudent}}
+\index{addstudent@{addstudent}!edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}}
+\doxysubsubsection{\texorpdfstring{addstudent()}{addstudent()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_acf20a1968156b3e08c84ca13185aa584} 
+boolean edu.\+nu.\+sgm.\+services.\+Student\+Service.\+addstudent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a student to the database after validation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The student to add. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if added successfully, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a44063ca6083e3efcc2ecb3f7aed37d53}\index{edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}!displayDetails@{displayDetails}}
+\index{displayDetails@{displayDetails}!edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}}
+\doxysubsubsection{\texorpdfstring{displayDetails()}{displayDetails()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a44063ca6083e3efcc2ecb3f7aed37d53} 
+String edu.\+nu.\+sgm.\+services.\+Student\+Service.\+display\+Details (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays the details of a student. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The student. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String with student details. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a39d52c047288e0ca4d64c62a6a127a0b}\index{edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}!getCourses@{getCourses}}
+\index{getCourses@{getCourses}!edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}}
+\doxysubsubsection{\texorpdfstring{getCourses()}{getCourses()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a39d52c047288e0ca4d64c62a6a127a0b} 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} $>$ edu.\+nu.\+sgm.\+services.\+Student\+Service.\+get\+Courses (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the courses a student is enrolled in. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The student. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of courses. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_aca16817f7d28c31922009c8cc08af70d}\index{edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}!getStudentById@{getStudentById}}
+\index{getStudentById@{getStudentById}!edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}}
+\doxysubsubsection{\texorpdfstring{getStudentById()}{getStudentById()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_aca16817f7d28c31922009c8cc08af70d} 
+\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} edu.\+nu.\+sgm.\+services.\+Student\+Service.\+get\+Student\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves a student by their ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The student ID. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The student object or null if not found. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a33f816508a39bd3c3981671573f3a507}\index{edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}!getStudents@{getStudents}}
+\index{getStudents@{getStudents}!edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}}
+\doxysubsubsection{\texorpdfstring{getStudents()}{getStudents()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a33f816508a39bd3c3981671573f3a507} 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} $>$ edu.\+nu.\+sgm.\+services.\+Student\+Service.\+get\+Students (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all students from the database. 
+
+\begin{DoxyReturn}{Returns}
+List of students. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a551363e80cae96312de7ce9b8818cde8}\index{edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}!getTotalCourses@{getTotalCourses}}
+\index{getTotalCourses@{getTotalCourses}!edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}}
+\doxysubsubsection{\texorpdfstring{getTotalCourses()}{getTotalCourses()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a551363e80cae96312de7ce9b8818cde8} 
+int edu.\+nu.\+sgm.\+services.\+Student\+Service.\+get\+Total\+Courses (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Counts the total courses a student is enrolled in. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The student. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of courses. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a49c95cc30213a98ca49974872a242fd9}\index{edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}!removeStudent@{removeStudent}}
+\index{removeStudent@{removeStudent}!edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}}
+\doxysubsubsection{\texorpdfstring{removeStudent()}{removeStudent()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a49c95cc30213a98ca49974872a242fd9} 
+boolean edu.\+nu.\+sgm.\+services.\+Student\+Service.\+remove\+Student (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes a student from the list and the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The student to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if removed successfully, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a5277813f42f4792dc43e5d5303025fea}\index{edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}!updateStudent@{updateStudent}}
+\index{updateStudent@{updateStudent}!edu.nu.sgm.services.StudentService@{edu.nu.sgm.services.StudentService}}
+\doxysubsubsection{\texorpdfstring{updateStudent()}{updateStudent()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1StudentService_a5277813f42f4792dc43e5d5303025fea} 
+boolean edu.\+nu.\+sgm.\+services.\+Student\+Service.\+update\+Student (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{student}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates a student\textquotesingle{}s information in the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student} & The student to update. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if updated successfully, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/edu/nu/sgm/services/\mbox{\hyperlink{StudentService_8java}{Student\+Service.\+java}}\end{DoxyCompactItemize}

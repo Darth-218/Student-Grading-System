@@ -1,0 +1,194 @@
+\doxysection{edu.\+nu.\+sgm.\+utils.\+Reader Class Reference}
+\hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader}{}\label{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader}\index{edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}}
+
+
+Provides static methods for reading and writing CSV files and parsing/exporting model objects.  
+
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static$<$ T $>$ List$<$ T $>$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a714a9584eee2457fdc39a3c096618e89}{read\+CSV}} (File file, Function$<$ String, T $>$ parser)
+\begin{DoxyCompactList}\small\item\em Reads a CSV file and parses each line into an object using the provided parser. \end{DoxyCompactList}\item 
+static$<$ T $>$ void \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_acc5e2e310ea2a4eeed70ab39d439cf24}{write\+CSV}} (File file, List$<$ T $>$ list, Function$<$ T, String $>$ parser)
+\begin{DoxyCompactList}\small\item\em Writes a list of objects to a CSV file using the provided parser. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a1ee9cee94ecbd3b6e585c3624e5d7248}{parse\+Course\+Import}} (String line)
+\begin{DoxyCompactList}\small\item\em Parses a CSV line into a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course} object. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a6aa81561ab98037d6d98769d99014b94}{parse\+Student\+Import}} (String line)
+\begin{DoxyCompactList}\small\item\em Parses a CSV line into a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student} object. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}} \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a9dc1df706585c1f9d238496a668fa7d5}{parse\+Grade\+Items\+Import}} (String line)
+\begin{DoxyCompactList}\small\item\em Parses a CSV line into a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item} object. \end{DoxyCompactList}\item 
+static String \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a8b3c540f20b23a144b7abd885c67ea25}{parse\+Course\+Export}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} course)
+\begin{DoxyCompactList}\small\item\em Converts a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course} object to a CSV line for export. \end{DoxyCompactList}\item 
+static String \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_af03f342782c553a1f28db9e960d865e5}{parse\+Student\+Export}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} student)
+\begin{DoxyCompactList}\small\item\em Converts a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student} object to a CSV line for export. \end{DoxyCompactList}\item 
+static String \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a8497c1f2ab0f48f1036bf2fc3a799d3d}{parse\+Grade\+Items\+Export}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}} grade)
+\begin{DoxyCompactList}\small\item\em Converts a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item} object to a CSV line for export. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides static methods for reading and writing CSV files and parsing/exporting model objects. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a8b3c540f20b23a144b7abd885c67ea25}\index{edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}!parseCourseExport@{parseCourseExport}}
+\index{parseCourseExport@{parseCourseExport}!edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}}
+\doxysubsubsection{\texorpdfstring{parseCourseExport()}{parseCourseExport()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a8b3c540f20b23a144b7abd885c67ea25} 
+static String edu.\+nu.\+sgm.\+utils.\+Reader.\+parse\+Course\+Export (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}}}]{course}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Converts a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course} object to a CSV line for export. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em course} & The \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The CSV line. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a1ee9cee94ecbd3b6e585c3624e5d7248}\index{edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}!parseCourseImport@{parseCourseImport}}
+\index{parseCourseImport@{parseCourseImport}!edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}}
+\doxysubsubsection{\texorpdfstring{parseCourseImport()}{parseCourseImport()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a1ee9cee94ecbd3b6e585c3624e5d7248} 
+static \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course}} edu.\+nu.\+sgm.\+utils.\+Reader.\+parse\+Course\+Import (\begin{DoxyParamCaption}\item[{String}]{line}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Parses a CSV line into a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & The CSV line. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The parsed \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Course}{Course} object. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a8497c1f2ab0f48f1036bf2fc3a799d3d}\index{edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}!parseGradeItemsExport@{parseGradeItemsExport}}
+\index{parseGradeItemsExport@{parseGradeItemsExport}!edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}}
+\doxysubsubsection{\texorpdfstring{parseGradeItemsExport()}{parseGradeItemsExport()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a8497c1f2ab0f48f1036bf2fc3a799d3d} 
+static String edu.\+nu.\+sgm.\+utils.\+Reader.\+parse\+Grade\+Items\+Export (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}}}]{grade}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Converts a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item} object to a CSV line for export. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grade} & The \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The CSV line. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a9dc1df706585c1f9d238496a668fa7d5}\index{edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}!parseGradeItemsImport@{parseGradeItemsImport}}
+\index{parseGradeItemsImport@{parseGradeItemsImport}!edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}}
+\doxysubsubsection{\texorpdfstring{parseGradeItemsImport()}{parseGradeItemsImport()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a9dc1df706585c1f9d238496a668fa7d5} 
+static \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}} edu.\+nu.\+sgm.\+utils.\+Reader.\+parse\+Grade\+Items\+Import (\begin{DoxyParamCaption}\item[{String}]{line}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Parses a CSV line into a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & The CSV line. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The parsed \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item} object. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_af03f342782c553a1f28db9e960d865e5}\index{edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}!parseStudentExport@{parseStudentExport}}
+\index{parseStudentExport@{parseStudentExport}!edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}}
+\doxysubsubsection{\texorpdfstring{parseStudentExport()}{parseStudentExport()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_af03f342782c553a1f28db9e960d865e5} 
+static String edu.\+nu.\+sgm.\+utils.\+Reader.\+parse\+Student\+Export (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}}}]{student}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Converts a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student} object to a CSV line for export. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student} & The \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The CSV line. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a6aa81561ab98037d6d98769d99014b94}\index{edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}!parseStudentImport@{parseStudentImport}}
+\index{parseStudentImport@{parseStudentImport}!edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}}
+\doxysubsubsection{\texorpdfstring{parseStudentImport()}{parseStudentImport()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a6aa81561ab98037d6d98769d99014b94} 
+static \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student}} edu.\+nu.\+sgm.\+utils.\+Reader.\+parse\+Student\+Import (\begin{DoxyParamCaption}\item[{String}]{line}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Parses a CSV line into a \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & The CSV line. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The parsed \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1Student}{Student} object. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a714a9584eee2457fdc39a3c096618e89}\index{edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}!readCSV@{readCSV}}
+\index{readCSV@{readCSV}!edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}}
+\doxysubsubsection{\texorpdfstring{readCSV()}{readCSV()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_a714a9584eee2457fdc39a3c096618e89} 
+static$<$ T $>$ List$<$ T $>$ edu.\+nu.\+sgm.\+utils.\+Reader.\+read\+CSV (\begin{DoxyParamCaption}\item[{File}]{file}{, }\item[{Function$<$ String, T $>$}]{parser}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Reads a CSV file and parses each line into an object using the provided parser. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of object to parse. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em file} & The CSV file to read. \\
+\hline
+{\em parser} & A function that parses a line into an object of type T. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of parsed objects. 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_acc5e2e310ea2a4eeed70ab39d439cf24}\index{edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}!writeCSV@{writeCSV}}
+\index{writeCSV@{writeCSV}!edu.nu.sgm.utils.Reader@{edu.nu.sgm.utils.Reader}}
+\doxysubsubsection{\texorpdfstring{writeCSV()}{writeCSV()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1utils_1_1Reader_acc5e2e310ea2a4eeed70ab39d439cf24} 
+static$<$ T $>$ void edu.\+nu.\+sgm.\+utils.\+Reader.\+write\+CSV (\begin{DoxyParamCaption}\item[{File}]{file}{, }\item[{List$<$ T $>$}]{list}{, }\item[{Function$<$ T, String $>$}]{parser}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Writes a list of objects to a CSV file using the provided parser. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of object to write. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em file} & The CSV file to write to. \\
+\hline
+{\em list} & The list of objects to write. \\
+\hline
+{\em parser} & A function that converts an object of type T to a CSV line. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/edu/nu/sgm/utils/\mbox{\hyperlink{Reader_8java}{Reader.\+java}}\end{DoxyCompactItemize}

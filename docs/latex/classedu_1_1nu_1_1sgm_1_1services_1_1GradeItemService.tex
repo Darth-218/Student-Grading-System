@@ -1,0 +1,145 @@
+\doxysection{edu.\+nu.\+sgm.\+services.\+Grade\+Item\+Service Class Reference}
+\hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService}{}\label{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService}\index{edu.nu.sgm.services.GradeItemService@{edu.nu.sgm.services.GradeItemService}}
+
+
+Provides methods to create, retrieve, delete, and process grade items.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+boolean \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_a900d982f3e97940295281fe39b653a5d}{add\+Grade\+Item}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}} enrollment, \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}} item)
+\begin{DoxyCompactList}\small\item\em Adds a new grade item to an enrollment. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}} $>$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_a04104329b49460c75184cdc2a7da4c6c}{get\+Grades}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}} enrollment)
+\begin{DoxyCompactList}\small\item\em Retrieves all grade items for a given enrollment. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_a96bd888496b6337ddd26e25eb4eb6219}{remove\+Grade\+Item}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}} grade, \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}} enrollment)
+\begin{DoxyCompactList}\small\item\em Removes a specific grade item from an enrollment. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_adc12ee77c8fd1dabd67a913efb3686f7}{calculate\+Total\+Grade}} (\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}} enrollment)
+\begin{DoxyCompactList}\small\item\em Calculates the total grade for an enrollment based on weighted scores. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}} $>$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_a001d52e03756f172684f62c57c4fcbab}{impo\+Grade\+Items}} (File file)
+\begin{DoxyCompactList}\small\item\em Imports grade items from a CSV file. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_a4b492e9229d6362d260027d26518778e}{export\+Grade\+Items}} (List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}} $>$ enrollments)
+\begin{DoxyCompactList}\small\item\em Exports grade items of multiple enrollments to a CSV file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides methods to create, retrieve, delete, and process grade items. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_a900d982f3e97940295281fe39b653a5d}\index{edu.nu.sgm.services.GradeItemService@{edu.nu.sgm.services.GradeItemService}!addGradeItem@{addGradeItem}}
+\index{addGradeItem@{addGradeItem}!edu.nu.sgm.services.GradeItemService@{edu.nu.sgm.services.GradeItemService}}
+\doxysubsubsection{\texorpdfstring{addGradeItem()}{addGradeItem()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_a900d982f3e97940295281fe39b653a5d} 
+boolean edu.\+nu.\+sgm.\+services.\+Grade\+Item\+Service.\+add\+Grade\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}}}]{enrollment}{, }\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}}}]{item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a new grade item to an enrollment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enrollment} & The enrollment associated with the grade \\
+\hline
+{\em item} & The grade item to add \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the grade item is successfully added; false otherwise 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_adc12ee77c8fd1dabd67a913efb3686f7}\index{edu.nu.sgm.services.GradeItemService@{edu.nu.sgm.services.GradeItemService}!calculateTotalGrade@{calculateTotalGrade}}
+\index{calculateTotalGrade@{calculateTotalGrade}!edu.nu.sgm.services.GradeItemService@{edu.nu.sgm.services.GradeItemService}}
+\doxysubsubsection{\texorpdfstring{calculateTotalGrade()}{calculateTotalGrade()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_adc12ee77c8fd1dabd67a913efb3686f7} 
+double edu.\+nu.\+sgm.\+services.\+Grade\+Item\+Service.\+calculate\+Total\+Grade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}}}]{enrollment}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculates the total grade for an enrollment based on weighted scores. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enrollment} & The enrollment whose total grade is to be calculated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The total grade as a percentage 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_a4b492e9229d6362d260027d26518778e}\index{edu.nu.sgm.services.GradeItemService@{edu.nu.sgm.services.GradeItemService}!exportGradeItems@{exportGradeItems}}
+\index{exportGradeItems@{exportGradeItems}!edu.nu.sgm.services.GradeItemService@{edu.nu.sgm.services.GradeItemService}}
+\doxysubsubsection{\texorpdfstring{exportGradeItems()}{exportGradeItems()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_a4b492e9229d6362d260027d26518778e} 
+boolean edu.\+nu.\+sgm.\+services.\+Grade\+Item\+Service.\+export\+Grade\+Items (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}} $>$}]{enrollments}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Exports grade items of multiple enrollments to a CSV file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enrollments} & A list of enrollments whose grades will be exported \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if export is successful 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_a04104329b49460c75184cdc2a7da4c6c}\index{edu.nu.sgm.services.GradeItemService@{edu.nu.sgm.services.GradeItemService}!getGrades@{getGrades}}
+\index{getGrades@{getGrades}!edu.nu.sgm.services.GradeItemService@{edu.nu.sgm.services.GradeItemService}}
+\doxysubsubsection{\texorpdfstring{getGrades()}{getGrades()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_a04104329b49460c75184cdc2a7da4c6c} 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}} $>$ edu.\+nu.\+sgm.\+services.\+Grade\+Item\+Service.\+get\+Grades (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}}}]{enrollment}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all grade items for a given enrollment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enrollment} & The enrollment whose grades are to be retrieved \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item} objects, or an empty list on error or null input 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_a001d52e03756f172684f62c57c4fcbab}\index{edu.nu.sgm.services.GradeItemService@{edu.nu.sgm.services.GradeItemService}!impoGradeItems@{impoGradeItems}}
+\index{impoGradeItems@{impoGradeItems}!edu.nu.sgm.services.GradeItemService@{edu.nu.sgm.services.GradeItemService}}
+\doxysubsubsection{\texorpdfstring{impoGradeItems()}{impoGradeItems()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_a001d52e03756f172684f62c57c4fcbab} 
+List$<$ \mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}} $>$ edu.\+nu.\+sgm.\+services.\+Grade\+Item\+Service.\+impo\+Grade\+Items (\begin{DoxyParamCaption}\item[{File}]{file}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Imports grade items from a CSV file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & The CSV file to import from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of \doxylink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item} objects, or an empty list if import fails 
+\end{DoxyReturn}
+\Hypertarget{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_a96bd888496b6337ddd26e25eb4eb6219}\index{edu.nu.sgm.services.GradeItemService@{edu.nu.sgm.services.GradeItemService}!removeGradeItem@{removeGradeItem}}
+\index{removeGradeItem@{removeGradeItem}!edu.nu.sgm.services.GradeItemService@{edu.nu.sgm.services.GradeItemService}}
+\doxysubsubsection{\texorpdfstring{removeGradeItem()}{removeGradeItem()}}
+{\footnotesize\ttfamily \label{classedu_1_1nu_1_1sgm_1_1services_1_1GradeItemService_a96bd888496b6337ddd26e25eb4eb6219} 
+boolean edu.\+nu.\+sgm.\+services.\+Grade\+Item\+Service.\+remove\+Grade\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1GradeItem}{Grade\+Item}}}]{grade}{, }\item[{\mbox{\hyperlink{classedu_1_1nu_1_1sgm_1_1models_1_1Enrollment}{Enrollment}}}]{enrollment}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes a specific grade item from an enrollment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grade} & The grade item to remove \\
+\hline
+{\em enrollment} & The associated enrollment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the item is successfully removed; false otherwise 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/edu/nu/sgm/services/\mbox{\hyperlink{GradeItemService_8java}{Grade\+Item\+Service.\+java}}\end{DoxyCompactItemize}
