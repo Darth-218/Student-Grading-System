@@ -53,7 +53,7 @@ public class AddCourseController {
             return;
         }
 
-        boolean success = addCourse(code, name, instructor, credits);
+        boolean success = addCourse(name, code, instructor, credits);
         if (success) {
             dialog.setResult(ButtonType.OK);
             dialog.close();
@@ -71,7 +71,7 @@ public class AddCourseController {
         dialog.close();
     }
 
-    public boolean addCourse(String code, String name, String instructor, int credits) {
+    public boolean addCourse(String name, String code, String instructor, int credits) {
         Course course = new Course(0, code, name, instructor, credits);
         return courseService.addCourse(course);
     }

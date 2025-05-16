@@ -65,6 +65,7 @@ public class AddStudentController {
     
     private boolean addStudent(String first_name, String last_name) {
         Student student = new Student(0, first_name, last_name, "");
+        student.setEmail(student.generateStudentEmail());
         return studentService.addstudent(student);
     }
     

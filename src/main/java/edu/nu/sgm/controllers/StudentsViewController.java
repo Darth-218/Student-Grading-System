@@ -14,7 +14,6 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,7 +39,6 @@ public class StudentsViewController {
     private final StudentService studentService = new StudentService();
     private final EnrollmentService enrollmentService = new EnrollmentService();
     private final GradeItemService gradeItemService = new GradeItemService();
-    private final CourseService courseService = new CourseService();
     
     private Student currentStudent;
 
@@ -50,22 +48,24 @@ public class StudentsViewController {
         c_name.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getTitle()));
         c_code.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getCourseCode()));
         f_grade.setCellValueFactory(data -> {
+            Enrollment enrollment = new Enrollment(0, currentStudent.getId(), data.getValue().getId());
+            Double grade;
             try {
-                Enrollment enrollment = new Enrollment(0, currentStudent.getId(), data.getValue().getId());
-                Double grade = gradeItemService.calculateTotalGrade(enrollment);
-                return new SimpleStringProperty(String.format("%.2f%%", grade));
-            } catch (SQLException e) {
-                return new SimpleStringProperty("N/A");
+                grade = gradeItemService.calculateTotalGrade(enrollment);
+            } catch (Exception e) {
+                grade = null;
             }
+            return new SimpleStringProperty(grade != null ? String.format("%.2f%%", grade) : "N/A");
         });
         c_gpa.setCellValueFactory(data -> {
+            Enrollment enrollment = new Enrollment(0, currentStudent.getId(), data.getValue().getId());
+            Double grade;
             try {
-                Enrollment enrollment = new Enrollment(0, currentStudent.getId(), data.getValue().getId());
-                Double grade = gradeItemService.calculateTotalGrade(enrollment);
-                return new SimpleDoubleProperty(grade / 25).asObject(); // Convert % to GPA (100% = 4.0)
-            } catch (SQLException e) {
-                return new SimpleDoubleProperty(0.0).asObject();
+                grade = gradeItemService.calculateTotalGrade(enrollment);
+            } catch (Exception e) {
+                grade = null;
             }
+            return new SimpleDoubleProperty(grade != null ? grade / 25 : 0.0).asObject(); // Convert % to GPA (100% = 4.0)
         });
     }
 
@@ -112,9 +112,8 @@ public class StudentsViewController {
             }
             
             double cgpa = count > 0 ? totalGPA / count : 0.0;
-            currentStudent.setCGPA(cgpa);
             return cgpa;
-        } catch (SQLException e) {
+        } catch (Exception e) {
             return 0.0;
         }
     }
@@ -173,15 +172,12 @@ public class StudentsViewController {
     private void handleEnrollCourse() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/course-to-student.fxml"));
         Parent root = loader.load();
-        
-        CourseToStudentController controller = loader.getController();
-        controller.setStudent(currentStudent);
-        
+
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setTitle("Enroll Course");
         stage.showAndWait();
-        
+
         // Refresh data after enrollment
         refreshData();
     }

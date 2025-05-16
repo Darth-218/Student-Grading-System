@@ -141,7 +141,7 @@ public class MainViewController {
         studentList.setAll(studentService.getStudents());
         s_table.setItems(studentList);
 
-        s_table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+        s_table.getSelectionModel().selectedItemProperty().addListener((_, _, newSelection) -> {
             if (newSelection != null) {
                 try {
                     openStudentView(newSelection);

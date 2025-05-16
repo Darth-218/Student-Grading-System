@@ -3,7 +3,9 @@ package edu.nu.sgm.services;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import edu.nu.sgm.models.*;
 import edu.nu.sgm.utils.DatabaseManager;
@@ -13,24 +15,24 @@ public class StudentService {
     private List<Student> st= getStudents(); // list all the students in it
    // check that that any name have correct way
     private boolean checkspecial(String name){
-      int a[]= new int[]{'`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '=' ,'+'};
-      for (int i=0;i<name.length();i++){
-        if(Arrays.asList(a).contains(name.charAt(i))) {
+      Set<Character> specialChars = new HashSet<>(Arrays.asList('`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '=', '+'));
+      for (int i = 0; i < name.length(); i++) {
+        char c = name.charAt(i);
+        if (specialChars.contains(c)) {
             return false; //check that any name do not have any of those special characters
         }
-        if(!Character.isLetter(name.charAt(i))) {
+        if (!Character.isLetter(c)) {
             return false;  //check that any name do not have digits
         }
       }
-   
       return true;
     }
     private boolean checkName(String name){
-    name = name.trim();   
-    if (name == null|| name.isEmpty()){  
+    name = name == null ? "" : name.trim();   
+    if (name.isEmpty()){  
         return false;
        }
-    if(name.length()<2 && name.length()>50){ // logic length
+    if(name.length()<2 || name.length()>50){ // logic length
         return false;
     }
     if(!checkspecial(name)){  // call funcation of the characters
@@ -71,7 +73,6 @@ public class StudentService {
         catch (SQLException e) {
            return false;
         }
-         
      }
      // list each student with the courses that pick with each student
      public List<Course> getCourses(Student s) {
@@ -84,7 +85,6 @@ public class StudentService {
         catch (SQLException e) {
            return null;
         }
-        
     }
     // count the total course that enrollment for each student
      public int getTotalCourses(Student s) {
@@ -99,7 +99,6 @@ public class StudentService {
         if (s == null || !st.contains(s)) {
             return " ";
         }
-        
         return String.format(
         "%d, %s, %s, %s",
         s.getId(),
@@ -107,7 +106,6 @@ public class StudentService {
         s.getLastName(),
         s.getEmail()
     );
-        
     }
 
     // Add this method to StudentService class

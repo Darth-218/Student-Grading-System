@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="edu.nu.sgm.controllers.StudentsViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml" fx:controller="edu.nu.sgm.controllers.StudentsViewController">
    <children>
       <Text fx:id="s_name" fill="#707070" layoutX="51.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Name">
          <font>
@@ -29,7 +29,7 @@
         </columns>
       </TableView>
       <Button fx:id="s_remove" layoutX="50.0" layoutY="347.0" mnemonicParsing="false" text="Remove student" onAction="#handleRemoveStudent" />
-      <Button fx:id="back" layoutX="497.0" layoutY="347.0" mnemonicParsing="false" text="Return" onAction="#handleRemoveStudent" />
+      <Button fx:id="back" layoutX="497.0" layoutY="347.0" mnemonicParsing="false" text="Return" onAction="#handleBackButton" />
       <Text layoutX="55.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail :">
          <font>
             <Font size="15.0" />
