@@ -74,7 +74,7 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="c_instractor" layoutX="91.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_instractor" />
+                  <Text fx:id="c_instructor" layoutX="91.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_instructor" />
                </children>
             </AnchorPane>
          </children>

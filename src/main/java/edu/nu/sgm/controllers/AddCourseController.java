@@ -27,7 +27,7 @@ public class AddCourseController {
     @FXML
     private TextField c_code; // matches fx:id in FXML
     @FXML
-    private TextField c_instractor; // matches fx:id in FXML
+    private TextField c_instructor; // matches fx:id in FXML
     @FXML
     private TextField c_credits; // matches fx:id in FXML
 
@@ -49,7 +49,7 @@ public class AddCourseController {
     private void handleConfirm() {
         String name = c_name.getText().trim();
         String code = c_code.getText().trim();
-        String instructor = c_instractor.getText().trim();
+        String instructor = c_instructor.getText().trim();
         String creditsStr = c_credits.getText().trim();
 
         if (name.isEmpty() || code.isEmpty() || instructor.isEmpty() || creditsStr.isEmpty()) {
