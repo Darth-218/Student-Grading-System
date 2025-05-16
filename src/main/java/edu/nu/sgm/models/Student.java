@@ -1,18 +1,19 @@
 package edu.nu.sgm.models;
 
 public class Student {
+  // attributes all details of the student
   private int id;
   private String name;
   private String last_name;
   private String email;
-
+  // Constructor all the attributes 
   public Student(int id, String name, String last_name, String email) {
     this.id = id;
     this.name = name;
     this.last_name = last_name;
     this.email = email;
   }
-
+  // Getter and Setter
   public int getId() { return id; }
 
   public void setId(int id) { this.id = id; }
@@ -26,7 +27,7 @@ public class Student {
   public void setLastName(String last_name) { this.last_name = last_name; }
 
   public String getEmail() { return email; }
-
+  // generating email of the student to each student template email
   public String generateStudentEmail() {
     String firstName = name.split(" ")[0].toLowerCase();
     String lastName = last_name.toLowerCase().replaceAll("[^a-z]", "");

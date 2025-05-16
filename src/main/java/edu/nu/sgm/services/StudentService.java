@@ -10,15 +10,16 @@ import edu.nu.sgm.utils.DatabaseManager;
 
 public class StudentService {
     private DatabaseManager db = new DatabaseManager();
-    private List<Student> st= getStudents(); 
-   private boolean checkspecial(String name){
+    private List<Student> st= getStudents(); // list all the students in it
+   // check that that any name have correct way
+    private boolean checkspecial(String name){
       int a[]= new int[]{'`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '=' ,'+'};
       for (int i=0;i<name.length();i++){
         if(Arrays.asList(a).contains(name.charAt(i))) {
-            return false;
+            return false; //check that any name do not have any of those special characters
         }
         if(!Character.isLetter(name.charAt(i))) {
-            return false;  //check digit
+            return false;  //check that any name do not have digits
         }
       }
    
@@ -26,21 +27,22 @@ public class StudentService {
     }
     private boolean checkName(String name){
     name = name.trim();   
-    if (name == null|| name.isEmpty()){
+    if (name == null|| name.isEmpty()){  
         return false;
        }
-    if(name.length()<2 && name.length()>50){
+    if(name.length()<2 && name.length()>50){ // logic length
         return false;
     }
-    if(!checkspecial(name)){
+    if(!checkspecial(name)){  // call funcation of the characters
         return false;
     }
     return true;
    }
     public boolean addstudent(Student s){
         if (!(checkName(s.getFirstName()) && checkName(s.getLastName()))) {
-            return false;
+            return false;   // make sure that each student have the first name and the last name
         }
+        // make sure about the exceptions
         try {
             return db.createStudent(s);
         } catch (SQLException e) {
@@ -57,7 +59,7 @@ public class StudentService {
         }
      
   }
-
+    // removing student from the list and the database
      public boolean removeStudent(Student s){
         if(s == null || !st.contains(s)){
             return false;
@@ -71,6 +73,7 @@ public class StudentService {
         }
          
      }
+     // list each student with the courses that pick with each student
      public List<Course> getCourses(Student s) {
         if(s== null || !st.contains(s)){
          return new ArrayList<Course>();
@@ -83,7 +86,7 @@ public class StudentService {
         }
         
     }
-    
+    // count the total course that enrollment for each student
      public int getTotalCourses(Student s) {
          int count = 0;
         for(Course _ : getCourses(s)){
@@ -91,7 +94,7 @@ public class StudentService {
         }
         return count;
     }
-
+// finally display the details of the student 
     public String displayDetails(Student s) {
         if (s == null || !st.contains(s)) {
             return " ";
