@@ -5,7 +5,6 @@
 
 package edu.nu.sgm.controllers;
 
-import edu.nu.sgm.services.CourseService;
 import edu.nu.sgm.services.EnrollmentService;
 import edu.nu.sgm.services.StudentService;
 import edu.nu.sgm.models.Course;
@@ -21,7 +20,6 @@ import javafx.scene.control.TextField;
  */
 public class EnrollStudents {
     private EnrollmentService es = new EnrollmentService();
-    private CourseService cs = new CourseService();
     private StudentService ss = new StudentService();
 
     @FXML

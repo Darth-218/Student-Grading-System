@@ -96,13 +96,10 @@ public class StudentService {
      * @return true if removed successfully, false otherwise.
      */
     public boolean removeStudent(Student s) {
-        if (s == null || !st.contains(s)) {
-            return false;
-        }
-        st.remove(s);
         try {
-            return db.deleteStudent(s) == 1;
+            return db.deleteStudent(s) > 0;
         } catch (SQLException e) {
+            e.printStackTrace();
             return false;
         }
     }

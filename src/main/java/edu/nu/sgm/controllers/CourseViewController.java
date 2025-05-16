@@ -16,8 +16,6 @@ import javafx.stage.Stage;
 import edu.nu.sgm.models.Course;
 import edu.nu.sgm.models.Student;
 import edu.nu.sgm.services.CourseService;
-import edu.nu.sgm.services.EnrollmentService;
-import edu.nu.sgm.services.StudentService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.net.URL;
@@ -61,9 +59,7 @@ public class CourseViewController implements Initializable {
     private Button back;
 
     private Course course;
-    private EnrollmentService enrollmentService = new EnrollmentService();
     private CourseService courseService = new CourseService();
-    private StudentService studentService = new StudentService();
 
     private ObservableList<Student> enrolledStudents = FXCollections.observableArrayList();
 
@@ -101,8 +97,13 @@ public class CourseViewController implements Initializable {
         // Set c_totals if you have enrollment data
         if (c_totals != null) {
             var students = courseService.getStudents(course);
-            c_totals.setText(String.valueOf(students.size()));
-            enrolledStudents.setAll(students);
+            if (students == null) {
+                c_totals.setText("0");
+                enrolledStudents.setAll(Collections.emptyList());
+            } else {
+                c_totals.setText(String.valueOf(students.size()));
+                enrolledStudents.setAll(students);
+            }
         }
     }
 
@@ -148,6 +149,37 @@ public class CourseViewController implements Initializable {
         // Implement enroll student dialog logic here
         Alert alert = new Alert(Alert.AlertType.INFORMATION, "Enroll Student not implemented.");
         alert.showAndWait();
+    }
+
+    /**
+     * @brief Opens the enroll student dialog and handles course enrollment.
+     */
+    @FXML
+    private void switchToEnrollCourse() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/student-to-course.fxml"));
+            DialogPane dialogPane = loader.load();
+            EnrollStudents controller = loader.getController();
+            controller.setCourse(course); // Pass the current course
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setDialogPane(dialogPane);
+            dialog.setTitle("Enroll Student");
+            controller.setDialog(dialog);
+            dialog.initOwner(s_enroll.getScene().getWindow());
+            dialog.showAndWait();
+            // Refresh enrolled students after dialog
+            if (course != null) {
+                var students = courseService.getStudents(course);
+                enrolledStudents.setAll(students != null ? students : Collections.emptyList());
+                if (c_totals != null) {
+                    c_totals.setText(String.valueOf(students != null ? students.size() : 0));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to load Enroll Student dialog: " + e.getMessage());
+            alert.showAndWait();
+        }
     }
 
     /**

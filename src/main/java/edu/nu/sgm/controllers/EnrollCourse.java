@@ -1,8 +1,3 @@
-/**
- * @file EnrollCourse.java
- * @brief Controller for enrolling a student in a course via dialog.
- */
-
 package edu.nu.sgm.controllers;
 
 import edu.nu.sgm.models.Course;
@@ -15,10 +10,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
 
-/**
- * @class EnrollCourse
- * @brief Handles the dialog for enrolling a student in a course.
- */
 public class EnrollCourse {
 
     private EnrollmentService es = new EnrollmentService();
@@ -30,26 +21,14 @@ public class EnrollCourse {
 
     private Dialog<ButtonType> dialog;
 
-    /**
-     * @brief Sets the dialog reference for this controller.
-     * @param dialog The dialog instance.
-     */
     public void setDialog(Dialog<ButtonType> dialog) {
         this.dialog = dialog;
     }
 
-    /**
-     * @brief Sets the student to enroll.
-     * @param student The student to enroll.
-     */
     public void setStudent(Student student) {
         this.student = student;
     }
 
-    /**
-     * @brief Handles the confirm button click event.
-     *        Enrolls the student in the course if valid.
-     */
     @FXML
     private void handleConfirm() {
 
@@ -85,7 +64,6 @@ public class EnrollCourse {
                 }
                 if (controllerObj instanceof edu.nu.sgm.controllers.StudentViewController svc) {
                     svc.refreshView();
-                }
             }
             dialog.setResult(ButtonType.OK);
             dialog.close();
@@ -95,12 +73,8 @@ public class EnrollCourse {
             alert.setHeaderText(null);
             alert.showAndWait();
         }
-    }
+    }}
 
-    /**
-     * @brief Handles the cancel button click event.
-     *        Closes the dialog.
-     */
     @FXML
     private void handleCancel() {
         dialog.setResult(ButtonType.CANCEL);

@@ -214,6 +214,34 @@ public class StudentViewController implements Initializable {
     }
 
     /**
+     * @brief Opens the enroll course dialog and handles student enrollment in a course.
+     */
+    @FXML
+    private void switchToEnrollCourse() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/course-to-student.fxml"));
+            DialogPane dialogPane = loader.load();
+            EnrollCourse controller = loader.getController();
+            controller.setStudent(student); // Pass the current student
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setDialogPane(dialogPane);
+            dialog.setTitle("Enroll Course");
+            controller.setDialog(dialog);
+            dialog.initOwner(c_enroll.getScene().getWindow());
+            dialog.showAndWait();
+            // Refresh all student UI after dialog (including CGPA and courses)
+            refreshView();
+            // Update the enrolledCoursesTable with the latest courses
+            enrolledCourses.setAll(studentService.getCourses(student));
+            enrolledCoursesTable.refresh();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to load Enroll Course dialog: " + e.getMessage());
+            alert.showAndWait();
+        }
+    }
+
+    /**
      * @brief Handles removing the student.
      */
     @FXML

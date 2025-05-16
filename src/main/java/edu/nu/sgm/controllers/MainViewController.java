@@ -22,7 +22,6 @@ import edu.nu.sgm.models.Course;
 import edu.nu.sgm.services.CourseService;
 import edu.nu.sgm.models.Student;
 import edu.nu.sgm.services.StudentService;
-import edu.nu.sgm.controllers.CourseViewController;
 
 public class MainViewController {
     private Stage stage;
@@ -36,9 +35,9 @@ public class MainViewController {
     @FXML
     private TableColumn<Course, String> c_code;
     @FXML
-    private TableColumn<Course, String> c_instractor;
-    @FXML
     private TableColumn<Course, Integer> c_credits;
+    @FXML
+    private TableColumn<Course, Integer> c_id;
 
     @FXML
     private TableView<Student> s_table;
@@ -124,10 +123,10 @@ public class MainViewController {
         c_name.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getTitle()));
         c_code.setCellValueFactory(
                 data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getCourseCode()));
-        c_instractor.setCellValueFactory(
-                data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getInstructor()));
         c_credits.setCellValueFactory(
                 data -> new javafx.beans.property.SimpleIntegerProperty(data.getValue().getCreditHours()).asObject());
+        c_id.setCellValueFactory(
+                data -> new javafx.beans.property.SimpleIntegerProperty(data.getValue().getId()).asObject());
 
         courseList.setAll(courseService.getAllCourses());
         c_table.setItems(courseList);
