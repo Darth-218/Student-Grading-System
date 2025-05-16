@@ -261,12 +261,12 @@ public class DatabaseManager {
                                        results.getInt("credit_hours")));
   }
 
-  public Course fetchCourse(int course_id) throws SQLException {
+  public Course fetchCourse(String course_code) throws SQLException {
     /**
      * @brief A method that gets all courses in the database
      * @return The list of courses
      */
-    String query = "SELECT * FROM courses WHERE id = ?";
+    String query = "SELECT * FROM courses WHERE course_code = ?";
     return executeReturn(query,
                          results
                          -> new Course(results.getInt("id"),
@@ -274,7 +274,7 @@ public class DatabaseManager {
                                        results.getString("title"),
                                        results.getString("instructor"),
                                        results.getInt("credit_hours")),
-                         course_id)
+                         course_code)
         .getFirst();
   }
 
