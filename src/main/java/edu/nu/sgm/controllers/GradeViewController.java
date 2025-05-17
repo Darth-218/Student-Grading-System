@@ -53,7 +53,7 @@ public class GradeViewController {
     @FXML
     public void initialize() {
         if (g_edit != null) {
-            g_edit.setOnAction(event -> handleEditGrade());
+            g_edit.setOnAction(_ -> handleEditGrade());
         }
         updateView();
     }
