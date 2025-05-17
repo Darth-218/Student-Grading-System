@@ -96,11 +96,6 @@ public class StudentViewController implements Initializable {
             enrolledCourses.setAll(courses);
         }
         enrolledCoursesTable.setItems(enrolledCourses);
-
-        // If student is already set before initialize, refresh view
-        if (student != null) {
-            refreshView();
-        }
     }
 
     /**
@@ -109,7 +104,23 @@ public class StudentViewController implements Initializable {
      */
     public void setStudent(Student student) {
         this.student = student;
-        refreshView();
+        if (s_name != null)
+            s_name.setText(student.getFirstName() + " " + student.getLastName());
+        if (s_id != null)
+            s_id.setText(String.valueOf(student.getId()));
+        if (s_email != null)
+            s_email.setText(student.getEmail());
+        if (cc_gpa != null) {
+            Double cgpa = getCGPA();
+            cc_gpa.setText(String.format("%.2f", cgpa));
+        }
+        // Load and display enrolled courses for this student
+        List<Course> courses = studentService.getCourses(student);
+        if (courses == null || courses.size() == 0) {
+            enrolledCourses.setAll(Collections.emptyList());
+        } else {
+            enrolledCourses.setAll(courses);
+        }
     }
 
     /**
@@ -139,32 +150,6 @@ public class StudentViewController implements Initializable {
     }
 
     /**
-     * @brief Refreshes the student view with current details and enrolled courses.
-     */
-    public void refreshView() {
-        // Update student details in the view
-        if (student != null) {
-            if (s_name != null)
-                s_name.setText(student.getFirstName() + " " + student.getLastName());
-            if (s_id != null)
-                s_id.setText(String.valueOf(student.getId()));
-            if (s_email != null)
-                s_email.setText(student.getEmail());
-            if (cc_gpa != null) {
-                Double cgpa = getCGPA();
-                cc_gpa.setText(String.format("%.2f", cgpa));
-            }
-        }
-        // Load and display enrolled courses for this student
-        List<Course> courses = studentService.getCourses(student);
-        if (courses == null || courses.size() == 0) {
-            enrolledCourses.setAll(Collections.emptyList());
-        } else {
-            enrolledCourses.setAll(courses);
-        }
-    }
-
-    /**
      * @brief Handles enrolling the student in a selected course.
      */
     @FXML
@@ -189,31 +174,6 @@ public class StudentViewController implements Initializable {
     }
 
     /**
-     * @brief Handles the dialog for enrolling the student in a course.
-     */
-    @FXML
-    private void handleEnrollCourseDialog() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/course-to-student.fxml"));
-            DialogPane dialogPane = loader.load();
-            EnrollCourse controller = loader.getController();
-            controller.setStudent(student); // Pass the current student
-            Dialog<ButtonType> dialog = new Dialog<>();
-            dialog.setDialogPane(dialogPane);
-            dialog.setTitle("Enroll Course");
-            controller.setDialog(dialog);
-            dialog.initOwner(c_enroll.getScene().getWindow());
-            dialog.showAndWait();
-            // Refresh all student UI after dialog (including CGPA and courses)
-            refreshView();
-        } catch (Exception e) {
-            e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to load Enroll Course dialog: " + e.getMessage());
-            alert.showAndWait();
-        }
-    }
-
-    /**
      * @brief Opens the enroll course dialog and handles student enrollment in a course.
      */
     @FXML
@@ -230,7 +190,7 @@ public class StudentViewController implements Initializable {
             dialog.initOwner(c_enroll.getScene().getWindow());
             dialog.showAndWait();
             // Refresh all student UI after dialog (including CGPA and courses)
-            refreshView();
+            setStudent(student);
             // Update the enrolledCoursesTable with the latest courses
             enrolledCourses.setAll(studentService.getCourses(student));
             enrolledCoursesTable.refresh();
@@ -281,14 +241,6 @@ public class StudentViewController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to return to main view: " + e.getMessage());
             alert.showAndWait();
         }
-    }
-
-    /**
-     * @brief Handles enrolling the student in a course (button action).
-     */
-    @FXML
-    private void handleEnrollCourse() {
-        handleEnrollCourseDialog();
     }
 
     /**

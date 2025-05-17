@@ -21,6 +21,7 @@ import javafx.collections.ObservableList;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * @class CourseViewController
@@ -96,7 +97,7 @@ public class CourseViewController implements Initializable {
         if (c_credits != null) c_credits.setText(String.valueOf(course.getCreditHours()));
         // Set c_totals if you have enrollment data
         if (c_totals != null) {
-            var students = courseService.getStudents(course);
+            List<Student> students = courseService.getStudents(course);
             if (students == null) {
                 c_totals.setText("0");
                 enrolledStudents.setAll(Collections.emptyList());

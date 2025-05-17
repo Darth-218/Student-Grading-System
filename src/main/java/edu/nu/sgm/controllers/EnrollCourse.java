@@ -43,10 +43,15 @@ public class EnrollCourse {
         int id = Integer.parseInt(c_code.getText().trim());
 
         // Check if course exists before enrolling
-        Course course;
-        try {
-            course = cs.getCourseById(id);
-        } catch (Exception e) {
+        Course course = cs.getCourseById(id);
+        if (student == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Student not found.");
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return;
+        }
+        if (course == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Course not found.");
             alert.setTitle("Input Error");
             alert.setHeaderText(null);
@@ -54,17 +59,9 @@ public class EnrollCourse {
             return;
         }
 
+
         boolean success = es.enrollStudent(student, course);
         if (success) {
-            // Update the student view TableView if possible
-            if (student != null) {
-                Object controllerObj = null;
-                if (dialog != null && dialog.getOwner() != null && dialog.getOwner().getScene() != null) {
-                    controllerObj = dialog.getOwner().getScene().getRoot().getProperties().get("controller");
-                }
-                if (controllerObj instanceof edu.nu.sgm.controllers.StudentViewController svc) {
-                    svc.refreshView();
-            }
             dialog.setResult(ButtonType.OK);
             dialog.close();
         } else {
@@ -73,7 +70,7 @@ public class EnrollCourse {
             alert.setHeaderText(null);
             alert.showAndWait();
         }
-    }}
+    }
 
     @FXML
     private void handleCancel() {

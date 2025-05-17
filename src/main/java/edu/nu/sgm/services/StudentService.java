@@ -110,13 +110,13 @@ public class StudentService {
      * @return List of courses.
      */
     public List<Course> getCourses(Student s) {
-        if (s == null || !st.contains(s)) {
+        if (s == null) {
             return new ArrayList<Course>();
         }
         try {
             return db.fetchCourses(s);
         } catch (SQLException e) {
-            return null;
+            return new ArrayList<Course>();
         }
     }
 

@@ -157,8 +157,6 @@ public class MainViewController {
             if (newSelection != null) {
                 try {
                     openCourseView(newSelection);
-                    // Clear selection so it doesn't trigger again unintentionally
-                    c_table.getSelectionModel().clearSelection();
                 } catch (IOException e) {
                     e.printStackTrace();
                     Alert alert = new Alert(AlertType.ERROR, "Failed to open course view: " + e.getMessage());

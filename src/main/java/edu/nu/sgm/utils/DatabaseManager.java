@@ -212,11 +212,21 @@ public class DatabaseManager {
      * @param student The target student
      * @return The list of courses the target student is enrolled in
      */
-    String enrollment_query = "SELECT * FROM enrollment WHERE student_id = ?";
+    // Fix table name from "enrollment" to "enrollments"
+    String enrollment_query = "SELECT * FROM enrollments WHERE student_id = ?";
     List<Integer> course_ids =
         executeReturn(enrollment_query,
                       results -> results.getInt("course_id"), student.getId());
-    String query = "SELECT * FROM courses WHERE id = ?";
+    StringBuilder queryBuilder = new StringBuilder("SELECT * FROM courses WHERE id IN (");
+    for (int i = 0; i < course_ids.size(); i++) {
+      queryBuilder.append("?");
+      if (i < course_ids.size() - 1) {
+        queryBuilder.append(",");
+      }
+    }
+    queryBuilder.append(")");
+    String query = queryBuilder.toString();
+    Object[] params = course_ids.toArray();
     return executeReturn(query,
                          results
                          -> new Course(results.getInt("id"),
@@ -224,7 +234,7 @@ public class DatabaseManager {
                                        results.getString("title"),
                                        results.getString("instructor"),
                                        results.getInt("credit_hours")),
-                         course_ids);
+                         params);
   }
 
   public List<Student> fetchStudents(Course course) throws SQLException {
@@ -237,14 +247,27 @@ public class DatabaseManager {
     List<Integer> student_ids =
         executeReturn(enrollment_query,
                       results -> results.getInt("student_id"), course.getId());
-    String query = "SELECT * FROM students WHERE id = ?";
+    if (student_ids == null || student_ids.isEmpty()) {
+      return new ArrayList<>();
+    }
+    StringBuilder queryBuilder = new StringBuilder("SELECT * FROM students WHERE id IN (");
+    for (int i = 0; i < student_ids.size(); i++) {
+      queryBuilder.append("?");
+      if (i < student_ids.size() - 1) {
+        queryBuilder.append(",");
+      }
+    }
+    queryBuilder.append(")");
+    String query = queryBuilder.toString();
+    // Convert List<Integer> to Object[] for parameterizedStatement
+    Object[] params = student_ids.toArray();
     return executeReturn(query,
                          results
                          -> new Student(results.getInt("id"),
                                         results.getString("first_name"),
                                         results.getString("last_name"),
                                         results.getString("email")),
-                         student_ids);
+                         params);
   }
 
   public List<Course> fetchCourses() throws SQLException {

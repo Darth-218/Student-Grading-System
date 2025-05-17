@@ -8,6 +8,7 @@ package edu.nu.sgm.controllers;
 import edu.nu.sgm.services.EnrollmentService;
 import edu.nu.sgm.services.StudentService;
 import edu.nu.sgm.models.Course;
+import edu.nu.sgm.models.Student;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -21,13 +22,12 @@ import javafx.scene.control.TextField;
 public class EnrollStudents {
     private EnrollmentService es = new EnrollmentService();
     private StudentService ss = new StudentService();
+    private Course course;
 
     @FXML
     private TextField s_id;
 
     private Dialog<ButtonType> dialog;
-
-    private Course course;
 
     /**
      * @brief Sets the dialog reference for this controller.
@@ -63,7 +63,7 @@ public class EnrollStudents {
         int id = Integer.parseInt(s_id.getText().trim());
 
         // Fix: Ensure the correct student object is passed and course is not null
-        var student = ss.getStudentById(id);
+        Student student = ss.getStudentById(id);
         if (student == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Student not found.");
             alert.setTitle("Input Error");
