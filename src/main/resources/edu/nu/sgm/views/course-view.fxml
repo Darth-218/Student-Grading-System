@@ -18,7 +18,7 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Text>
-      <TableView fx:id="enrolledStudentsTable" layoutX="50.0" layoutY="110.0" prefHeight="220.0" prefWidth="500.0">
+      <TableView fx:id="enrolled_students_table" layoutX="50.0" layoutY="110.0" prefHeight="220.0" prefWidth="500.0">
         <columns>
           <TableColumn fx:id="s_name" prefWidth="194.66669082641602" text="Students Name" />
           <TableColumn fx:id="s_id" prefWidth="110.66667175292969" text="ID" />
@@ -44,7 +44,7 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="c_code" layoutX="74.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_code" />
+                  <Text fx:id="c_code" layoutX="54.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_code" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
@@ -54,7 +54,7 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="c_totals" layoutX="109.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_totals" />
+                  <Text fx:id="c_totals" layoutX="106.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_totals" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
@@ -64,7 +64,7 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="c_credits" layoutX="74.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_credits" />
+                  <Text fx:id="c_credits" layoutX="68.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_credits" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="23.0" prefWidth="115.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -74,7 +74,7 @@
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <Text fx:id="c_instructor" layoutX="109.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_instructor" />
+                  <Text fx:id="c_instructor" layoutX="87.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_instructor" />
                </children>
             </AnchorPane>
          </children>

@@ -20,7 +20,7 @@
                   <Font name="System Bold" size="30.0" />
                </font>
             </Text>
-            <TableView fx:id="enrolledCoursesTable" layoutX="50.0" layoutY="110.0" prefHeight="220.0" prefWidth="500.0">
+            <TableView fx:id="enrolled_courses_table" layoutX="50.0" layoutY="110.0" prefHeight="220.0" prefWidth="500.0">
               <columns>
                 <TableColumn fx:id="c_name" prefWidth="194.66669082641602" text="Course Name" />
                 <TableColumn fx:id="c_code" prefWidth="110.66667175292969" text="Code" />
