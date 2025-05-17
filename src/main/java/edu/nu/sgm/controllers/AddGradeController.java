@@ -28,6 +28,8 @@ public class AddGradeController {
     private final EnrollmentService enrollment_service = new EnrollmentService();
     private final GradeItemService gradeitem_service = new GradeItemService();
 
+    private GradeItem current_gradeitem = null;
+
     public void setDialog(Dialog<ButtonType> dialog) {
         this.dialog = dialog;
     }
@@ -44,6 +46,17 @@ public class AddGradeController {
                 dialog.setResult(ButtonType.CANCEL);
                 dialog.close();
             }
+        }
+    }
+
+    public void setGradeItem(GradeItem gradeItem) {
+        this.current_gradeitem = gradeItem;
+        if (gradeItem != null) {
+            g_name.setText(gradeItem.getTitle());
+            g_cat.setText(gradeItem.getCategory());
+            g_score.setText(String.valueOf(gradeItem.getScore()));
+            g_s_max.setText(String.valueOf(gradeItem.getMaxScore()));
+            g_w_max.setText(String.valueOf(gradeItem.getWeight()));
         }
     }
 
@@ -89,8 +102,18 @@ public class AddGradeController {
         }
 
         // Create and add the grade item
-        GradeItem gradeItem = new GradeItem(0, title, category, score, maxScore, "", weight);
-        boolean success = gradeitem_service.addGradeItem(enrollment, gradeItem);
+        boolean success;
+        if (current_gradeitem != null) {
+            current_gradeitem.setTitle(title);
+            current_gradeitem.setCategory(category);
+            current_gradeitem.setScore(score, maxScore);
+            current_gradeitem.setWeight(weight);
+            // if (g_feedback != null) editingGradeItem.setFeedback(g_feedback.getText());
+            success = gradeitem_service.updateGradeItem(current_gradeitem);
+        } else {
+            GradeItem gradeItem = new GradeItem(0, title, category, score, maxScore, "", weight);
+            success = gradeitem_service.addGradeItem(enrollment, gradeItem);
+        }
 
         if (success) {
             if (dialog != null) {

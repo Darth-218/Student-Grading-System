@@ -52,6 +52,9 @@ public class GradeViewController {
 
     @FXML
     public void initialize() {
+        if (g_edit != null) {
+            g_edit.setOnAction(event -> handleEditGrade());
+        }
         updateView();
     }
 
@@ -78,6 +81,29 @@ public class GradeViewController {
                 if (f_grade != null) f_grade.setText(String.format("%.2f", totalGrade));
                 if (c_gpa != null) c_gpa.setText(String.format("%.2f", totalGrade / course.getCreditHours()));
             }
+        }
+    }
+
+    @FXML
+    private void handleEditGrade() {
+        if (gradeItem == null || student == null || course == null) return;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/add-grade.fxml"));
+            javafx.scene.control.DialogPane dialogPane = loader.load();
+            AddGradeController controller = loader.getController();
+            javafx.scene.control.Dialog<javafx.scene.control.ButtonType> dialog = new javafx.scene.control.Dialog<>();
+            dialog.setDialogPane(dialogPane);
+            dialog.setTitle("Edit Grade");
+            controller.setDialog(dialog);
+            controller.setStudentAndCourse(student, course);
+            controller.setGradeItem(gradeItem);
+            dialog.initOwner(g_edit.getScene().getWindow());
+            dialog.showAndWait();
+            updateView();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to load Edit Grade dialog: " + e.getMessage());
+            alert.showAndWait();
         }
     }
 

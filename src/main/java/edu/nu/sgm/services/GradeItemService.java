@@ -130,4 +130,18 @@ public class GradeItemService {
                     Reader::parseGradeItemsExport);
     return true;
   }
+
+  /**
+   * @brief Updates an existing grade item.
+   * @param gradeItem The grade item with updated information
+   * @return True if the grade item is successfully updated; false otherwise
+   */
+  public boolean updateGradeItem(GradeItem gradeItem) {
+    try {
+      return db.updateGrades(gradeItem) > 0;
+    } catch (Exception e) {
+      e.printStackTrace();
+      return false;
+    }
+  }
 }
