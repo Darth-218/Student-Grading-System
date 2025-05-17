@@ -93,7 +93,7 @@
             </ButtonBar>
             <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1">
               <buttons>
-                  <Button fx:id="g_add" mnemonicParsing="false" text="Add Grade" onAction="#switchToAddGrade" />
+                  <Button fx:id="g_add" mnemonicParsing="false" text="Add Grade" onAction="#handleToAddGrade" />
               </buttons>
             </ButtonBar>
          </children>

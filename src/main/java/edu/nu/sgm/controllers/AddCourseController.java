@@ -20,7 +20,7 @@ import javafx.scene.control.Alert;
  */
 public class AddCourseController {
 
-    private CourseService courseService = new CourseService();
+    private CourseService course_service = new CourseService();
     private Course current_course; // Track the course being edited
 
     @FXML
@@ -79,7 +79,7 @@ public class AddCourseController {
             current_course.setCourseCode(code);
             current_course.setInstructor(instructor);
             current_course.setCreditHours(credits);
-            success = courseService.updateCourse(current_course);
+            success = course_service.updateCourse(current_course);
         } else {
             success = addCourse(name, code, instructor, credits);
         }
@@ -112,7 +112,7 @@ public class AddCourseController {
      */
     public boolean addCourse(String name, String code, String instructor, int credits) {
         Course course = new Course(0, code, name, instructor, credits);
-        return courseService.addCourse(course);
+        return course_service.addCourse(course);
     }
 
     private void showAlert(String title, String message) {

@@ -19,8 +19,8 @@ import javafx.scene.control.Alert;
  */
 public class AddStudentController {
     
-    private StudentService studentService = new StudentService();
-    private Student currentStudent;
+    private StudentService student_service = new StudentService();
+    private Student current_student;
     
     @FXML private TextField sf_name;
     @FXML private TextField sl_name;
@@ -40,8 +40,8 @@ public class AddStudentController {
      * @param student The student to edit.
      */
     public void setStudentData(Student student) {
-        this.currentStudent = student;
-        studentService.updateStudent(student);
+        this.current_student = student;
+        student_service.updateStudent(student);
         sf_name.setText(student.getFirstName());
         sl_name.setText(student.getLastName());
     }
@@ -61,10 +61,10 @@ public class AddStudentController {
         }
         
         boolean success;
-        if (currentStudent != null) {
-            currentStudent.setName(firstName);
-            currentStudent.setLastName(lastName);
-            success = studentService.updateStudent(currentStudent);
+        if (current_student != null) {
+            current_student.setName(firstName);
+            current_student.setLastName(lastName);
+            success = student_service.updateStudent(current_student);
         } else {
             success = addStudent(firstName, lastName);
         }
@@ -95,7 +95,7 @@ public class AddStudentController {
      */
     private boolean addStudent(String first_name, String last_name) {
         Student student = new Student(0, first_name, last_name, "");
-        return studentService.addstudent(student);
+        return student_service.addStudent(student);
     }
 
     /**

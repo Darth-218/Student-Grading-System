@@ -25,8 +25,8 @@ public class AddGradeController {
     private Course course;
     private Enrollment enrollment;
 
-    private final EnrollmentService enrollmentService = new EnrollmentService();
-    private final GradeItemService gradeItemService = new GradeItemService();
+    private final EnrollmentService enrollment_service = new EnrollmentService();
+    private final GradeItemService gradeitem_service = new GradeItemService();
 
     public void setDialog(Dialog<ButtonType> dialog) {
         this.dialog = dialog;
@@ -36,7 +36,7 @@ public class AddGradeController {
         this.student = student;
         this.course = course;
         // Find or create the enrollment for this student and course
-        this.enrollment = enrollmentService.getEnrollment(this.student, this.course);
+        this.enrollment = enrollment_service.getEnrollment(this.student, this.course);
         if (this.enrollment == null) {
             // Should not happen if UI is correct, but handle gracefully
             showAlert("Enrollment Error", "Student is not enrolled in this course.");
@@ -90,7 +90,7 @@ public class AddGradeController {
 
         // Create and add the grade item
         GradeItem gradeItem = new GradeItem(0, title, category, score, maxScore, "", weight);
-        boolean success = gradeItemService.addGradeItem(enrollment, gradeItem);
+        boolean success = gradeitem_service.addGradeItem(enrollment, gradeItem);
 
         if (success) {
             if (dialog != null) {
@@ -113,7 +113,6 @@ public class AddGradeController {
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR, message);
         alert.setTitle(title);
-        alert.setHeaderText(null);
         alert.showAndWait();
     }
 }

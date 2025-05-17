@@ -28,7 +28,7 @@ public class StudentService {
      * @param name The name to check.
      * @return true if valid, false otherwise.
      */
-    private boolean checkspecial(String name) {
+    private boolean checkSpecial(String name) {
         Set<Character> specialChars = new HashSet<>(Arrays.asList('`', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '=', '+'));
         for (int i = 0; i < name.length(); i++) {
             char c = name.charAt(i);
@@ -55,7 +55,7 @@ public class StudentService {
         if (name.length() < 2 || name.length() > 50) { // logic length
             return false;
         }
-        if (!checkspecial(name)) { // call function of the characters
+        if (!checkSpecial(name)) { // call function of the characters
             return false;
         }
         return true;
@@ -66,7 +66,7 @@ public class StudentService {
      * @param s The student to add.
      * @return true if added successfully, false otherwise.
      */
-    public boolean addstudent(Student s) {
+    public boolean addStudent(Student s) {
         if (!(checkName(s.getFirstName()) && checkName(s.getLastName()))) {
             return false; // make sure that each student has the first name and the last name
         }

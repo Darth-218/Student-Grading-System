@@ -33,7 +33,7 @@ public class GradesViewController {
     private Course course;
 
     @FXML
-    private TableView<GradeItem> gradesTable;
+    private TableView<GradeItem> grades_table;
     @FXML
     private TableColumn<GradeItem, String> titleCol;
     @FXML
@@ -45,10 +45,10 @@ public class GradesViewController {
     @FXML
     private TableColumn<GradeItem, Number> g_m_score;
 
-    private ObservableList<GradeItem> gradeItems = FXCollections.observableArrayList();
+    private ObservableList<GradeItem> gradeitems = FXCollections.observableArrayList();
 
-    private final GradeItemService gradeItemService = new GradeItemService();
-    private final EnrollmentService enrollmentService = new EnrollmentService();
+    private final GradeItemService gradeitem_service = new GradeItemService();
+    private final EnrollmentService enrollment_service = new EnrollmentService();
 
     @FXML private Button g_add;
     @FXML private Button back;
@@ -63,24 +63,22 @@ public class GradesViewController {
         this.course = course;
         updateHeader();
         loadGrades();
-        // Force refresh of the TableView after loading grades
-        if (gradesTable != null) {
-            gradesTable.refresh();
+        if (grades_table != null) {
+            grades_table.refresh();
         }
     }
 
     private void loadGrades() {
-        // Find the enrollment for this student and course
-        Enrollment enrollment = enrollmentService.getEnrollment(student, course);
+        Enrollment enrollment = enrollment_service.getEnrollment(student, course);
         if (enrollment == null) {
-            gradeItems.clear();
-            if (gradesTable != null) gradesTable.refresh();
+            gradeitems.clear();
+            if (grades_table != null) grades_table.refresh();
             return;
         }
-        gradeItems.setAll(gradeItemService.getGrades(enrollment));
-        if (gradesTable != null) {
-            gradesTable.setItems(gradeItems);
-            gradesTable.refresh();
+        gradeitems.setAll(gradeitem_service.getGrades(enrollment));
+        if (grades_table != null) {
+            grades_table.setItems(gradeitems);
+            grades_table.refresh();
         }
     }
 
@@ -96,11 +94,10 @@ public class GradesViewController {
             g_score.setCellValueFactory(data -> new SimpleStringProperty(String.valueOf(data.getValue().getScore())));
         if (g_m_score != null)
             g_m_score.setCellValueFactory(data -> new SimpleDoubleProperty(data.getValue().getMaxScore()));
-        if (gradesTable != null)
-            gradesTable.setItems(gradeItems);
+        if (grades_table != null)
+            grades_table.setItems(gradeitems);
 
-        // Add row double-click handler to open grade-view and pass grade details
-        gradesTable.getSelectionModel().selectedItemProperty().addListener((_, _, newSelection) -> {
+        grades_table.getSelectionModel().selectedItemProperty().addListener((_, _, newSelection) -> {
             if (newSelection != null) {
                 try {
                     openGradeView(newSelection);
@@ -121,7 +118,7 @@ public class GradesViewController {
         GradeViewController controller = loader.getController();
         controller.setStudentAndCourse(student, course);
         controller.setGradeItem(gradeItem); // Pass the selected grade details
-        Stage stage = (Stage) gradesTable.getScene().getWindow();
+        Stage stage = (Stage) grades_table.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.setTitle("Grade Details");
     }
@@ -134,9 +131,9 @@ public class GradesViewController {
         if (c_code != null && course != null)
             c_code.setText(course.getCourseCode());
         if (f_grade != null && student != null && course != null) {
-            Enrollment enrollment = enrollmentService.getEnrollment(student, course);
+            Enrollment enrollment = enrollment_service.getEnrollment(student, course);
             if (enrollment != null) {
-                double grade = gradeItemService.calculateTotalGrade(enrollment);
+                double grade = gradeitem_service.calculateTotalGrade(enrollment);
                 f_grade.setText(String.format("%.2f", grade));
                 if (c_gpa != null) {
                     double gpa = grade / course.getCreditHours();
@@ -150,7 +147,7 @@ public class GradesViewController {
     }
 
     @FXML
-    private void switchToAddGrade() {
+    private void handleAddGrade() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/add-grade.fxml"));
             DialogPane dialogPane = loader.load();

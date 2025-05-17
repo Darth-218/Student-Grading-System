@@ -36,8 +36,8 @@ public class GradeViewController {
     @FXML private Button g_remove;
     @FXML private Button back;
 
-    private final EnrollmentService enrollmentService = new EnrollmentService();
-    private final GradeItemService gradeItemService = new GradeItemService();
+    private final EnrollmentService enrollment_service = new EnrollmentService();
+    private final GradeItemService gradeItem_service = new GradeItemService();
 
     public void setStudentAndCourse(Student student, Course course) {
         this.student = student;
@@ -72,9 +72,9 @@ public class GradeViewController {
         }
         // Optionally, show total/final grade and GPA for this enrollment
         if (student != null && course != null) {
-            var enrollment = enrollmentService.getEnrollment(student, course);
+            var enrollment = enrollment_service.getEnrollment(student, course);
             if (enrollment != null) {
-                double totalGrade = gradeItemService.calculateTotalGrade(enrollment);
+                double totalGrade = gradeItem_service.calculateTotalGrade(enrollment);
                 if (f_grade != null) f_grade.setText(String.format("%.2f", totalGrade));
                 if (c_gpa != null) c_gpa.setText(String.format("%.2f", totalGrade / course.getCreditHours()));
             }
@@ -101,9 +101,9 @@ public class GradeViewController {
     @FXML
     private void handleRemove() {
         if (gradeItem == null || student == null || course == null) return;
-        var enrollment = enrollmentService.getEnrollment(student, course);
+        var enrollment = enrollment_service.getEnrollment(student, course);
         if (enrollment == null) return;
-        boolean success = gradeItemService.removeGradeItem(gradeItem, enrollment);
+        boolean success = gradeItem_service.removeGradeItem(gradeItem, enrollment);
         if (success) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Grade removed successfully!");
             alert.showAndWait();

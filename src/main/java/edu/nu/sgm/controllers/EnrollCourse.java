@@ -12,8 +12,8 @@ import javafx.scene.control.TextField;
 
 public class EnrollCourse {
 
-    private EnrollmentService es = new EnrollmentService();
-    private CourseService cs = new CourseService();
+    private EnrollmentService enrollment_service = new EnrollmentService();
+    private CourseService course_service = new CourseService();
     private Student student;
 
     @FXML
@@ -25,7 +25,7 @@ public class EnrollCourse {
         this.dialog = dialog;
     }
 
-    public void setStudent(Student student) {
+    public void setStudentData(Student student) {
         this.student = student;
     }
 
@@ -43,7 +43,7 @@ public class EnrollCourse {
         int id = Integer.parseInt(c_code.getText().trim());
 
         // Check if course exists before enrolling
-        Course course = cs.getCourseById(id);
+        Course course = course_service.getCourseById(id);
         if (student == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Student not found.");
             alert.setTitle("Input Error");
@@ -60,7 +60,7 @@ public class EnrollCourse {
         }
 
 
-        boolean success = es.enrollStudent(student, course);
+        boolean success = enrollment_service.enrollStudent(student, course);
         if (success) {
             dialog.setResult(ButtonType.OK);
             dialog.close();

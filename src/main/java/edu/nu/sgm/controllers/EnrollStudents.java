@@ -20,8 +20,8 @@ import javafx.scene.control.TextField;
  * @brief Handles the dialog for enrolling a student in a course.
  */
 public class EnrollStudents {
-    private EnrollmentService es = new EnrollmentService();
-    private StudentService ss = new StudentService();
+    private EnrollmentService enrollment_service = new EnrollmentService();
+    private StudentService student_service = new StudentService();
     private Course course;
 
     @FXML
@@ -63,7 +63,7 @@ public class EnrollStudents {
         int id = Integer.parseInt(s_id.getText().trim());
 
         // Fix: Ensure the correct student object is passed and course is not null
-        Student student = ss.getStudentById(id);
+        Student student = student_service.getStudentById(id);
         if (student == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Student not found.");
             alert.setTitle("Input Error");
@@ -79,7 +79,7 @@ public class EnrollStudents {
             return;
         }
 
-        boolean success = es.enrollStudent(student, course);
+        boolean success = enrollment_service.enrollStudent(student, course);
         if (success) {
             dialog.setResult(ButtonType.OK);
             dialog.close();

@@ -73,7 +73,7 @@
             <ButtonBar layoutX="50.0" layoutY="354.0" prefHeight="24.0" prefWidth="500.0">
                <buttons>
                   <Button fx:id="s_remove" mnemonicParsing="false" onAction="#handleRemoveStudent" text="Remove student" />
-                  <Button fx:id="c_enroll" mnemonicParsing="false" onAction="#switchToEnrollCourse" text="Enroll Course" />
+                  <Button fx:id="c_enroll" mnemonicParsing="false" onAction="#handleEnrollCourse" text="Enroll Course" />
                   <Button fx:id="back" mnemonicParsing="false" onAction="#handleBackButton" text="Return" />
                </buttons>
             </ButtonBar>

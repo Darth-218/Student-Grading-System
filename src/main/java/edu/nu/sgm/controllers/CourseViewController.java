@@ -11,7 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import edu.nu.sgm.models.Course;
@@ -31,6 +30,18 @@ import java.util.List;
  * @brief Handles the course detail view, including enrolled students.
  */
 public class CourseViewController implements Initializable {
+
+    @FXML
+    private TableView<Student> enrolled_students_table;
+    @FXML
+    private TableColumn<Student, String> s_name;
+    @FXML
+    private TableColumn<Student, String> s_id;
+    @FXML
+    private TableColumn<Student, String> f_grade;
+    @FXML
+    private TableColumn<Student, String> c_gpa;
+
     @FXML
     private Text c_name;
     @FXML
@@ -43,17 +54,6 @@ public class CourseViewController implements Initializable {
     private Text c_totals;
 
     @FXML
-    private TableView<Student> enrolledStudentsTable;
-    @FXML
-    private TableColumn<Student, String> s_name;
-    @FXML
-    private TableColumn<Student, String> s_id;
-    @FXML
-    private TableColumn<Student, String> f_grade;
-    @FXML
-    private TableColumn<Student, String> c_gpa;
-
-    @FXML
     private Button c_edit;
     @FXML
     private Button c_remove;
@@ -63,38 +63,31 @@ public class CourseViewController implements Initializable {
     private Button back;
 
     private Course course;
-    private CourseService courseService = new CourseService();
+    private CourseService course_service = new CourseService();
 
-    private ObservableList<Student> enrolledStudents = FXCollections.observableArrayList();
+    private ObservableList<Student> enrolled_students = FXCollections.observableArrayList();
 
     /**
      * @brief Initializes the controller and sets up the table columns.
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if (enrolledStudentsTable == null) return;
-        // Set up columns
-        if (s_name != null)
             s_name.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(
                 data.getValue().getFirstName() + " " + data.getValue().getLastName()));
-        if (s_id != null)
             s_id.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(
                 String.valueOf(data.getValue().getId())));
-        if (f_grade != null)
             f_grade.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty("0"));
-        if (c_gpa != null)
             c_gpa.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty("0"));
 
-        enrolledStudentsTable.setItems(enrolledStudents);
+        enrolled_students_table.setItems(enrolled_students);
 
-        enrolledStudentsTable.getSelectionModel().selectedItemProperty().addListener((_, _, newSelection) -> {
+        enrolled_students_table.getSelectionModel().selectedItemProperty().addListener((_, _, newSelection) -> {
             if (newSelection != null) {
                 try {
                     openGradesView(newSelection);
                 } catch (IOException e) {
                     e.printStackTrace();
-                    Alert alert = new Alert(AlertType.ERROR, "Failed to open grades view: " + e.getMessage());
-                    alert.showAndWait();
+                    showAlert("Error", "Failed to open grades view: " + e.getMessage());
                 }
             }
         });
@@ -112,14 +105,43 @@ public class CourseViewController implements Initializable {
         if (c_credits != null) c_credits.setText(String.valueOf(course.getCreditHours()));
         // Set c_totals if you have enrollment data
         if (c_totals != null) {
-            List<Student> students = courseService.getStudents(course);
+            List<Student> students = course_service.getStudents(course);
             if (students == null) {
                 c_totals.setText("0");
-                enrolledStudents.setAll(Collections.emptyList());
+                enrolled_students.setAll(Collections.emptyList());
             } else {
                 c_totals.setText(String.valueOf(students.size()));
-                enrolledStudents.setAll(students);
+                enrolled_students.setAll(students);
             }
+        }
+    }
+
+    /**
+     * @brief Opens the enroll student dialog and handles course enrollment.
+     */
+    @FXML
+    private void handleEnrollStudent() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/student-to-course.fxml"));
+            DialogPane dialogPane = loader.load();
+            EnrollStudents controller = loader.getController();
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setDialogPane(dialogPane);
+            dialog.setTitle("Enroll Student");
+            controller.setDialog(dialog);
+            controller.setCourse(course);
+            dialog.initOwner(s_enroll.getScene().getWindow());
+            dialog.showAndWait();
+            if (course != null) {
+                var students = course_service.getStudents(course);
+                enrolled_students.setAll(students != null ? students : Collections.emptyList());
+                if (c_totals != null) {
+                    c_totals.setText(String.valueOf(students != null ? students.size() : 0));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to load Enroll Student dialog: " + e.getMessage());
         }
     }
 
@@ -139,7 +161,7 @@ public class CourseViewController implements Initializable {
             controller.setCourseData(course);
             dialog.initOwner(c_edit.getScene().getWindow());
             dialog.showAndWait();
-            Course updated = courseService.getCourseById(course.getId());
+            Course updated = course_service.getCourseById(course.getId());
             if (updated != null) {
                 setCourse(updated);
             } else {
@@ -147,8 +169,8 @@ public class CourseViewController implements Initializable {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to load Edit Course dialog: " + e.getMessage());
-            alert.showAndWait();
+            showAlert("Error", "Failed to load Edit Course dialog: " + e.getMessage());
+            
         }
     }
 
@@ -163,48 +185,30 @@ public class CourseViewController implements Initializable {
         confirm.setTitle("Remove Course");
         confirm.showAndWait().ifPresent(result -> {
             if (result == ButtonType.OK) {
-                boolean success = courseService.removeCourse(course);
+                boolean success = course_service.removeCourse(course);
                 if (success) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION, "Course removed successfully!");
-                    alert.showAndWait();
+                    showAlert("Success", "Course removed successfully!");
                     handleBackButton();
                 } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to remove course.");
-                    alert.showAndWait();
+                    showAlert("Error", "Failed to remove course.");
                 }
             }
         });
     }
 
     /**
-     * @brief Opens the enroll student dialog and handles course enrollment.
+     * @brief Opens the grades view for the selected course and current student.
+     * @param course The selected course.
      */
-    @FXML
-    private void switchToEnrollCourse() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/student-to-course.fxml"));
-            DialogPane dialogPane = loader.load();
-            EnrollStudents controller = loader.getController();
-            controller.setCourse(course); // Pass the current course
-            Dialog<ButtonType> dialog = new Dialog<>();
-            dialog.setDialogPane(dialogPane);
-            dialog.setTitle("Enroll Student");
-            controller.setDialog(dialog);
-            dialog.initOwner(s_enroll.getScene().getWindow());
-            dialog.showAndWait();
-            // Refresh enrolled students after dialog
-            if (course != null) {
-                var students = courseService.getStudents(course);
-                enrolledStudents.setAll(students != null ? students : Collections.emptyList());
-                if (c_totals != null) {
-                    c_totals.setText(String.valueOf(students != null ? students.size() : 0));
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to load Enroll Student dialog: " + e.getMessage());
-            alert.showAndWait();
-        }
+    private void openGradesView(Student student) throws IOException {
+        if (student == null || course == null) return;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/grades-view.fxml"));
+            Parent root = loader.load();
+            GradesViewController controller = loader.getController();
+            controller.setStudentAndCourse(student, course);
+            Stage stage = (Stage) enrolled_students_table.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Grades for " + course.getTitle());
     }
 
     /**
@@ -219,23 +223,13 @@ public class CourseViewController implements Initializable {
             stage.setScene(new Scene(root));
         } catch (Exception e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to return to main view: " + e.getMessage());
-            alert.showAndWait();
+            showAlert("Error", "Failed to return to main view: " + e.getMessage());
         }
     }
 
-    /**
-     * @brief Opens the grades view for the selected course and current student.
-     * @param course The selected course.
-     */
-    private void openGradesView(Student student) throws IOException {
-        if (student == null || course == null) return;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/grades-view.fxml"));
-            Parent root = loader.load();
-            GradesViewController controller = loader.getController();
-            controller.setStudentAndCourse(student, course);
-            Stage stage = (Stage) enrolledStudentsTable.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Grades for " + course.getTitle());
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR, message);
+        alert.setTitle(title);
+        alert.showAndWait();
     }
 }

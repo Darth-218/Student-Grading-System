@@ -91,7 +91,7 @@
       <ButtonBar layoutX="50.0" layoutY="348.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="500.0">
          <buttons>
             <Button fx:id="c_remove" mnemonicParsing="false" onAction="#handleRemoveCourse" text="Remove Course" />
-            <Button fx:id="s_enroll" mnemonicParsing="false" onAction="#switchToEnrollCourse" prefHeight="24.0" prefWidth="131.0" text="Enroll Student" />
+            <Button fx:id="s_enroll" mnemonicParsing="false" onAction="#handleEnrollStudent" prefHeight="24.0" prefWidth="131.0" text="Enroll Student" />
             <Button fx:id="back" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="24.0" text="Return" />
          </buttons>
       </ButtonBar>

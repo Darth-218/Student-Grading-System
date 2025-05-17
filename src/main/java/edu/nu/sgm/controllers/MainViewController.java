@@ -48,11 +48,11 @@ public class MainViewController {
     @FXML
     private TableColumn<Student, String> s_email;
 
-    private ObservableList<Course> courseList = FXCollections.observableArrayList();
-    private CourseService courseService = new CourseService();
+    private ObservableList<Course> courses = FXCollections.observableArrayList();
+    private CourseService course_service = new CourseService();
 
-    private ObservableList<Student> studentList = FXCollections.observableArrayList();
-    private StudentService studentService = new StudentService();
+    private ObservableList<Student> student_list = FXCollections.observableArrayList();
+    private StudentService student_service = new StudentService();
 
     @FXML
     public void switchToScene1(ActionEvent event) throws IOException {
@@ -80,7 +80,7 @@ public class MainViewController {
             Optional<ButtonType> result = dialog.showAndWait();
 
             if (result.isPresent() && result.get() == ButtonType.OK) {
-                studentList.setAll(studentService.getStudents());
+                student_list.setAll(student_service.getStudents());
                 Alert alert = new Alert(AlertType.INFORMATION, "Student added successfully!");
                 alert.show();
             }
@@ -107,7 +107,7 @@ public class MainViewController {
 
             Optional<ButtonType> result = dialog.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
-                courseList.setAll(courseService.getAllCourses());
+                courses.setAll(course_service.getAllCourses());
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Course added successfully!");
                 alert.show();
             }
@@ -128,8 +128,8 @@ public class MainViewController {
         c_id.setCellValueFactory(
                 data -> new javafx.beans.property.SimpleIntegerProperty(data.getValue().getId()).asObject());
 
-        courseList.setAll(courseService.getAllCourses());
-        c_table.setItems(courseList);
+        courses.setAll(course_service.getAllCourses());
+        c_table.setItems(courses);
 
         s_name.setCellValueFactory(
                 data -> new javafx.beans.property.SimpleStringProperty(
@@ -138,8 +138,8 @@ public class MainViewController {
                 data -> new javafx.beans.property.SimpleStringProperty(String.valueOf(data.getValue().getId())));
         s_email.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getEmail()));
 
-        studentList.setAll(studentService.getStudents());
-        s_table.setItems(studentList);
+        student_list.setAll(student_service.getStudents());
+        s_table.setItems(student_list);
 
         s_table.getSelectionModel().selectedItemProperty().addListener((_, _, newSelection) -> {
             if (newSelection != null) {
