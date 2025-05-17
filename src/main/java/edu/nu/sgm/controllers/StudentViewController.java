@@ -82,8 +82,29 @@ public class StudentViewController implements Initializable {
         c_name.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getTitle()));
         c_code.setCellValueFactory(
                 data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getCourseCode()));
-        f_grade.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty("0"));
-        c_gpa.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty("0"));
+        f_grade.setCellValueFactory(data -> {
+            Course course = data.getValue();
+            if (student != null && course != null) {
+                Enrollment enrollment = enrollment_service.getEnrollment(student, course);
+                if (enrollment != null) {
+                    double grade = gradeitem_service.calculateTotalGrade(enrollment);
+                    return new javafx.beans.property.SimpleStringProperty(String.format("%.2f", grade));
+                }
+            }
+            return new javafx.beans.property.SimpleStringProperty("-");
+        });
+        c_gpa.setCellValueFactory(data -> {
+            Course course = data.getValue();
+            if (student != null && course != null) {
+                Enrollment enrollment = enrollment_service.getEnrollment(student, course);
+                if (enrollment != null) {
+                    double grade = gradeitem_service.calculateTotalGrade(enrollment);
+                    double gpa = course.getCreditHours() > 0 ? grade / course.getCreditHours() : 0.0;
+                    return new javafx.beans.property.SimpleStringProperty(String.format("%.2f", gpa));
+                }
+            }
+            return new javafx.beans.property.SimpleStringProperty("-");
+        });
 
         enrolled_courses_table.setItems(enrolled_courses);
 
@@ -140,6 +161,7 @@ public class StudentViewController implements Initializable {
             controller.setStudentData(student);
             dialog.initOwner(c_enroll.getScene().getWindow());
             dialog.showAndWait();
+            enrolled_courses.setAll(student_service.getCourses(student));
         } catch (Exception e) {
             e.printStackTrace();
             showAlert("Error", "Failed to load Enroll Course dialog: " + e.getMessage());
@@ -259,7 +281,7 @@ public class StudentViewController implements Initializable {
             for (Course course : courses) {
                 Enrollment enrollment = new Enrollment(0, student.getId(), course.getId());
                 Double grade = gradeitem_service.calculateTotalGrade(enrollment);
-                totalGPA += (grade / 25); // Convert percentage to GPA (100% = 4.0)
+                totalGPA += (grade / 25);
                 count++;
             }
             

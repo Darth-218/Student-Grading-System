@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 import edu.nu.sgm.models.Course;
 import edu.nu.sgm.models.Student;
 import edu.nu.sgm.services.CourseService;
+import edu.nu.sgm.services.GradeItemService;
+import edu.nu.sgm.services.EnrollmentService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -64,6 +66,8 @@ public class CourseViewController implements Initializable {
 
     private Course course;
     private CourseService course_service = new CourseService();
+    private GradeItemService gradeitem_service = new GradeItemService();
+    private EnrollmentService enrollment_service = new EnrollmentService();
 
     private ObservableList<Student> enrolled_students = FXCollections.observableArrayList();
 
@@ -72,12 +76,33 @@ public class CourseViewController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-            s_name.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(
-                data.getValue().getFirstName() + " " + data.getValue().getLastName()));
-            s_id.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(
-                String.valueOf(data.getValue().getId())));
-            f_grade.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty("0"));
-            c_gpa.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty("0"));
+        s_name.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(
+            data.getValue().getFirstName() + " " + data.getValue().getLastName()));
+        s_id.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(
+            String.valueOf(data.getValue().getId())));
+        f_grade.setCellValueFactory(data -> {
+            Student student = data.getValue();
+            if (student != null && course != null) {
+                var enrollment = enrollment_service.getEnrollment(student, course);
+                if (enrollment != null) {
+                    double grade = gradeitem_service.calculateTotalGrade(enrollment);
+                    return new javafx.beans.property.SimpleStringProperty(String.format("%.2f", grade));
+                }
+            }
+            return new javafx.beans.property.SimpleStringProperty("-");
+        });
+        c_gpa.setCellValueFactory(data -> {
+            Student student = data.getValue();
+            if (student != null && course != null) {
+                var enrollment = enrollment_service.getEnrollment(student, course);
+                if (enrollment != null && course.getCreditHours() > 0) {
+                    double grade = gradeitem_service.calculateTotalGrade(enrollment);
+                    double gpa = grade / course.getCreditHours();
+                    return new javafx.beans.property.SimpleStringProperty(String.format("%.2f", gpa));
+                }
+            }
+            return new javafx.beans.property.SimpleStringProperty("-");
+        });
 
         enrolled_students_table.setItems(enrolled_students);
 
