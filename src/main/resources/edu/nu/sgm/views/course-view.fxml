@@ -87,19 +87,13 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
-         <children>
-            <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="244.0">
-               <buttons>
-                  <Button fx:id="c_remove" mnemonicParsing="false" onAction="#handleRemoveCourse" text="Remove Course" />
-               </buttons>
-            </ButtonBar>
-            <ButtonBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="346.0" GridPane.columnIndex="1">
-              <buttons>
-                <Button fx:id="back" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="24.0" text="Return" />
-                <Button fx:id="s_enroll" mnemonicParsing="false" onAction="#switchToEnrollCourse" prefHeight="24.0" prefWidth="131.0" text="Enroll Student" />
-              </buttons>
-            </ButtonBar>
-         </children>
       </GridPane>
+      <ButtonBar layoutX="50.0" layoutY="348.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="500.0">
+         <buttons>
+            <Button fx:id="c_remove" mnemonicParsing="false" onAction="#handleRemoveCourse" text="Remove Course" />
+            <Button fx:id="s_enroll" mnemonicParsing="false" onAction="#switchToEnrollCourse" prefHeight="24.0" prefWidth="131.0" text="Enroll Student" />
+            <Button fx:id="back" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="24.0" text="Return" />
+         </buttons>
+      </ButtonBar>
    </children>
 </AnchorPane>
