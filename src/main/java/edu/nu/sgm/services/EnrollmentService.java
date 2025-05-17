@@ -54,6 +54,20 @@ public class EnrollmentService {
   }
 
   /**
+   * @brief Retrieves the enrollment for a student in a specific course.
+   * @param student The target student.
+   * @param course The target course.
+   * @return The enrollment for the student in the specified course, or null if not found.
+   */
+  public Enrollment getEnrollment(Student student, Course course) {
+    try {
+      return db.fetchEnrollment(student, course).get(0);
+    } catch (SQLException e) {
+      return null;
+    }
+  }
+
+  /**
    * @brief Generates a student's report card.
    * @param student The target student.
    * @return The generated report card.

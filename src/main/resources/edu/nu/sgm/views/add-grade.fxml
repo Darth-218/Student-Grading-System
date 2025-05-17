@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<DialogPane prefHeight="302.0" prefWidth="331.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.nu.sgm.controllers.AddGradeController">
+   <content>
+      <AnchorPane prefHeight="263.0" prefWidth="316.0">
+         <children>
+            <Text layoutX="24.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="24.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="g_name" layoutX="136.0" layoutY="28.0" />
+            <Text layoutX="24.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="24.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Max Score">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="g_cat" layoutX="136.0" layoutY="78.0" />
+            <TextField fx:id="g_s_max" layoutX="136.0" layoutY="128.0" />
+            <TextField fx:id="g_score" layoutX="136.0" layoutY="178.0" />
+            <Text layoutX="23.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="g_w_max" layoutX="135.0" layoutY="228.0" />
+            <Text layoutX="23.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feeback">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="g_feedback" layoutX="135.0" layoutY="276.0" />
+            <ButtonBar layoutX="105.0" layoutY="311.0" prefHeight="40.0" prefWidth="180.0">
+              <buttons>
+                <Button fx:id="cancel" mnemonicParsing="false" onAction="#handleCancel" prefHeight="25.0" text="Cancel" />
+                <Button fx:id="confirm" mnemonicParsing="false" onAction="#handleConfirm" prefHeight="25.0" text="Confirm" />
+              </buttons>
+            </ButtonBar>
+         </children>
+      </AnchorPane>
+   </content>
+</DialogPane>

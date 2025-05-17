@@ -11,18 +11,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.nu.sgm.controllers.GradesViewController">
    <children>
       <Text fx:id="s_name" fill="#707070" layoutX="51.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="s_name">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Text>
-      <TableView layoutX="50.0" layoutY="112.0" prefHeight="219.0" prefWidth="500.0">
+      <TableView fx:id="gradesTable" layoutX="50.0" layoutY="112.0" prefHeight="219.0" prefWidth="500.0">
         <columns>
-          <TableColumn fx:id="c_category" prefWidth="172.66662979125977" text="Category" />
+          <TableColumn fx:id="g_cat" prefWidth="172.66662979125977" text="Category" />
           <TableColumn fx:id="g_content" prefWidth="165.3332977294922" text="Content" />
-            <TableColumn fx:id="c_grade" prefWidth="162.66677856445312" text="Grade" />
+            <TableColumn fx:id="g_score" prefWidth="162.66677856445312" text="Grade" />
         </columns>
       </TableView>
       <GridPane layoutX="51.0" layoutY="54.0" prefHeight="45.0" prefWidth="250.0">
@@ -88,12 +88,12 @@
          <children>
             <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
               <buttons>
-                <Button fx:id="back" mnemonicParsing="false" text="Return" />
+                <Button fx:id="back" mnemonicParsing="false" text="Return" onAction="#handleBack" />
               </buttons>
             </ButtonBar>
             <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1">
               <buttons>
-                  <Button fx:id="g_add" mnemonicParsing="false" text="Add Grade" />
+                  <Button fx:id="g_add" mnemonicParsing="false" text="Add Grade" onAction="#switchToAddGrade" />
               </buttons>
             </ButtonBar>
          </children>

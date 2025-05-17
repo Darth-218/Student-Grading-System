@@ -13,7 +13,7 @@
       <AnchorPane prefHeight="107.0" prefWidth="303.0">
          <children>
             <TextField fx:id="c_code" layoutX="124.0" layoutY="35.0" />
-            <Text layoutX="14.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Code">
+            <Text layoutX="14.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course ID">
                <font>
                   <Font size="15.0" />
                </font>

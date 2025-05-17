@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import edu.nu.sgm.models.Course;
@@ -18,6 +19,8 @@ import edu.nu.sgm.models.Student;
 import edu.nu.sgm.services.CourseService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Collections;
@@ -83,6 +86,18 @@ public class CourseViewController implements Initializable {
             c_gpa.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty("0"));
 
         enrolledStudentsTable.setItems(enrolledStudents);
+
+        enrolledStudentsTable.getSelectionModel().selectedItemProperty().addListener((_, _, newSelection) -> {
+            if (newSelection != null) {
+                try {
+                    openGradesView(newSelection);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Alert alert = new Alert(AlertType.ERROR, "Failed to open grades view: " + e.getMessage());
+                    alert.showAndWait();
+                }
+            }
+        });
     }
 
     /**
@@ -188,5 +203,20 @@ public class CourseViewController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to return to main view: " + e.getMessage());
             alert.showAndWait();
         }
+    }
+
+    /**
+     * @brief Opens the grades view for the selected course and current student.
+     * @param course The selected course.
+     */
+    private void openGradesView(Student student) throws IOException {
+        if (student == null || course == null) return;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/grades-view.fxml"));
+            Parent root = loader.load();
+            GradesViewController controller = loader.getController();
+            controller.setStudentAndCourse(student, course);
+            Stage stage = (Stage) enrolledStudentsTable.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Grades for " + course.getTitle());
     }
 }

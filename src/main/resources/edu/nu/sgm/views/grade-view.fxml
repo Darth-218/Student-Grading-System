@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.nu.sgm.controllers.GradeViewController">
    <children>
       <Text fx:id="s_name" fill="#707070" layoutX="51.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="s_name">
          <font>
@@ -23,7 +23,7 @@
       <Button fx:id="g_edit" layoutX="476.0" layoutY="72.0" mnemonicParsing="false" text="Edit Grade" />
       <TitledPane layoutX="230.0" layoutY="161.0" prefHeight="175.0" prefWidth="318.0" text="Feedback">
          <content>
-            <TextArea fx:id="feedback" prefHeight="200.0" prefWidth="200.0" text="No feedback " />
+            <TextArea fx:id="g_feedback" prefHeight="200.0" prefWidth="200.0" text="No feedback " />
          </content>
       </TitledPane>
       <GridPane layoutX="51.0" layoutY="72.0" prefHeight="60.0" prefWidth="295.0">
@@ -95,7 +95,7 @@
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="g_score" layoutX="10.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score" textAlignment="RIGHT" wrappingWidth="71.33333333333348">
+                        <Text fx:id="g_score" layoutX="8.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score" textAlignment="RIGHT" wrappingWidth="71.33333333333348">
                            <font>
                               <Font size="25.0" />
                            </font>
@@ -114,7 +114,7 @@
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="g_weight" layoutX="-23.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight%" textAlignment="RIGHT" wrappingWidth="110.0000241597495">
+                        <Text fx:id="g_weight" layoutX="-33.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="W%" textAlignment="RIGHT" wrappingWidth="110.0000241597495">
                            <font>
                               <Font size="25.0" />
                            </font>
@@ -141,12 +141,10 @@
          <children>
             <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
               <buttons>
-                <Button fx:id="back" mnemonicParsing="false" text="Return" />
+                <Button fx:id="back" mnemonicParsing="false" onAction="#handleBack" text="Return" />
               </buttons>
-            </ButtonBar>
-            <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1">
               <buttons>
-                <Button fx:id="g_remove" mnemonicParsing="false" text="Remove Grade" />
+                <Button fx:id="g_remove" mnemonicParsing="false" onAction="#handleRemove" text="Remove Grade" />
               </buttons>
             </ButtonBar>
          </children>
