@@ -72,7 +72,9 @@ public class StudentService {
         }
         // make sure about the exceptions
         try {
-            return db.createStudent(s);
+            s.setEmail(s.generateEmail());
+            db.createStudent(s);
+            return db.updateStudent(s) > 0;
         } catch (SQLException e) {
             return false;
         }
@@ -177,6 +179,7 @@ public class StudentService {
      */
     public boolean updateStudent(Student student) {
         try {
+            student.setEmail(student.generateEmail());
             return db.updateStudent(student) > 0;
         } catch (SQLException e) {
             return false;

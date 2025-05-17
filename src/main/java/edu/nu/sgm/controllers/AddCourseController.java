@@ -21,6 +21,7 @@ import javafx.scene.control.Alert;
 public class AddCourseController {
 
     private CourseService courseService = new CourseService();
+    private Course current_course; // Track the course being edited
 
     @FXML
     private TextField c_name; // matches fx:id in FXML
@@ -41,9 +42,17 @@ public class AddCourseController {
         this.dialog = dialog;
     }
 
+    public void setCourseData(Course course) {
+        this.current_course = course;
+        c_name.setText(course.getTitle());
+        c_code.setText(course.getCourseCode());
+        c_instructor.setText(course.getInstructor());
+        c_credits.setText(String.valueOf(course.getCreditHours()));
+    }
+
     /**
      * @brief Handles the confirm button click event.
-     *        Validates input and adds the course.
+     *        Validates input and adds or updates the course.
      */
     @FXML
     private void handleConfirm() {
@@ -51,35 +60,35 @@ public class AddCourseController {
         String code = c_code.getText().trim();
         String instructor = c_instructor.getText().trim();
         String creditsStr = c_credits.getText().trim();
-
-        if (name.isEmpty() || code.isEmpty() || instructor.isEmpty() || creditsStr.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Please fill in all fields.");
-            alert.setTitle("Input Error");
-            alert.setHeaderText(null);
-            alert.showAndWait();
-            return;
-        }
-
         int credits;
         try {
             credits = Integer.parseInt(creditsStr);
         } catch (NumberFormatException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Credit Hours must be a number.");
-            alert.setTitle("Input Error");
-            alert.setHeaderText(null);
-            alert.showAndWait();
+            showAlert("Input Error", "Credit hours must be an integer.");
             return;
         }
 
-        boolean success = addCourse(name, code, instructor, credits);
+        if (name.isEmpty() || code.isEmpty() || instructor.isEmpty() || creditsStr.isEmpty()) {
+            showAlert("Input Error", "Please fill in all fields.");
+            return;
+        }
+
+        boolean success;
+        if (current_course != null) {
+            current_course.setTitle(name);
+            current_course.setCourseCode(code);
+            current_course.setInstructor(instructor);
+            current_course.setCreditHours(credits);
+            success = courseService.updateCourse(current_course);
+        } else {
+            success = addCourse(name, code, instructor, credits);
+        }
+
         if (success) {
             dialog.setResult(ButtonType.OK);
             dialog.close();
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to add course.");
-            alert.setTitle("Database Error");
-            alert.setHeaderText(null);
-            alert.showAndWait();
+            showAlert("Database Error", "Failed to save course.");
         }
     }
 
@@ -104,5 +113,12 @@ public class AddCourseController {
     public boolean addCourse(String name, String code, String instructor, int credits) {
         Course course = new Course(0, code, name, instructor, credits);
         return courseService.addCourse(course);
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR, message);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.showAndWait();
     }
 }

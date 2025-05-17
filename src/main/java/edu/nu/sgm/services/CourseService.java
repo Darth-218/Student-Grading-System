@@ -84,6 +84,14 @@ public class CourseService {
     }
   }
 
+  public boolean updateCourse(Course course) {
+        try {
+            return db.updateCourse(course) > 0;
+        } catch (SQLException e) {
+            return false;
+        }
+  }
+
   /**
    * @brief Removes a course from the database.
    * @param course The course to be removed.

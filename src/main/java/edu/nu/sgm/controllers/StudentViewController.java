@@ -262,19 +262,17 @@ public class StudentViewController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/add-student.fxml"));
             DialogPane dialogPane = loader.load();
             AddStudentController controller = loader.getController();
-            // Ensure setStudent exists in AddStudentController
             Dialog<ButtonType> dialog = new Dialog<>();
             dialog.setDialogPane(dialogPane);
             dialog.setTitle("Edit Student");
             controller.setDialog(dialog);
+            controller.setStudentData(student);
             dialog.initOwner(s_edit.getScene().getWindow());
             dialog.showAndWait();
-            // Refresh student info after editing, only if not deleted
             Student updated = studentService.getStudentById(student.getId());
             if (updated != null) {
                 setStudent(updated);
             } else {
-                // Student was deleted, go back to main view
                 handleBackButton();
             }
         } catch (Exception e) {

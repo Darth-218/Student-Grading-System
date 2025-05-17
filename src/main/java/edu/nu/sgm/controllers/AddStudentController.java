@@ -41,6 +41,7 @@ public class AddStudentController {
      */
     public void setStudentData(Student student) {
         this.currentStudent = student;
+        studentService.updateStudent(student);
         sf_name.setText(student.getFirstName());
         sl_name.setText(student.getLastName());
     }
@@ -61,12 +62,10 @@ public class AddStudentController {
         
         boolean success;
         if (currentStudent != null) {
-            // Editing existing student
             currentStudent.setName(firstName);
             currentStudent.setLastName(lastName);
             success = studentService.updateStudent(currentStudent);
         } else {
-            // Adding new student
             success = addStudent(firstName, lastName);
         }
         
@@ -96,7 +95,6 @@ public class AddStudentController {
      */
     private boolean addStudent(String first_name, String last_name) {
         Student student = new Student(0, first_name, last_name, "");
-        student.setEmail(student.generateEmail());
         return studentService.addstudent(student);
     }
 

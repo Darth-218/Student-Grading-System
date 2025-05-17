@@ -128,9 +128,28 @@ public class CourseViewController implements Initializable {
      */
     @FXML
     private void handleEditCourse() {
-        // Implement edit course dialog logic here
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Edit Course not implemented.");
-        alert.showAndWait();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/nu/sgm/views/add-course.fxml"));
+            DialogPane dialogPane = loader.load();
+            AddCourseController controller = loader.getController();
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setDialogPane(dialogPane);
+            dialog.setTitle("Edit Course");
+            controller.setDialog(dialog);
+            controller.setCourseData(course);
+            dialog.initOwner(c_edit.getScene().getWindow());
+            dialog.showAndWait();
+            Course updated = courseService.getCourseById(course.getId());
+            if (updated != null) {
+                setCourse(updated);
+            } else {
+                handleBackButton();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to load Edit Course dialog: " + e.getMessage());
+            alert.showAndWait();
+        }
     }
 
     /**
