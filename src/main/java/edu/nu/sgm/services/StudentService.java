@@ -185,4 +185,34 @@ public class StudentService {
             return false;
         }
     }
+
+    /**
+     * @brief Calculates the CGPA (weighted average GPA) for a student.
+     * @param student The student.
+     * @return The CGPA value.
+     */
+    public double getGPA(Student student) {
+        try {
+            List<Course> courses = getCourses(student);
+            if (courses == null || courses.isEmpty()) return 0.0;
+
+            double totalWeightedGPA = 0.0;
+            double totalCredits = 0.0;
+            EnrollmentService enrollment_service = new EnrollmentService();
+            GradeItemService gradeitem_service = new GradeItemService();
+
+            for (Course course : courses) {
+                Enrollment enrollment = enrollment_service.getEnrollment(student, course);
+                if (enrollment != null && course.getCreditHours() > 0) {
+                    double grade = gradeitem_service.calculateTotalGrade(enrollment);
+                    double gpa = (grade / 100.0) * 4.0;
+                    totalWeightedGPA += gpa * course.getCreditHours();
+                    totalCredits += course.getCreditHours();
+                }
+            }
+            return totalCredits > 0 ? totalWeightedGPA / totalCredits : 0.0;
+        } catch (Exception e) {
+            return 0.0;
+        }
+    }
 }

@@ -15,6 +15,7 @@ import java.sql.SQLException;
  */
 public class EnrollmentService {
   private DatabaseManager db = new DatabaseManager();
+  private StudentService studentservice = new StudentService();
 
   /**
    * @brief Enrolls a student in a course.
@@ -85,6 +86,10 @@ public class EnrollmentService {
           course.getTitle(), course.getCourseCode(), grade, gpa * 100
         ));
       }
+      report.append(String.format(
+        "Total GPA: %.2f\n",
+        studentservice.getGPA(student) * 100
+      ));
     } catch (SQLException e) {
       return "";
     }
