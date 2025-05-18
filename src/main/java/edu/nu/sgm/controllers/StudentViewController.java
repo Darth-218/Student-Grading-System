@@ -98,9 +98,9 @@ public class StudentViewController implements Initializable {
             if (student != null && course != null) {
                 Enrollment enrollment = enrollment_service.getEnrollment(student, course);
                 if (enrollment != null) {
-                    double grade = gradeitem_service.calculateTotalGrade(enrollment);
+                    double grade = gradeitem_service.calculateTotalGrade(enrollment) * 4 / 100;
                     double gpa = course.getCreditHours() > 0 ? grade / course.getCreditHours() : 0.0;
-                    return new javafx.beans.property.SimpleStringProperty(String.format("%.2f", gpa));
+                    return new javafx.beans.property.SimpleStringProperty(String.format("%.2f", gpa * 100));
                 }
             }
             return new javafx.beans.property.SimpleStringProperty("-");
@@ -282,8 +282,7 @@ public class StudentViewController implements Initializable {
                 Enrollment enrollment = enrollment_service.getEnrollment(student, course);
                 if (enrollment != null && course.getCreditHours() > 0) {
                     double grade = gradeitem_service.calculateTotalGrade(enrollment);
-                    // Convert percentage to GPA (assuming 100% = 4.0)
-                    double gpa = (grade / 100.0) * 4.0;
+                    double gpa = (grade * 4 / 100);
                     totalWeightedGPA += gpa * course.getCreditHours();
                     totalCredits += course.getCreditHours();
                 }

@@ -28,7 +28,6 @@ public class GradeViewController {
     @FXML private Text g_s_max;
     @FXML private Text g_weight;
     @FXML private Text g_w_max;
-    @FXML private Text f_grade;
     @FXML private Text c_gpa;
     @FXML private Text c_gpa_label;
     @FXML private TextArea g_feedback;
@@ -67,19 +66,17 @@ public class GradeViewController {
             c_code.setText(course.getCourseCode());
         if (gradeItem != null) {
             if (g_name != null) g_name.setText(gradeItem.getTitle());
-            if (g_score != null) g_score.setText(String.format("%.2f",gradeItem.getScore()));
+            if (g_score != null) g_score.setText(String.format("%.2f", gradeItem.getScore()));
             if (g_s_max != null) g_s_max.setText("/" + gradeItem.getMaxScore());
             if (g_weight != null) g_weight.setText(String.format("%.2f", gradeItem.getWeight() * gradeItem.getScore() / gradeItem.getMaxScore()));
             if (g_w_max != null) g_w_max.setText("/" + String.format("%.2f", gradeItem.getWeight()));
             if (g_feedback != null) g_feedback.setText(gradeItem.getFeedback() != null ? gradeItem.getFeedback() : "No feedback");
         }
-        // Optionally, show total/final grade and GPA for this enrollment
         if (student != null && course != null) {
             var enrollment = enrollment_service.getEnrollment(student, course);
             if (enrollment != null) {
                 double totalGrade = gradeItem_service.calculateTotalGrade(enrollment);
-                if (f_grade != null) f_grade.setText(String.format("%.2f", totalGrade));
-                if (c_gpa != null) c_gpa.setText(String.format("%.2f", totalGrade / course.getCreditHours()));
+                if (c_gpa != null) c_gpa.setText(String.format("%.2f", (totalGrade * 4 / 100) * course.getCreditHours() / course.getCreditHours() * 100));
             }
         }
     }

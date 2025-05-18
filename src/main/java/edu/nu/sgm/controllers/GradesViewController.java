@@ -117,7 +117,7 @@ public class GradesViewController {
         Parent root = loader.load();
         GradeViewController controller = loader.getController();
         controller.setStudentAndCourse(student, course);
-        controller.setGradeItem(gradeItem); // Pass the selected grade details
+        controller.setGradeItem(gradeItem);
         Stage stage = (Stage) grades_table.getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.setTitle("Grade Details");
@@ -136,7 +136,7 @@ public class GradesViewController {
                 double grade = gradeitem_service.calculateTotalGrade(enrollment);
                 f_grade.setText(String.format("%.2f", grade));
                 if (c_gpa != null) {
-                    double gpa = grade / course.getCreditHours();
+                    double gpa = (grade * 4 / 100) * course.getCreditHours() / course.getCreditHours() * 100;
                     c_gpa.setText(String.format("%.2f", gpa));
                 }
             } else {
