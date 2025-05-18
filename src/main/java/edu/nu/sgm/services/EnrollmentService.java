@@ -73,19 +73,21 @@ public class EnrollmentService {
    * @return The generated report card.
    */
   public String generateReportCard(Student student) {
-    String report = "";
+    StringBuilder report = new StringBuilder();
     GradeItemService gradeservice = new GradeItemService();
     try {
       for (Enrollment enrollment : db.fetchEnrollment(student)) {
-        Double grades = gradeservice.calculateTotalGrade(enrollment);
+        Double grade = gradeservice.calculateTotalGrade(enrollment);
         Course course = db.fetchCourse(enrollment.getCourse());
-        report += String.format("%s: %s\t Final Grade: %f\t GPA: %f\n",
-                                course.getTitle(), course.getCourseCode(),
-                                grades, 0.0);
+        double gpa = (grade / 100.0) * 4.0;
+        report.append(String.format(
+          "%s (%s)\tFinal Grade: %.2f\tGPA: %.2f\n",
+          course.getTitle(), course.getCourseCode(), grade, gpa * 100
+        ));
       }
     } catch (SQLException e) {
       return "";
     }
-    return report;
+    return report.toString();
   }
 }

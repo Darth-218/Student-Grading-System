@@ -136,7 +136,7 @@ public class GradesViewController {
                 double grade = gradeitem_service.calculateTotalGrade(enrollment);
                 f_grade.setText(String.format("%.2f", grade));
                 if (c_gpa != null) {
-                    double gpa = (grade * 4 / 100) * course.getCreditHours() / course.getCreditHours() * 100;
+                    double gpa = (grade / 100.0) * 4.0;
                     c_gpa.setText(String.format("%.2f", gpa));
                 }
             } else {
