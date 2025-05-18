@@ -23,13 +23,13 @@
       <Button fx:id="g_edit" layoutX="476.0" layoutY="72.0" mnemonicParsing="false" text="Edit Grade" />
       <TitledPane layoutX="230.0" layoutY="161.0" prefHeight="175.0" prefWidth="318.0" text="Feedback">
          <content>
-            <TextArea fx:id="g_feedback" prefHeight="200.0" prefWidth="200.0" text="No feedback " />
+            <TextArea fx:id="g_feedback" prefHeight="200.0" prefWidth="200.0" text="No Feedback Given" />
          </content>
       </TitledPane>
-      <GridPane layoutX="51.0" layoutY="72.0" prefHeight="60.0" prefWidth="295.0">
+      <GridPane layoutX="51.0" layoutY="72.0" prefHeight="60.0" prefWidth="318.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.33335367838544" minWidth="10.0" prefWidth="146.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.99995930989581" minWidth="10.0" prefWidth="137.33333333333331" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="181.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.99995930989581" minWidth="10.0" prefWidth="114.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -95,11 +95,6 @@
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="g_score" layoutX="8.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score" textAlignment="RIGHT" wrappingWidth="71.33333333333348">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </Text>
                         <Text fx:id="g_s_max" layoutX="83.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/out of">
                            <font>
                               <Font size="20.0" />
@@ -109,12 +104,12 @@
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="95.0" prefWidth="163.0">
                      <children>
-                        <Text layoutX="14.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight:">
+                        <Text layoutX="14.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Weight:">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text fx:id="g_weight" layoutX="-33.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="W%" textAlignment="RIGHT" wrappingWidth="110.0000241597495">
+                        <Text fx:id="g_weight" layoutX="29.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="W%" textAlignment="CENTER" wrappingWidth="110.0000241597495">
                            <font>
                               <Font size="25.0" />
                            </font>
@@ -130,24 +125,29 @@
             </VBox>
          </children>
       </GridPane>
-      <GridPane layoutX="50.0" layoutY="356.0" prefHeight="30.0" prefWidth="498.0">
+      <GridPane layoutX="40.0" layoutY="356.0" prefHeight="30.0" prefWidth="529.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="257.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="272.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+            <ButtonBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="283.0" GridPane.columnIndex="1">
               <buttons>
                 <Button fx:id="back" mnemonicParsing="false" onAction="#handleBack" text="Return" />
               </buttons>
               <buttons>
-                <Button fx:id="g_remove" mnemonicParsing="false" onAction="#handleRemove" text="Remove Grade" />
+                <Button fx:id="g_remove" mnemonicParsing="false" onAction="#handleRemove" prefHeight="24.0" prefWidth="125.0" text="Remove Grade" />
               </buttons>
             </ButtonBar>
          </children>
       </GridPane>
+      <Text fx:id="g_score" layoutX="74.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score" textAlignment="CENTER" wrappingWidth="112.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

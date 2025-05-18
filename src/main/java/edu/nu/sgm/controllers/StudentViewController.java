@@ -273,20 +273,23 @@ public class StudentViewController implements Initializable {
     private double getCGPA() {
         try {
             List<Course> courses = student_service.getCourses(student);
-            if (courses.isEmpty()) return 0.0;
+            if (courses == null || courses.isEmpty()) return 0.0;
 
-            double totalGPA = 0.0;
-            int count = 0;
-            
+            double totalWeightedGPA = 0.0;
+            double totalCredits = 0.0;
+
             for (Course course : courses) {
-                Enrollment enrollment = new Enrollment(0, student.getId(), course.getId());
-                Double grade = gradeitem_service.calculateTotalGrade(enrollment);
-                totalGPA += (grade / 25);
-                count++;
+                Enrollment enrollment = enrollment_service.getEnrollment(student, course);
+                if (enrollment != null && course.getCreditHours() > 0) {
+                    double grade = gradeitem_service.calculateTotalGrade(enrollment);
+                    // Convert percentage to GPA (assuming 100% = 4.0)
+                    double gpa = (grade / 100.0) * 4.0;
+                    totalWeightedGPA += gpa * course.getCreditHours();
+                    totalCredits += course.getCreditHours();
+                }
             }
-            
-            double cgpa = count > 0 ? totalGPA / count : 0.0;
-            return cgpa;
+
+            return totalCredits > 0 ? totalWeightedGPA / totalCredits : 0.0;
         } catch (Exception e) {
             return 0.0;
         }

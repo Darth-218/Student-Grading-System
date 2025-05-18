@@ -19,6 +19,7 @@ public class AddGradeController {
     @FXML private TextField g_s_max;
     @FXML private TextField g_score;
     @FXML private TextField g_w_max;
+    @FXML private TextField g_feedback;
 
     private Dialog<ButtonType> dialog;
     private Student student;
@@ -72,6 +73,7 @@ public class AddGradeController {
         String scoreStr = g_score.getText() != null ? g_score.getText().trim() : "";
         String maxScoreStr = g_s_max.getText() != null ? g_s_max.getText().trim() : "";
         String weightStr = g_w_max.getText() != null ? g_w_max.getText().trim() : "";
+        String feedback = g_feedback.getText() != null ? g_feedback.getText().trim() : "No feedback given";
 
         if (title.isEmpty() || category.isEmpty() || scoreStr.isEmpty() || maxScoreStr.isEmpty() || weightStr.isEmpty()) {
             showAlert("Input Error", "Please fill in all fields.");
@@ -108,10 +110,9 @@ public class AddGradeController {
             current_gradeitem.setCategory(category);
             current_gradeitem.setScore(score, maxScore);
             current_gradeitem.setWeight(weight);
-            // if (g_feedback != null) editingGradeItem.setFeedback(g_feedback.getText());
             success = gradeitem_service.updateGradeItem(current_gradeitem);
         } else {
-            GradeItem gradeItem = new GradeItem(0, title, category, score, maxScore, "", weight);
+            GradeItem gradeItem = new GradeItem(0, title, category, score, maxScore, feedback, weight);
             success = gradeitem_service.addGradeItem(enrollment, gradeItem);
         }
 
