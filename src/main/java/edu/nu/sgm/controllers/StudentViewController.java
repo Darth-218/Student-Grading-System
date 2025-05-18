@@ -48,8 +48,6 @@ public class StudentViewController implements Initializable {
     private TableColumn<Course, String> c_code;
     @FXML
     private TableColumn<Course, String> f_grade;
-    @FXML
-    private TableColumn<Course, String> c_gpa;
 
     @FXML
     private Text s_name;
@@ -57,8 +55,6 @@ public class StudentViewController implements Initializable {
     private Text s_id;
     @FXML
     private Text s_email;
-    @FXML
-    private Text cc_gpa;
 
     @FXML
     private Button c_enroll;
@@ -93,19 +89,6 @@ public class StudentViewController implements Initializable {
             }
             return new javafx.beans.property.SimpleStringProperty("-");
         });
-        c_gpa.setCellValueFactory(data -> {
-            Course course = data.getValue();
-            if (student != null && course != null) {
-                Enrollment enrollment = enrollment_service.getEnrollment(student, course);
-                if (enrollment != null && course.getCreditHours() > 0) {
-                    double grade = gradeitem_service.calculateTotalGrade(enrollment);
-                    // GPA: (grade / 100.0) * 4.0
-                    double gpa = (grade / 100.0) * 4.0;
-                    return new javafx.beans.property.SimpleStringProperty(String.format("%.2f", gpa));
-                }
-            }
-            return new javafx.beans.property.SimpleStringProperty("-");
-        });
 
         enrolled_courses_table.setItems(enrolled_courses);
 
@@ -133,10 +116,6 @@ public class StudentViewController implements Initializable {
             s_id.setText(String.valueOf(student.getId()));
         if (s_email != null)
             s_email.setText(student.getEmail());
-        if (cc_gpa != null) {
-            Double cgpa = getCGPA();
-            cc_gpa.setText(String.format("%.2f", cgpa));
-        }
         // Load and display enrolled courses for this student
         List<Course> courses = student_service.getCourses(student);
         if (courses == null || courses.size() == 0) {

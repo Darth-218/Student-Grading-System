@@ -46,16 +46,7 @@
                   <Text fx:id="c_code" strokeType="OUTSIDE" strokeWidth="0.0" text="c_code" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="GPA: ">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="c_gpa" strokeType="OUTSIDE" strokeWidth="0.0" text="c_gpa" />
-               </children>
-            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="40.0" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Course Name: ">

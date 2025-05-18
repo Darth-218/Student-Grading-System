@@ -65,16 +65,7 @@
                   <Text fx:id="c_code" layoutX="53.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_code" />
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <children>
-                  <Text layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GPA:">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="c_gpa" layoutX="46.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c_gpa" />
-               </children>
-            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <GridPane layoutX="51.0" layoutY="345.0" prefHeight="30.0" prefWidth="500.0">

@@ -41,8 +41,6 @@ public class CourseViewController implements Initializable {
     private TableColumn<Student, String> s_id;
     @FXML
     private TableColumn<Student, String> f_grade;
-    @FXML
-    private TableColumn<Student, String> c_gpa;
 
     @FXML
     private Text c_name;
@@ -87,18 +85,6 @@ public class CourseViewController implements Initializable {
                 if (enrollment != null) {
                     double grade = gradeitem_service.calculateTotalGrade(enrollment);
                     return new javafx.beans.property.SimpleStringProperty(String.format("%.2f", grade));
-                }
-            }
-            return new javafx.beans.property.SimpleStringProperty("-");
-        });
-        c_gpa.setCellValueFactory(data -> {
-            Student student = data.getValue();
-            if (student != null && course != null) {
-                var enrollment = enrollment_service.getEnrollment(student, course);
-                if (enrollment != null && course.getCreditHours() > 0) {
-                    double grade = gradeitem_service.calculateTotalGrade(enrollment);
-                    double gpa = grade / course.getCreditHours();
-                    return new javafx.beans.property.SimpleStringProperty(String.format("%.2f", gpa));
                 }
             }
             return new javafx.beans.property.SimpleStringProperty("-");

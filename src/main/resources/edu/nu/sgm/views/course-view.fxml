@@ -22,8 +22,7 @@
         <columns>
           <TableColumn fx:id="s_name" prefWidth="194.66669082641602" text="Students Name" />
           <TableColumn fx:id="s_id" prefWidth="110.66667175292969" text="ID" />
-          <TableColumn fx:id="f_grade" prefWidth="105.33331298828125" text="Final Grade" />
-          <TableColumn fx:id="c_gpa" minWidth="0.0" prefWidth="87.33340454101562" text="GPA" />
+          <TableColumn fx:id="f_grade" prefWidth="193.0" text="Final Grade" />
         </columns>
       </TableView>
       <Button fx:id="c_edit" layoutX="455.0" layoutY="49.0" mnemonicParsing="false" onAction="#handleEditCourse" text="Edit Course" />
